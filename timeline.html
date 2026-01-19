@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Serie temporal laboral — interactiva</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+        --bg: #f4f7fb;
+        --card: #ffffff;
+        --muted: #64748b;
+        --accent: linear-gradient(90deg, #2575fc, #6a11cb);
+        /* Mantener overflow-x: hidden en el body/html es más robusto que en :root */
+    }
+
+    /* FIX GLOBAL: Prevenir barras de desplazamiento horizontales */
+    body, html {
+        overflow-x: hidden; 
+        margin: 0;
+        padding: 0;
+        
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Inter, system-ui, Arial;
+        margin: 0;
+        background: var(--bg);
+        width: 100%;
+        color: #0f172a;
+        height: 100%;
+    }
+
+    .container {
+        /* Reducir el margen en móvil */
+        max-width: 1200px;
+        margin: 0px;
+        padding: 1px;
+        /* border-style: double; */
+    }
+
+    /* Top control panel */
+    .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .left-controls {
+        display: flex;
+        gap: 12px;
+        align-items: center
+    }
+
+    .filters {
+        /* Asegura que los filtros no se desborden horizontalmente */
+        display: flex;
+        flex-wrap: wrap; 
+        gap: 8px;
+        align-items: center;
+        /* El font-weight:700 lo tienes en el HTML, lo quito de aquí si no es necesario */
+    }
+
+    .filter-btn {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 10px;
+        background: var(--card);
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(2, 6, 23, 0.08);
+        cursor: pointer;
+        /* En móvil, puede que necesitemos que los botones se ajusten */
+        flex-shrink: 0; 
+    }
+
+    .filter-color {
+        width: 12px;
+        height: 12px;
+        border-radius: 3px
+    }
+
+    .zoom-group {
+        display: flex;
+        gap: 6px
+    }
+
+    .btn {
+        padding: 8px 12px;
+        border-radius: 8px;
+        background: #0f172a;
+        color: #fff;
+        border: none;
+        cursor: pointer
+    }
+
+    /* Timeline area */
+    .panel {
+        margin-top: 1px;
+        background: var(--card);
+        border-radius: 14px;
+        padding: 18px;
+        box-shadow: 0 6px 20px rgba(2, 6, 23, 0.06)
+    }
+
+    .timeline-area {
+        position: relative;
+        height: 200px; /* Mantener la altura base para desktop */
+        width: 100%;
+        overflow: hidden;
+        border-radius: 10px
+    }
+
+    .timeline-canvas {
+        position: absolute;
+        inset: 0
+    }
+
+    /* Points and tooltip */
+    /* ... (Estilos de .point, .pulse, @keyframes pulse, .tooltip, .tooltip h4, .tooltip p se mantienen) ... */
+    .point {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 6px 16px rgba(2, 6, 23, 0.12);
+        cursor: pointer
+    }
+
+    .pulse {
+        animation: pulse 2000ms infinite
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        50% {
+            transform: translate(-50%, -50%) scale(1.4);
+        }
+
+        100% {
+            transform: translate(-50%, -50%) scale(1);
+        }
+    }
+
+    .tooltip {
+        position: absolute;
+        background: var(--card);
+        padding: 12px;
+        border-radius: 10px;
+        box-shadow: 0 8px 24px rgba(2, 6, 23, 0.12);
+        /* Reducir el max-width para móvil */
+        max-width: 200px; 
+        pointer-events: none;
+        border-left: 4px solid transparent;
+        z-index: 10; /* Asegurar que se vea sobre el canvas */
+    }
+
+    .tooltip h4 {
+        margin: 0 0 6px;
+        font-size: 14px
+    }
+
+    .tooltip p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.2
+    }
+
+    /* Legend */
+    .legend {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap; /* Asegura que la leyenda se ajuste en varias líneas en móvil */
+        margin-top: 12px
+    }
+
+    .legend-item {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), transparent);
+        padding: 6px 10px;
+        border-radius: 8px
+    }
+
+    .legend-key {
+        width: 14px;
+        height: 14px;
+        border-radius: 3px
+    }
+
+    /* Bottom charts */
+    .charts {
+        display: flex;
+        gap: 16px;
+        margin-top: 16px;
+        flex-wrap: wrap
+    }
+
+    .chart-card {
+        flex: 1;
+        /* Reducir el min-width para que haya espacio en pantallas pequeñas */
+        min-width: 100%; 
+        background: var(--card);
+        padding: 12px;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(2, 6, 23, 0.06)
+    }
+
+    /* Responsive tweaks (Medium devices - Tablets) */
+    @media (max-width: 768px) {
+        .container {
+            margin: 16px auto;
+            padding: 10px;
+        }
+
+        .controls {
+            /* Permitir que los elementos se apilen verticalmente si no caben */
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .left-controls {
+            width: 100%;
+            margin-bottom: 8px; /* Espacio extra */
+        }
+        
+        .filters {
+            width: 100%;
+        }
+
+        .charts {
+            /* Fuerza a los gráficos a apilarse en vertical */
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .chart-card {
+             /* Asegura que cada tarjeta ocupe todo el ancho disponible */
+            /* min-width: 100%;  */
+            width: 100%
+        }
+    }
+
+    /* Responsive tweaks (Small devices - Mobile) */
+    @media (max-width: 576px) {
+        .container {
+            /* Margen cero para aprovechar todo el espacio */
+            margin: 0;
+            padding: 8px; 
+        }
+
+        .panel {
+            padding: 12px;
+            margin-top: 12px;
+        }
+
+        .timeline-area {
+            /* Aumentar la altura para mejor visualización de los puntos en móvil */
+            height: 250px; 
+        }
+        .chart-card {
+             /* Asegura que cada tarjeta ocupe todo el ancho disponible */
+            min-width: 100%; 
+            width: 100%
+        }
+        /* Aseguramos que el contenedor de filtros sea flexible para que los botones se envuelvan */
+        .filters {
+            justify-content: flex-start;
+        }
+        
+        /* Los filtros y controles ya están apilados verticalmente por la media query de 768px */
+
+        .tooltip {
+            /* Reduce aún más el ancho del tooltip en pantallas muy pequeñas */
+            max-width: 180px; 
+            font-size: 12px;
+        }
+    }
+</style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="panel">
+      <div class="controls">
+        <div class="left-controls">
+          <div class="filters" id="filters" style="font-weight:700">Serie temporal laboral</div>
+        </div>
+        <div class="zoom-group">
+          <button class="btn" id="fitBtn" title="Ajustar vista">Ajustar</button>
+          <button class="btn" id="resetBtn" title="Resetear zoom">Reset</button>
+        </div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="timeline-area" id="timelineArea">
+        <canvas id="timelineCanvas" class="timeline-canvas"></canvas>
+        <!-- tooltip -->
+        <div id="tooltip" class="tooltip" style="display:none; border-left-color:#2575fc"></div>
+      </div>
+
+      <div class="legend" id="legend"></div>
+
+      <div class="charts">
+        <div class="chart-card">
+          <canvas id="sectorChart" height="140"></canvas>
+        </div>
+        <div class="chart-card">
+          <canvas id="trendChart" height="140"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Libraries (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    /* --- Data: keep date strings and categories --- */
+    const rawEvents = [
+      { start: '1995-09-01', end: '1995-10-31', label: 'Mozo de almacén', category: 'otros' },
+      { start: '2000-02-01', end: '2000-03-31', label: 'Promotor', category: 'otros' },
+      { start: '2000-06-01', end: '2000-07-31', label: 'Grabador de datos (Sevilla 99)', category: 'admin' },
+      { start: '2000-12-01', end: '2001-03-31', label: 'Dependiente tienda', category: 'otros' },
+      { start: '2001-07-01', end: '2002-12-31', label: 'Técnico equipo informático', category: 'it' },
+      { start: '2003-01-01', end: '2003-09-30', label: 'Responsable montaje equipos', category: 'it' },
+      { start: '2004-07-01', end: '2004-08-31', label: 'Auxiliar cafetería', category: 'hostel' },
+      { start: '2005-06-01', end: '2005-09-30', label: 'Encargado de barra', category: 'hostel' },
+      { start: '2006-02-01', end: '2006-04-30', label: 'Instalador ONO', category: 'it' },
+      { start: '2006-08-01', end: '2006-09-30', label: 'Camarero', category: 'hostel' },
+      { start: '2006-10-01', end: '2007-03-31', label: 'Dependiente tienda foto', category: 'design' },
+      { start: '2007-05-01', end: '2007-11-30', label: 'Encargado de bar', category: 'hostel' },
+      { start: '2008-05-01', end: '2010-09-30', label: 'Gestor telefónico (SITEL)', category: 'it' },
+      { start: '2015-07-01', end: '2018-08-31', label: 'Técnico laboratorio y administrativo I+D', category: 'it' },
+      { start: '2021-12-01', end: '2021-12-31', label: 'Auxiliar administrativo contable', category: 'admin' },
+      { start: '2023-06-01', end: '2023-07-31', label: 'Desarrollo web (LAYBET)', category: 'it' },
+      { start: '2024-06-01', end: '2024-08-31', label: 'Diseñador gráfico preprensa (LUMAPRINT)', category: 'design' }
+    ];
+
+    /* Category styling */
+    const categories = {
+      it: { name: 'IT & Tecnología', color: ['#6fb1ff', '#2575fc'] },
+      design: { name: 'Diseño & Multimedia', color: ['#c295ff', '#6a11cb'] },
+      admin: { name: 'Administración', color: ['#9ff6e0', '#15d1c2'] },
+      hostel: { name: 'Hostelería', color: ['#ffd9b3', '#ff9f43'] },
+      otros: { name: 'Otros', color: ['#ffc7c7', '#ff4757'] }
+    };
+
+    /* Utilities */
+    function toTime(d) { return (new Date(d)).getTime() }
+    const allTimes = rawEvents.flatMap(e => [toTime(e.start), toTime(e.end)]);
+    const minT = Math.min(...allTimes), maxT = Math.max(...allTimes);
+
+    /* Canvas & responsiveness */
+    const area = document.getElementById('timelineArea');
+    const canvas = document.getElementById('timelineCanvas');
+    const ctx = canvas.getContext('2d');
+    let width, height, dpr = window.devicePixelRatio || 1;
+    function resize() { width = area.clientWidth; height = area.clientHeight; canvas.width = width * dpr; canvas.height = height * dpr; canvas.style.width = width + 'px'; canvas.style.height = height + 'px'; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); draw(); }
+    window.addEventListener('resize', resize);
+
+    /* Zoom & pan state */
+    let view = { scale: 1, offsetX: 0 };
+    let isPanning = false, startPanX = 0, startOffsetX = 0;
+    canvas.addEventListener('wheel', e => { e.preventDefault(); const delta = -e.deltaY / 500; const old = view.scale; view.scale = Math.min(3, Math.max(0.6, view.scale * (1 + delta))); draw(); });
+    canvas.addEventListener('mousedown', e => { isPanning = true; startPanX = e.clientX; startOffsetX = view.offsetX; canvas.style.cursor = 'grabbing' });
+    window.addEventListener('mouseup', () => { isPanning = false; canvas.style.cursor = 'default' });
+    window.addEventListener('mousemove', e => { if (isPanning) { const dx = (e.clientX - startPanX); view.offsetX = startOffsetX + dx; draw(); } else handleHover(e); });
+
+    /* Fit & reset */
+    document.getElementById('fitBtn').addEventListener('click', () => { view.scale = 1; view.offsetX = 0; draw(); });
+    document.getElementById('resetBtn').addEventListener('click', () => { view.scale = 1; view.offsetX = 0; draw(); });
+
+    /* Compute X position normalized by time */
+    function timeToX(t) { const norm = (t - minT) / (maxT - minT); return 60 + norm * (width - 120); }
+
+    /* Generate Y positions with deterministic pseudo-random to avoid overlap */
+    function seeded(val) { let x = Math.sin(val) * 10000; return x - Math.floor(x); }
+    function computePoints(filtered) {
+      return filtered.map(e => {
+        const mid = (toTime(e.start) + toTime(e.end)) / 2;
+        const x = timeToX(mid) * view.scale + view.offsetX;
+        // jitter up/down
+        const jitter = (seeded(mid) * 0.6 - 0.3) * (height * 0.35);
+        const y = height / 2 + jitter;
+        return { ...e, x, y, mid };
+      });
+    }
+
+    /* Draw timeline baseline and points */
+    function draw() {
+      ctx.clearRect(0, 0, width, height);
+      // baseline gradient
+      const g = ctx.createLinearGradient(0, 0, width, 0);
+      g.addColorStop(0, categories.design.color[0]); g.addColorStop(0.5, categories.it.color[1]); g.addColorStop(1, categories.admin.color[1]);
+      ctx.fillStyle = g; ctx.fillRect(40, height / 2 - 4, width - 80, 8);
+
+      // draw points
+      const visible = rawEvents.filter(e => visibleCats.has(e.category));
+      const pts = computePoints(visible);
+
+      // regression — compute using mid timestamps for visible points
+      const xs = pts.map(p => p.mid);
+      const ys = pts.map(p => p.y);
+      if (xs.length > 1) { const reg = linearRegression(xs, ys); drawRegression(reg); }
+
+      pts.forEach(p => {
+        // circle with stroke gradient
+        const cat = categories[p.category];
+        const grad = ctx.createLinearGradient(p.x - 10, p.y - 10, p.x + 10, p.y + 10);
+        grad.addColorStop(0, cat.color[0]); grad.addColorStop(1, cat.color[1]);
+        ctx.beginPath(); ctx.fillStyle = grad; ctx.arc(p.x, p.y, 9, 0, Math.PI * 2); ctx.fill();
+        ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(255,255,255,0.9)'; ctx.stroke();
+      });
+    }
+
+    /* Regression drawing */
+    function linearRegression(xs, ys) { const n = xs.length; const sx = xs.reduce((a, b) => a + b, 0); const sy = ys.reduce((a, b) => a + b, 0); const sxx = xs.reduce((a, b) => a + b * b, 0); const sxy = xs.reduce((a, i, idx) => a + i * ys[idx], 0); const m = (n * sxy - sx * sy) / (n * sxx - sx * sx); const b = (sy - m * sx) / n; return { m, b }; }
+    function drawRegression(reg) { // draw line across time range
+      const x1 = timeToX(minT) * view.scale + view.offsetX; const x2 = timeToX(maxT) * view.scale + view.offsetX;
+      // convert x back to time for y = m*t + b, need to map x->t: reverse of timeToX
+      const tForX = x => { const norm = (x - 60 - view.offsetX) / (width - 120) / view.scale; return minT + norm * (maxT - minT); }
+      ctx.beginPath(); ctx.lineWidth = 3; ctx.setLineDash([8, 6]);
+      // gradient for regression
+      const g = ctx.createLinearGradient(x1, 0, x2, 0); g.addColorStop(0, '#2575fc'); g.addColorStop(1, '#15d1c2'); ctx.strokeStyle = g;
+      const tA = tForX(60); const tB = tForX(width - 60);
+      const yA = reg.m * tA + reg.b; const yB = reg.m * tB + reg.b;
+      ctx.moveTo(x1, yA); ctx.lineTo(x2, yB); ctx.stroke(); ctx.setLineDash([]);
+    }
+
+    /* Hover handling: show tooltip when near a point */
+    const tooltip = document.getElementById('tooltip');
+    let visibleCats = new Set(Object.keys(categories));
+    function handleHover(e) {
+      const rect = canvas.getBoundingClientRect(); const mx = (e.clientX - rect.left); const my = (e.clientY - rect.top);
+      const visible = rawEvents.filter(ev => visibleCats.has(ev.category)); const pts = computePoints(visible);
+      const found = pts.find(p => Math.hypot(p.x - mx, p.y - my) < 12);
+      if (found) { tooltip.style.display = 'block'; tooltip.style.left = Math.min(width - 300, found.x + 12) + 'px'; tooltip.style.top = Math.max(8, found.y - 60) + 'px'; tooltip.innerHTML = `<h4>${found.label}</h4><p>${formatDate(found.start)} → ${formatDate(found.end)}<br><strong>${categories[found.category].name}</strong></p>`; tooltip.style.borderLeftColor = categories[found.category].color[1]; } else tooltip.style.display = 'none';
+    }
+    function formatDate(d) { const dt = new Date(d); return dt.toLocaleDateString(); }
+
+    /* Legend & filters */
+    const legendEl = document.getElementById('legend'); const filtersEl = document.getElementById('filters');
+    Object.keys(categories).forEach(key => {
+      const c = categories[key];
+      const item = document.createElement('div'); item.className = 'legend-item'; item.innerHTML = `<div style='width:12px;height:12px;border-radius:3px;background:linear-gradient(180deg,${c.color[0]},${c.color[1]})'></div><div style='font-size:13px'>${c.name}</div>`; legendEl.appendChild(item);
+      // filter button
+      const btn = document.createElement('button'); btn.className = 'filter-btn'; btn.innerHTML = `<div class='filter-color' style='background:${c.color[1]}'></div><div style='font-size:13px'>${c.name}</div>`;
+      btn.onclick = () => { if (visibleCats.has(key)) { visibleCats.delete(key); btn.style.opacity = 0.5; } else { visibleCats.add(key); btn.style.opacity = 1; } updateCharts(); draw(); };
+      filtersEl.appendChild(btn);
+    });
+
+    /* Secondary charts using Chart.js */
+    let sectorChart, trendChart;
+    function updateCharts() {
+      const counts = {}; Object.keys(categories).forEach(k => counts[k] = 0);
+      rawEvents.forEach(ev => { if (visibleCats.has(ev.category)) counts[ev.category] += (toTime(ev.end) - toTime(ev.start)); });
+      const total = Object.values(counts).reduce((a, b) => a + b, 0) || 1;
+      const percents = Object.keys(counts).map(k => Math.round(counts[k] / total * 100));
+      const labels = Object.keys(categories).map(k => categories[k].name);
+      if (!sectorChart) {
+        sectorChart = new Chart(document.getElementById('sectorChart'), { type: 'doughnut', data: { labels, datasets: [{ data: percents, backgroundColor: Object.keys(categories).map(k => categories[k].color[1]) }] }, options: { responsive: true, plugins: { legend: { display: false } } } });
+      } else { sectorChart.data.datasets[0].data = percents; sectorChart.update(); }
+
+      // Trend chart: number of IT points over time (simplified)
+      const years = []; for (let y = new Date(minT).getFullYear(); y <= new Date(maxT).getFullYear(); y++) years.push(y);
+      const countsByYear = years.map(y => rawEvents.filter(ev => visibleCats.has(ev.category) && new Date(ev.start).getFullYear() <= y && new Date(ev.end).getFullYear() >= y).length);
+      if (!trendChart) {
+        trendChart = new Chart(document.getElementById('trendChart'), { type: 'line', data: { labels: years, datasets: [{ label: 'Ocurrencias (por año)', data: countsByYear, fill: true, tension: 0.35, backgroundColor: 'rgba(37,117,252,0.12)', borderColor: '#2575fc' }] }, options: { responsive: true, plugins: { legend: { display: false } } } });
+      } else { trendChart.data.datasets[0].data = countsByYear; trendChart.update(); }
+    }
+
+    /* Init */
+    resize(); updateCharts(); draw();
+
+  </script>
+</body>
+
+</html>

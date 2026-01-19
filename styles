@@ -1,0 +1,82 @@
+#modeToggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+body.dark-mode {
+    --color-bg: var(--color-dark-bg);
+    --color-card: var(--color-dark-card);
+    --color-text: var(--color-dark-text);
+}
+
+:root {
+    --color-primary: #6c5ce7;
+    --color-secondary: #a29bfe;
+    --color-text: #333;
+    --color-bg: #f9f9f9;
+    --color-card: #fff;
+    --color-dark-primary: #2d3436;
+    --color-dark-secondary: #636e72;
+    --color-dark-text: #f5f6fa;
+    --color-dark-bg: #2d3436;
+    --color-dark-card: #3d4448;
+}
+body {
+    font-family: var(--fuente-principal);
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    padding: 20px;
+    font-family: var(--fuente-principal);
+}
+/* ------ BOTÓN MODERNO ------ */
+
+.mode-toggle {
+  position: fixed;
+  top: 1px;
+  right: 1px;
+  width: 25px;
+  height: 25px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 22px;
+  z-index: 9999;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  transition: transform 0.25s ease, background 0.3s ease;
+  
+}
+
+.mode-toggle:hover {
+  transform: scale(1.08);
+}
+
+.mode-toggle:active {
+  transform: scale(0.96);
+}
+html.dark-mode .mode-toggle {
+    background: rgba(0,0,0,0.5); /* Fondo oscuro con transparencia */
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 4px 15px rgba(255,255,255,0.15); /* Sombra clara */
+}
+/*/////// FLECHA SUBIR //////*/
+.irtopC{
+    display:flex;
+    justify-content:right;
+    align-items:right;
+    position: sticky;
+    top: 0;
+}
+.irtop{
+    color:var(--brand-pink)      
+}
+.multimedia-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:2rem; max-width:900px; margin:0 auto; }
+.multimedia-grid > .card { flex:1 1 400px; max-width:420px; }
+

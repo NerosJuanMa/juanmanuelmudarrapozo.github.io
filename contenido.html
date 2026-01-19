@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup</title>
+    <style>
+        :root {
+  font-size: 1.125rem;
+  --bg0: rgba(255, 255, 255,.5);
+  --bg1: rgba(206,206,206,.5);
+  --fg0: #000;
+  --fg1: rgba(0,0,0,.5);
+  --a0: #0076FF;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg0: #000;
+    --bg1: rgba(206,206,206,.125);
+    --fg0: #FFF;
+    --fg1: rgba(206,206,206,.5);
+    --a0: #0076FF;
+  }
+}
+@media (min-width: 600px) { :root { font-size: 1.5rem; } }
+@media (min-width: 900px) { :root { font-size: 1.75rem; } }
+@media (min-width: 1200px) { :root { font-size: 2rem; } }
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body, html {
+  background: var(--bg0);
+  color: var(--fg0);
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100vw;
+  min-height: 100dvh;
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+.messages {
+  overflow: auto;
+  width: 100vw;
+  max-height: 100vh;
+  padding: 1rem .9rem;
+}
+.bubble {
+  overflow: hidden;
+  display: inline-block;
+  margin: 0 0 .125rem 0;
+  padding: .5rem .85rem;
+  line-height: 1.25rem;
+  border-radius: 1.25rem;
+  transform-origin: 0 100%;
+  vertical-align: middle;
+  transition: border-radius .25s ease-out .075s;
+}
+.bubble.left.cornered {
+  border-bottom-left-radius: 0;
+}
+.bubble.left {
+  background: var(--bg1);
+}
+.bubble span {
+  display: inline;
+}
+.bubble span.message {
+  opacity: 0;
+  line-height: 1.125;
+}
+.bubble a {
+  color: var(--a0);
+}
+.bubble .loading {
+  position: absolute;
+  white-space: pre;
+  font-size: 1.625rem;
+  line-height: 1rem;
+}
+.bubble .loading b {
+  display: inline-block;
+  color: var(--fg1);
+}
+</style>
+</head>
+
+<body>
+  <div class="messages"></div>
+  <script src="./PruebasVarias/juliangarnier/js/anime.js"></script>
+  <script src="./PruebasVarias/juliangarnier/js/scripts.js"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-37236197-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</body>
+
+</html>
+
+
+<!-- <body style="font-size:14px; margin:10px;">
+    <h4>Contenido interno</h4>
+    <p>Este es un HTML dentro del recuadro.</p>
+</body> -->
