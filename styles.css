@@ -991,8 +991,11 @@ footer {
     margin-top: 20px;
     border-top: 5px solid var(--brand-pink);
     color: var(--bg-light);
-    background-color: var(--sky-blue);
+    /* background-color: var(--sky-blue); */
     font-size: 1rem;
+    background-image: url('fondoNegro.jpg'); 
+    background-size: cover; 
+    background-position: center;
 }
 footer a{
     color: var(--brand-pink);
