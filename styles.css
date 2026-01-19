@@ -65,7 +65,22 @@ html.dark-mode {
     /* La clave: Oculta cualquier contenido que se desborde horizontalmente */
     /* overflow-x: hidden; */
 }
+*::selection {
+background-color: var(--sombra-light);
+color: var(--sombra-dark);
+}
 
+details{
+    color: var(--brand-pink);
+    
+}
+details:hover{
+    color: var(--text-light);
+    
+}
+.tituloSection:hover{
+    color: var(--brand-pink);
+}
 html, body {
     transition: background-color 0.4s ease, color 0.4s ease;
     
@@ -696,7 +711,7 @@ button[type="submit"]:hover {
     background: rgba(255, 255, 255, 0.01);
     display: none; /* Oculto por defecto (se muestra al entrar en página por JS) */
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    z-index: 1000;
+    z-index: 10000;
 }
 /* Asegura que el HTML interior se ajuste al recuadro */
 #popup iframe {
@@ -732,6 +747,7 @@ button[type="submit"]:hover {
     animation-timing-function: ease-in-out; 
     /* Opcional: Para asegurar que el elemento se comporta como un bloque al aplicar transform */
     display: block; 
+    z-index: 9999;
 }
 .irtopC a:hover {
     background: var(--sombra-dark);
@@ -1076,6 +1092,12 @@ a:visited {
     color: purple; /* Puedes cambiar 'purple' por el color que desees */
 }
 
+.mapa{
+    
+    position:relative;
+    bottom:1px;
+    border:0;
+}
 /* ============================================================
    15. RESPONSIVE DESIGN
    ============================================================ */
@@ -1250,5 +1272,7 @@ a:visited {
     } 
  
 }
-
+.no-seleccionar {
+user-select: none;
+}
 

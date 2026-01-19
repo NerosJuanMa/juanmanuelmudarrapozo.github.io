@@ -190,7 +190,7 @@ window.onload = () => {
     // Ocultarlo después de 3 segundos =3000
     setTimeout(() => {
         popup.style.display = "none";
-    }, 15000);
+    }, 25000);
 };
 
 // Mostrar al pasar el ratón

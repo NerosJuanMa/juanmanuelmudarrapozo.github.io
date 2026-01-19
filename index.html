@@ -14,7 +14,15 @@
   <script src="script.js" defer></script>
 
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TR70590PF9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-TR70590PF9');
+</script>
 <body>
   <!-- botones flotantes -->
   <div class="floating-social">
@@ -85,7 +93,7 @@
           <span>·</span>
 
           <!-- Ubicación -->
-          <a href="#" target="_blank" rel="noopener" class="contact-icon" title="Ubicación">
+          <a href="#mapa"  rel="noopener" class="contact-icon" title="Ubicación">
             <i class="fa-solid fa-location-dot"></i>
           </a>
           <span>·</span>
@@ -108,6 +116,12 @@
           </a>
           <span>·</span>
 
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/neros.juanma/" target="_blank" rel="noopener" class="contact-icon" title="Facebook">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+          <span>·</span>
+
           <!-- Instagram -->
           <a href="https://www.instagram.com/nerosjuanma/" target="_blank" rel="noopener" class="contact-icon" title="Instagram">
             <i class="fa-brands fa-instagram"></i>
@@ -120,9 +134,9 @@
           </a>
           <span>·</span>
 
-          <!-- Facebook -->
-          <a href="https://www.facebook.com/neros.juanma/" target="_blank" rel="noopener" class="contact-icon" title="Facebook">
-            <i class="fa-brands fa-facebook"></i>
+          <!-- YouTube -->
+          <a href="https://www.youtube.com/channel/UCKdL-v-ytGuhnUqxJsL8TUQ" target="_blank" rel="noopener" class="contact-icon" title="YouTube">
+            <i class="fa-brands fa-youtube"></i>
           </a>
           <span>·</span>
 
@@ -131,17 +145,7 @@
             <i class="fa-brands fa-discord"></i>
           </a>
           <span>·</span>
-
-          <!-- YouTube -->
-          <a href="https://www.youtube.com/channel/UCKdL-v-ytGuhnUqxJsL8TUQ" target="_blank" rel="noopener" class="contact-icon" title="YouTube">
-            <i class="fa-brands fa-youtube"></i>
-          </a>
-          <span>·</span>
-
-        
-
           
-
           <!-- CV / Documentos -->
           <a href="/cv.pdf" target="_blank" rel="noopener" class="contact-icon" title="CV / Documento">
             <i class="fa-solid fa-file"></i>
@@ -201,7 +205,8 @@
     <section class="repaso" aria-labelledby="repaso-cv">
       <h2 id="repaso-cv" class="repaso">
         Explora el CV
-        <a class="button_download" href="/cv.pdf" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+        <a class="button_download" href="/cv.pdf" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24"
             height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
             stroke-linejoin="round" class="lucide lucide-download mr-2 h-5 w-5">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -237,8 +242,9 @@
     </section>
 
     <!-- Perfil / Sobre mí -->
-    <section id="perfil" class="section" aria-labelledby="h-perfil">
-      <h2 id="h-perfil">Perfil </h2>
+    <section id="perfil" class="section no-seleccionar" aria-labelledby="h-perfil">
+      <details>
+        <summary><h2 class="tituloSection" id="h-perfil">Perfil </h2></summary>
       <p>
         Soy Juan Manuel Mudarra Pozo, un Desarrollador Full Stack Web y Diseñador Multimedia con una sólida formación
         técnica y una trayectoria que combina creatividad, precisión y compromiso profesional. Mi objetivo es crear
@@ -269,9 +275,12 @@
         usuario.
         <br><br>
       </p>
+      </details>
     </section>
     <!-- Habilidades -->
     <section id="habilidades" class="section" aria-labelledby="h-habilidades">
+      <details>
+        <summary><h2 class="tituloSection">Habilidades</h2></summary>
       <h2 id="h-habilidades">🧩 Habilidades blandas:</h2>
       | Escucha activa | Comunicación | Proactividad | Trabajo en equipo | Empatía | Pensamiento crítico | Creatividad
       e innovación | Curiosidad intelectual | Aprendizaje contínuo | Mentalidad de crecimiento |
@@ -376,10 +385,13 @@
           </tbody>
         </table>
       </div>
+      </details>
     </section>
     <!-- Formación -->
     <section id="formacion" class="section" aria-labelledby="h-formacion">
-      <h2 id="h-formacion">Formación</h2>
+      <details>
+        <summary><h2 class="tituloSection" id="h-formacion">Formación</h2></summary>
+      
       <ul style="margin-left:1rem;">
         <li>
           <h3 style="margin-bottom:.2rem;">TÉCNICO SUPERIOR EN SISTEMAS ELECTROTÉCNICOS Y AUTOMATIZADOS</h3>
@@ -404,10 +416,12 @@
           </p>
         </li>
       </ul>
+      </details>
     </section>
     <!-- Certificaciones -->
     <section id="certificaciones" class="section" aria-labelledby="h-certificaciones">
-      <h2 id="h-certificaciones">Certificaciones y formación complementaria</h2>
+      <details>
+        <summary><h2 class="tituloSection" id="h-certificaciones">Certificaciones y formación complementaria</h2></summary>
       <ul style="margin-left:1rem;">
         <li>
           <h3 style="margin-bottom:.2rem;">F.P.E. DESARROLLO DE APLICACIONES CON TECNOLOGÍAS WEB. - (IFCD0210) - (En
@@ -483,10 +497,11 @@
         <li><strong>TÉCNICO EN OFIMÁTICA</strong><br><small>JUL. 1999 · 184 horas.</small><br> · Familia profesional:
           Informática INSTITUTO INFORMÁTICO HISPALENSE</li>
       </ul>
+      </details>
     </section>
     <!-- Experiencia -->
     <section id="experiencia" class="section" aria-labelledby="h-experiencia">
-      <h2 id="h-experiencia">Experiencia</h2>
+      <details><summary><h2 class="tituloSection" id="h-experiencia">Experiencia</h2></summary>
       <article style="margin-bottom:.75rem;">
         <h3 style="margin-bottom:.2rem;">Diseño & Multimedia · 🟣 🎨🖼️🖨️ · LUMAPRINT</h3>
         <small>JUN. 2024 - AGO. 2024 · Duración: 3 meses.</small>
@@ -608,10 +623,11 @@
         </p>
       </article>
       <iframe class="iframe" src="timeline.html"></iframe>
+      </details>
     </section>
     <!-- Proyectos destacados -->
     <section id="proyectos" class="section" aria-labelledby="h-proyectos">
-      <h2 id="h-proyectos">Proyectos</h2>
+      <details><summary><h2 class="tituloSection" id="h-proyectos">Proyectos</h2></summary>
       <article style="margin-bottom:.75rem;">
         <h3 style="margin-bottom:.2rem;"><a href="https://desarrollo-de-aplicaciones-con-tecn.vercel.app/"
             target="_blank" rel="noopener">Portfolio</a></h3>
@@ -638,10 +654,11 @@
           amet, nihil illum recusandae impedit.
         </p>
       </article>
+      </details>
     </section>
     <!-- Contacto -->
     <section id="contacto" class="section" aria-labelledby="h-contacto">
-      <h2 id="h-contacto">Contacto</h2>
+      <details><summary><h2 class="tituloSection" id="h-contacto">Contacto</h2></summary>
       <form action="https://formspree.io/f/mgvnjzpl" method="POST" novalidate>
         <div class="form-grid">
           <div>
@@ -650,7 +667,7 @@
           </div>
           <div>
             <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="Introduce tu correo: Email@example.com" required>
+            <input id="email" name="email" type="email" placeholder="Introduce tu correo: Email@example.com" required autocomplete="email">
           </div>
           <div class="full">
             <label for="asunto">Asunto</label>
@@ -664,6 +681,7 @@
             <button type="submit">Enviar</button>
           </div>
         </div>
+        </details>
     </section>
   </main>
 
@@ -693,7 +711,17 @@
     <div class="footer">© 2025 Juan Manuel Mudarra Pozo · CV Digital · Todos los derechos reservados.<a
         href="#top">Volver arriba ⇡</a></div>
     <div class="fecha" id="fechaActual"></div>
-  </footer>
+     
+    <div class="mapa" id="mapa">
+    <iframe src="https://maps.google.com/maps?q=Plaza+Alegre+Sevilla&output=embed" 
+    width="450" 
+    height="250" 
+    style="border:0;"
+    allowfullscreen=""
+    loading="lazy">
+    </iframe>
+    </div>
+  </footer> 
   </div>
 </body>
 
