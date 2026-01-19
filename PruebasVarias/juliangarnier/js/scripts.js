@@ -28,8 +28,8 @@ window.onload = function() {
     'Diseño y codifico cosas en la web.',
     'Actualmente estoy estudiando en <a href="https://www.avante.es/" target="_blank">Avante</a>',
     // <a href="https://github.com/sponsors/juliangarnier" target="_blank">anime.js v4</a>,
-    'Puedes encontrarme en <a target="_blank" href="https://x.com/NerosJuanMa">X</a>, <a target="_blank" href="https://bsky.app/profile/nerosjuanma.bsky.social">Bluesky</a> and <a target="_blank" href="https://github.com/NerosJuanMa">GitHub</a>',
-    'O contactarme directamente en <a href="mailto:jmmudarra@gmail.com">jmmudarra@gmail.com</a>',
+    'Puedes encontrarme en <a target="_blank" href="https://www.linkedin.com/in/nerosjuanma/">Linkeding</a>, <a target="_blank" href="https://www.facebook.com/neros.juanma">Facebook</a>, <a target="_blank" href="https://x.com/NerosJuanMa">X</a>, <a target="_blank" href="https://bsky.app/profile/nerosjuanma.bsky.social">Bluesky</a>, <a target="_blank" href="https://www.instagram.com/nerosjuanma/">Instagram</a>, <a target="_blank" href="https://www.youtube.com/channel/UCKdL-v-ytGuhnUqxJsL8TUQ">YouTube</a>, <a target="_blank" href="https://discord.com/channels/@neros__juanma">Discord</a>  and <a target="_blank" href="https://github.com/NerosJuanMa">GitHub</a>',
+    'O contactarme directamente en <a href="mailto:jmmudarra@gmail.com">jmmudarra@gmail.com</a>, <a href="tel:+34627334682" class="contact-icon" title="Teléfono">☎️Teléfono</a> o <a href="https://wa.me/34627334682" target="_blank" rel="noopener" class="contact-icon" title="WhatsApp">WhatsApp</a>',
     getCurrentTime()
   ]
 
