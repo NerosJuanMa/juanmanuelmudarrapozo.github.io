@@ -444,6 +444,11 @@ nav a:hover {
     background: var(--sky-blue);
     color: var(--text-light);
 }
+/* 
+a:link    { color: var(--brand-pink);; }     
+a:visited { color: purple; }   
+a:hover   { color: var(--text-light); }    
+a:active  { color: orange; }  */
 
 /* ============================================================
    6. SIDEBAR
@@ -990,12 +995,14 @@ footer {
     padding: 10px 0;
     margin-top: 20px;
     border-top: 5px solid var(--brand-pink);
-    color: var(--bg-light);
+    color: var(--sombra-light);
     /* background-color: var(--sky-blue); */
     font-size: 1rem;
     background-image: url('fondoNegro.jpg'); 
     background-size: cover; 
     background-position: center;
+    background-repeat: no-repeat; /* No repite la imagen */
+    
 }
 footer a{
     color: var(--brand-pink);
@@ -1006,7 +1013,22 @@ footer .fecha{
     font-weight: 600;
     text-align: center;
 }
-
+/* Capa oscura semi-transparente sobre la imagen */
+  /* footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); 
+    z-index: 1;
+  } */
+  /* El contenido del footer debe estar encima del overlay */
+  footer * {
+    position: relative;
+    z-index: 2;
+  }
 /* ============================================================
    12. IMÁGENES Y GALERÍA
    ============================================================ */
@@ -1102,7 +1124,7 @@ a:hover{
 }
 a:visited {
     /* Color del enlace después de haber sido visitado */
-    color: purple; /* Puedes cambiar 'purple' por el color que desees */
+    color: var(--sky-blue); /* Puedes cambiar 'purple' por el color que desees */
 }
 
 .mapa{
