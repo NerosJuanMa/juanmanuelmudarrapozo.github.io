@@ -64,6 +64,7 @@ html.dark-mode {
     padding: 0;
     /* La clave: Oculta cualquier contenido que se desborde horizontalmente */
     /* overflow-x: hidden; */
+
 }
 *::selection {
 background-color: var(--sombra-light);
@@ -106,8 +107,6 @@ body {
         "nav nav nav"
         "main main aside"
         "footer footer footer";
-
-    
 }/* Corrección Global para evitar el scroll horizontal */
 
 /* hmtl {
@@ -601,7 +600,7 @@ button[type="submit"]:hover {
 
 .floating-social a {
   text-decoration: none;
-  font-size: 15px;        /* Tamaño iconos */
+  font-size: 1.5rem;        /* Tamaño iconos */
   color: var(--text-light);
   width: 20px;
   height: 20px;
@@ -637,7 +636,7 @@ button[type="submit"]:hover {
   border: none;
   border-radius: 50px;
   padding: 5px 5px;
-  font-size: 10px;
+  font-size: 0.7rem;
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0,0,0,.3);
   transition: transform .2s, background .2s;
@@ -662,7 +661,7 @@ button[type="submit"]:hover {
 
 #likeBtn {
   padding: 5px 5px;
-  font-size: 10px;
+  font-size: 0.7rem;
   border-radius: 50px;
   border: none;
   background: var(--brand-pink);
@@ -682,7 +681,7 @@ button[type="submit"]:hover {
 
 .heart {
   position: fixed;
-  font-size: 22px;
+  font-size: 0.7rem;
   pointer-events: none;
   animation: floatUp 1s ease-out forwards;
 }
@@ -776,7 +775,7 @@ button[type="submit"]:hover {
     inset: 3rem 1rem auto auto;
     /* top: 5%;
     right: 0.5%; */
-    font-size: 1rem;
+    font-size: 1.2rem;
     cursor: pointer; 
     user-select:none; 
     /* overflow-y: hidden;
@@ -804,7 +803,7 @@ button[type="submit"]:hover {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-size: 22px;
+    font-size: 1.2rem;
     z-index: 9999;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     transition: transform 0.25s ease, background 0.3s ease;
@@ -943,7 +942,7 @@ html.dark-mode textarea {
     background: #f8f9fa;
     border-radius: .375rem;
     border: 1px solid #dee2e6;
-    font-size: .875rem;
+    font-size: 0.875rem;
 }
 
 .breadcrumb-list {
@@ -993,7 +992,7 @@ footer {
     border-top: 5px solid var(--brand-pink);
     color: var(--bg-light);
     background-color: var(--sky-blue);
-    font-size: .9rem;
+    font-size: 1rem;
 }
 footer a{
     color: var(--brand-pink);
@@ -1109,79 +1108,40 @@ a:visited {
     bottom:1px;
     border:0;
 }
+.no-seleccionar {
+user-select: none;
+}
 /* ============================================================
    15. RESPONSIVE DESIGN
    ============================================================ */
-@media (max-width:780px) {
-    body  {
-        grid-template-columns: 1fr;
-        grid-template-areas:
+/* Móviles pequeños (hasta 375px) */
+@media (max-width: 375px) {
+  body {
+    font-size: 0.8rem;
+    grid-template-columns: 1fr;
+      grid-template-areas:
             "header"
             "nav"
             "main"
             "aside"
             "footer";
-    max-width: 100vw;
-    overflow-x: hidden;
-    display: grid;
-    }
-    
+    width: 100vw !important;
+    white-space: normal !important;
+    overflow: hidden;
+  }
+  
     .header__role,
     .header__role2 {
         width: 100% !important;
         white-space: normal !important;
         overflow: hidden;
-    }
-    /* Estilo que se aplica al rol activo */
-    .role-item.active {
-    display: inline-block; /* Mostrar solo el rol activo */
-    overflow: hidden; /* Oculta el texto que excede el ancho */
-    width: 0; /* ANCHO INICIAL: Oculta todo el texto, lo revela JS */
-    max-width: 20ch;
-    height: 11ch;
-    align-content: center;
-    
-    /* El borde derecho simula el cursor parpadeante */
-    /* border-right: 2px solid;  */
-    
-    /* Animación del parpadeo del cursor */
-    animation: blink-caret .75s step-end infinite;
-}
-    .timeline-container {
-        width: 100% !important;
-        overflow-x: auto;
-        justify-content: flex-start;
-    }
 
-    .irtopC{
-        top: 79%;
-        right: 19%;
     }
-    .repaso-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .multimedia-grid {
-        flex-direction: column;
-    }
-
-    .multimedia-card {
-        grid-template-columns: 1fr;
-        min-height: auto;
-    }
-
-    .video-container,
-    .multimedia-card__image {
-        height: 200px;
-    }
-
-    #multimedia h2 {
-        font-size: 1.8rem;
-        margin-bottom: 2rem;
-    }
+  
 }
 
-@media (max-width:576px) {
+/* Móviles estándar (376px - 480px) - Incluye Realme */
+@media (min-width: 376px) and (max-width: 576px) {
     /* .breadcrumb-item + .breadcrumb-item::before { margin:0 0.25rem; font-size:.8rem; }
     .breadcrumb { font-size:.8rem; padding:.5rem .75rem; }
      */
@@ -1196,9 +1156,18 @@ a:visited {
     /* max-width: 100vw; */
     /* overflow-x: hidden; */
     /* display: grid; */
-        width: 100% !important;
+        width: 1000px !important;
         white-space: normal !important;
         overflow: hidden;
+        font-size: 1rem;
+    }
+    header{
+        width: 100% !important;
+        white-space: normal !important;
+        /* overflow: hidden; */
+        /* font-size: 1rem; */
+        margin-top: 5%;
+        margin-right: 10%;
     }
 
     .header__role,
@@ -1231,7 +1200,8 @@ a:visited {
     .header__inner {
         grid-template-columns: 1fr ;
         gap: 1px;
-        margin-top: 10px;    
+        margin-top: 10%;
+        margin-right: 10%;    
         padding: 0 1px;  
         justify-content:center; align-items:center;   
         
@@ -1283,7 +1253,74 @@ a:visited {
     } 
  
 }
-.no-seleccionar {
-user-select: none;
+
+@media (min-width: 576px) and (max-width: 780px) {
+    
+    body  {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "nav"
+            "main"
+            "aside"
+            "footer";
+    max-width: 100vw;
+    overflow-x: hidden;
+    display: grid;
+    }
+    
+    .header__role,
+    .header__role2 {
+        width: 100% !important;
+        white-space: normal !important;
+        overflow: hidden;
+    }
+    /* Estilo que se aplica al rol activo */
+    .role-item.active {
+    display: inline-block; /* Mostrar solo el rol activo */
+    overflow: hidden; /* Oculta el texto que excede el ancho */
+    width: 0; /* ANCHO INICIAL: Oculta todo el texto, lo revela JS */
+    max-width: 20ch;
+    height: 11ch;
+    align-content: center;
+    
+    /* El borde derecho simula el cursor parpadeante */
+    /* border-right: 2px solid;  */
+    
+    /* Animación del parpadeo del cursor */
+    animation: blink-caret .75s step-end infinite;
+    }
+    .timeline-container {
+        width: 100% !important;
+        overflow-x: auto;
+        justify-content: flex-start;
+    }
+
+    .irtopC{
+        top: 79%;
+        right: 19%;
+    }
+    .repaso-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .multimedia-grid {
+        flex-direction: column;
+    }
+
+    .multimedia-card {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .video-container,
+    .multimedia-card__image {
+        height: 200px;
+    }
+
+    #multimedia h2 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
 }
 
