@@ -534,7 +534,7 @@ h2.repaso {
 /* ============================================================
    8. BOTONES
    ============================================================ */
-.btn-brand,
+
 .button,
 button[type="submit"] {
     background: var(--brand-pink);
@@ -547,22 +547,67 @@ button[type="submit"] {
     display: inline-block;
     transition: background 0.2s ease;
 }
+button[type="submit"]:hover {
+    background: var(--sky-blue);
+}
 .button_card{
-    background: var(--brand-pink);
-    color: #fff;
+    background: var(--ice-blue);
+    color: var(--brand-pink);
     border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
+    padding: 0.6rem 1.1rem;
+    border-radius: 8px;
     font-weight: 600;
     text-decoration: none;
     display: inline-block;
     transition: background 0.2s ease;
 }
-.btn-brand:hover,
-.button:hover,
-button[type="submit"]:hover {
+.button_card:hover{
     background: var(--sky-blue);
+    color: var(--text-light);
 }
+
+/* .button_download{
+    max-width: 5%; 
+    width: 1rem;
+    height: 1rem;
+    background: transparent;
+  
+} */
+
+/* .button_download img{
+    background: transparent;
+    mix-blend-mode:normal;
+    filter: none;
+} */
+.button_download img:hover{
+    transform: scale(1.15);
+    mix-blend-mode:normal;
+    /* filter: grayscale(100%); */
+    /* background: var(--brand-pink); */
+    /* filter: brightness(0) saturate(100%) invert(79%) sepia(26%) saturate(1731%) hue-rotate(151deg) brightness(103%) contrast(92%);    */
+    filter: brightness(0) saturate(100%) invert(38%) sepia(98%) saturate(3426%) hue-rotate(200deg) brightness(101%) contrast(106%);
+}
+
+.button_download img{
+    /* Ocultar la imagen original pero usar su forma */
+    /* -webkit-mask: url('assets/descarga.png') no-repeat center;
+    mask: url('assets/descarga.png') no-repeat center;
+    -webkit-mask-size: contain;
+    mask-size: contain; */
+
+    /* filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(286deg) brightness(118%) contrast(119%); */
+     /* Aplicar el color que quieras */
+    /* background: var(--brand-pink); */
+
+    width: 2rem;
+    height: 1.5rem;
+    
+    background: transparent;
+    filter: brightness(0) saturate(100%) invert(23%) sepia(97%) saturate(5504%) hue-rotate(308deg) brightness(98%) contrast(106%);
+
+}
+
+
 /* FIXED ESPECIALES  */
 /*fechaflotante*/
 .fechaflotante{
