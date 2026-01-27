@@ -203,6 +203,7 @@ body {
     cursor: pointer;
 } */
 #zona-hover {
+    display: block;
     position: absolute;
     /* bottom: 25px; */
     top: 170px;
@@ -444,6 +445,60 @@ nav a:hover {
     background: var(--sky-blue);
     color: var(--text-light);
 }
+/* Menú de navegación */
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: #e010a8;
+}
+/* Botón hamburguesa (oculto en desktop) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1000;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+    transition: all 0.3s ease;
+    border-radius: 3px;
+}
+
+/* Animación del botón hamburguesa cuando está activo */
+.hamburger.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+
+
 /* 
 a:link    { color: var(--brand-pink);; }     
 a:visited { color: purple; }   
@@ -1329,8 +1384,7 @@ user-select: none;
     body  {
         grid-template-columns: 1fr;
         grid-template-areas:
-            "header"
-            "nav"
+            "header"            
             "main"
             "aside"
             "footer";
@@ -1338,7 +1392,7 @@ user-select: none;
     overflow-x: hidden;
     display: grid;
     }
-    
+   
     .header__role,
     .header__role2 {
         width: 100% !important;
@@ -1349,7 +1403,7 @@ user-select: none;
     .role-item.active {
     display: inline-block; /* Mostrar solo el rol activo */
     overflow: hidden; /* Oculta el texto que excede el ancho */
-    width: 0; /* ANCHO INICIAL: Oculta todo el texto, lo revela JS */
+    width: 100%; /* ANCHO INICIAL: Oculta todo el texto, lo revela JS */
     max-width: 20ch;
     height: 11ch;
     align-content: center;
@@ -1391,6 +1445,37 @@ user-select: none;
     #multimedia h2 {
         font-size: 1.8rem;
         margin-bottom: 2rem;
+    }
+
+      /* Mostrar botón hamburguesa */
+    .hamburger {
+        display: flex;
+    }
+     .nav-menu li {
+        padding: 1rem 0;
+        border-bottom: 1px solid #444;
+    }
+    .nav-menu {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        flex-direction: column;
+        background-color: #333;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        text-align: center;
+    }
+    
+    .nav-menu.active {
+        max-height: 500px;
+    }
+    .popup{
+        display: none;
+    }
+    #zona-hover{
+        display: none;
     }
 }
 

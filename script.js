@@ -183,6 +183,9 @@ function hearts() {
 const popup = document.getElementById("popup");
 const zona = document.getElementById("zona-hover");
 
+
+if (window.innerWidth > 768) {   
+
 // Mostrar popup al cargar la página
 window.onload = () => {
     popup.style.display = "block";
@@ -202,6 +205,7 @@ zona.addEventListener("mouseenter", () => {
 zona.addEventListener("mouseleave", () => {
     popup.style.display = "none";
 });
+}
 
 //Cabecera3
 document.addEventListener('DOMContentLoaded', (event) => {
@@ -301,7 +305,23 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 
+// Seleccionar elementos
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
 
+// Toggle del menú al hacer clic
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+});
+
+// Cerrar menú al hacer clic en un enlace
+document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+    });
+});
 
 
 

@@ -49,10 +49,10 @@
 </div>
 
   <!-- Zona que activa el recuadro al pasar el ratón -->
-  <div id="zona-hover">👋</div>
+  <div id="zona-hover" class="zona-hover">👋</div>
 
   <!-- Recuadro flotante -->
-  <div id="popup">
+  <div id="popup" class="popup">
     <!-- Contenido HTML interno -->
     <iframe src="contenido.html"></iframe>
   </div>
@@ -169,7 +169,7 @@
     </div>
   <!-- ================= NAV ================= -->
   <!-- <div class="nav"> -->
-    <nav aria-label="Secciones del CV">
+    <nav aria-label="Secciones del CV" class="nav-menu" id="navMenu">
       <ul>
         <li><a href="#perfil">Perfil</a></li>
         <li><a href="#habilidades">Habilidades</a></li>
@@ -180,6 +180,13 @@
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </nav>
+
+        <!-- Botón hamburguesa -->
+    <button class="hamburger" id="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
   <!-- </div> -->
   </header>
   <div class="irtopC"><a href="#top" class="irtop">⇡</a></div>
