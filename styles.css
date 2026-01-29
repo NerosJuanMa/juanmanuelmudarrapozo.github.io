@@ -1363,7 +1363,7 @@ user-select: none;
         padding: 0 15px;
         
     }
-    
+
     .role-item.active {
     display: inline-block; /* Mostrar solo el rol activo */
     overflow: hidden; /* Oculta el texto que excede el ancho */
@@ -1415,12 +1415,16 @@ user-select: none;
             "main"
             "aside"
             "footer";
-    
+    max-width: 480px;
     width: 100% !important;
+    min-height: none;
+    height: 100%;
     white-space: normal !important;
-    overflow: hidden;
+    /* overflow: hidden; */
+    overflow-x: hidden;
     align-content: center;
     font-size: 1rem;
+    gap: 0px;
 
     }
 
@@ -1429,11 +1433,13 @@ user-select: none;
         display: none;
     }
     .fechaflotante{
-        display: block;    
+        display:block;    
+        width: 100%;
+        top: 3%;
         justify-content:center; 
-        align-items:center;   
-        border-style: double;   
-        text-align: center; 
+        align-items:center;
+        text-align: right; 
+        /* border-style: double;  */
     }
 
           /* Mostrar botón hamburguesa */
@@ -1443,8 +1449,8 @@ user-select: none;
 
     .nav-menu {
         /* display: none; */
-        position: absolute;
-        top: 70px;
+        position:fixed;
+        top: 10%;
         left: 0;
         flex-direction: column;
         background-color: #333;
@@ -1453,9 +1459,7 @@ user-select: none;
         overflow: hidden;
         transition: max-height 0.3s ease;
         text-align: center;
-
-
-    }
+        }
      .nav-menu li {
         padding: 1rem 0;
         border-bottom: 1px solid #444;
@@ -1468,14 +1472,14 @@ user-select: none;
     .header__inner {
         width: 100% !important;
         grid-template-columns: 1fr ;
-        gap: 1px;
+        gap: 0px;
         margin-top: 10%;
         margin-right: 10%;    
         padding: 0 1px;  
         justify-content:center; 
         align-items:center;   
         text-align: center;  
-        border-style: double;
+        /* border-style: double; */
     }
         
     .header__role,
@@ -1491,6 +1495,7 @@ user-select: none;
         text-align: center;
         align-items:center; 
         justify-content:center;
+        gap: 0px;
     }
 
     .imgfoto{        
