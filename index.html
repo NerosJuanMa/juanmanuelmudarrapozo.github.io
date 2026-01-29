@@ -26,31 +26,38 @@
 <body>
   <!-- botones flotantes -->
   <div class="floating-social">
-     <a href="#" onclick="sharePage()" title="Compartir">
-    <i class="fas fa-share-alt"></i>
-  </a>
-  <a href="https://www.linkedin.com/in/nerosjuanma/" target="_blank" title="LinkedIn">
-    <i class="fa-brands fa-linkedin"></i>
-  </a>
-
-
-  <div class="floating-like2">
-  <button id="likeBtn2">
-    <i class="fas fa-thumbs-up"></i>
-    <span id="likeCount2">0</span>
-  </button>
-</div>
-
-</div>
-<div class="fechaflotante" id="fechaActualh"></div>
-<div class="floating-like">
+    <div class="fechaflotante" id="fechaActualh"></div>
+    <a href="#" onclick="sharePage()" title="Compartir">
+      <i class="fas fa-share-alt"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/nerosjuanma/" target="_blank" title="LinkedIn">
+      <i class="fa-brands fa-linkedin"></i>
+    </a>
+    <div class="floating-like2">
+      <button id="likeBtn2">
+        <i class="fas fa-thumbs-up"></i>
+        <span id="likeCount2">0</span>
+      </button>
+      
+      <div class="floating-like">
+        
+        <button id="likeBtn">❤️ <span id="likeCount">0</span></button>
+    </div>
+<!-- Zona que activa el recuadro al pasar el ratón -->
+    <div id="zona-hover" class="zona-hover">👋</div>
+    </div>
   
-  <button id="likeBtn">❤️ <span id="likeCount">0</span></button>
+         <!-- Botón hamburguesa -->
+    <button class="hamburger" id="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+
 </div>
 
-  <!-- Zona que activa el recuadro al pasar el ratón -->
-  <div id="zona-hover" class="zona-hover">👋</div>
 
+  
   <!-- Recuadro flotante -->
   <div id="popup" class="popup">
     <!-- Contenido HTML interno -->
@@ -65,7 +72,7 @@
 
   <!-- ================= HEADER ================= -->
   <header>
-    <div id="fechaActualh" class="fechaHead"></div>
+    <!-- <div id="fechaActualh" class="fechaHead"></div> -->
     <div class="header__inner">
       <div class="imgfoto"><img class="header__photo" src="/yo_mini.jpg" alt="Foto de perfil (placeholder)">
       </div>
@@ -181,12 +188,7 @@
       </ul>
     </nav>
 
-        <!-- Botón hamburguesa -->
-    <button class="hamburger" id="hamburger">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </button>
+   
   <!-- </div> -->
   </header>
   <div class="irtopC"><a href="#top" class="irtop">⇡</a></div>
