@@ -646,13 +646,12 @@ html.dark-mode .mode-toggle .icon {
 }
 
 .floating-social a {
+  display: flex;
   text-decoration: none;
   font-size: 1.5rem;        /* Tamaño iconos */
   color: var(--text-light);
   width: 20px;
-  height: 20px;
-  /* background: var(--ice-blue);      Fondo gris oscuro */
-  display: flex;
+  height: 20px; 
   align-items: center;
   justify-content: center;
   border-radius: 50%;     /* Botones redondos */
@@ -676,7 +675,7 @@ html.dark-mode .mode-toggle .icon {
   align-items: center;
   gap: 0.5px;
   background: var(--sky-blue);
-  color: var(--bg-light);
+  color: var(--text-light);
   border: none;
   border-radius: 50px;
   padding: 1px 3px;
@@ -692,7 +691,7 @@ html.dark-mode .mode-toggle .icon {
 }
 
 #likeBtn.liked {
-  background: var(--sky-blue2);
+  background: var(--sky-blue);
 
 }
 .zona-hover {
@@ -707,16 +706,16 @@ html.dark-mode .mode-toggle .icon {
     display: none; 
     /* Oculto por defecto (se muestra al entrar en página por JS) */
     background: rgba(255, 255, 255, 0.01);
-    position: absolute;    
+    position: fixed;    
     bottom: 1%;
     right: 1%;
     width: 33%;
     height: 70%;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    z-index: 1000;
+    z-index: 999;
 }
 /* Asegura que el HTML interior se ajuste al recuadro */
-#p iframe {
+#poppup iframe {
     width: 100%;
     height: 100%;
     border: none;
@@ -1361,10 +1360,9 @@ user-select: none;
      ELEMENTOS FLOTANTES
   --------------------------*/
 
-  .floating-social,
-  .floating-like,
-  .floating-like2,
-  .fechaflotante {
+.floating-social,
+.floating-like,
+.fechaflotante {
     display: none;
   }
 

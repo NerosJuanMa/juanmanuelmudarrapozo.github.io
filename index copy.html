@@ -27,6 +27,12 @@
   <!-- botones flotantes -->
   <div class="floating-social">
     <div class="fechaflotante" id="fechaActualh"></div>
+    <button id="modeToggle" class="mode-toggle">
+      <span class="icon">🌙</span>
+    </button>
+    <audio id="bg-audio" src="heartbeat_sound.mp3" loop autoplay muted></audio>
+    <div id="audio-btn" class="audio-on">🔊</div>
+   
     <a href="#" onclick="sharePage()" title="Compartir">
       <i class="fas fa-share-alt"></i>
     </a>
@@ -43,8 +49,7 @@
         
         <button id="likeBtn">❤️ <span id="likeCount">0</span></button>
     </div>
-<!-- Zona que activa el recuadro al pasar el ratón -->
-    <div id="zona-hover" class="zona-hover">👋</div>
+
     </div>
   
          <!-- Botón hamburguesa -->
@@ -55,18 +60,14 @@
     </button>
 
 </div>  
+<!-- Zona que activa el recuadro al pasar el ratón -->
+    <div id="zona-hover" class="zona-hover">👋</div>
   <!-- Recuadro flotante -->
   <div id="poppup" class="poppup">
     <!-- Contenido HTML interno -->
     <iframe src="contenido.html"></iframe>
   </div>
-
-  <button id="modeToggle" class="mode-toggle">
-    <span class="icon">🌙</span>
-  </button>
-  <audio id="bg-audio" src="heartbeat_sound.mp3" loop autoplay muted></audio>
-  <div id="audio-btn" class="audio-on">🔊</div>
-
+  
   <!-- ================= HEADER ================= -->
   <header>
     <!-- <div id="fechaActualh" class="fechaHead"></div> -->

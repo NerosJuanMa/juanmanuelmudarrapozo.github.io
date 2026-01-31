@@ -97,36 +97,36 @@ function sharePage() {
 
 //COTADOR DE LIKES
 
-const likeBtn2 = document.getElementById('likeBtn2');
-const likeCount2 = document.getElementById('likeCount2');
+const likeBtn = document.getElementById('likeBtn');
+const likeCount = document.getElementById('likeCount');
 
 // Claves únicas para ESTA página
 const PAGE_KEY = 'likes_mi_pagina';
 const USER_LIKED_KEY = 'user_liked_mi_pagina';
 
 // Obtener likes actuales
-let likes2 = parseInt(localStorage.getItem(PAGE_KEY)) || 0;
-let userLiked2 = localStorage.getItem(USER_LIKED_KEY) === 'true';
+let likes = parseInt(localStorage.getItem(PAGE_KEY)) || 0;
+let userLiked = localStorage.getItem(USER_LIKED_KEY) === 'true';
 
 // Inicializar contador
-likeCount2.textContent = likes2;
+likeCount.textContent = likes;
 
 // Si ya dio like
-if (userLiked2) {
-  likeBtn2.classList.add('liked');
-  likeBtn2.disabled = true;
+if (userLiked) {
+  likeBtn.classList.add('liked');
+  likeBtn.disabled = true;
 }
 
 // Click en Like
-likeBtn2.addEventListener('click', () => {
-  if (!userLiked2) {
-    likes2++;
-    localStorage.setItem(PAGE_KEY, likes2);
+likeBtn.addEventListener('click', () => {
+  if (!userLiked) {
+    likes++;
+    localStorage.setItem(PAGE_KEY, likes);
     localStorage.setItem(USER_LIKED_KEY, 'true');
 
-    likeCount2.textContent = likes2;
-    likeBtn2.classList.add('liked');
-    likeBtn2.disabled = true;
+    likeCount.textContent = likes;
+    likeBtn.classList.add('liked');
+    likeBtn.disabled = true;
   }
 });
 
