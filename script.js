@@ -179,31 +179,31 @@ function hearts() {
 }
 
 
-//POPUP:
-const popup = document.getElementById("popup");
+//poppup:
+const poppup = document.getElementById("poppup");
 const zona = document.getElementById("zona-hover");
 
 
 if (window.innerWidth > 768) {   
 
-// Mostrar popup al cargar la página
+// Mostrar poppup al cargar la página
 window.onload = () => {
-    popup.style.display = "block";
+    poppup.style.display = "block";
 
     // Ocultarlo después de 3 segundos =3000
     setTimeout(() => {
-        popup.style.display = "none";
+        poppup.style.display = "none";
     }, 25000);
 };
 
 // Mostrar al pasar el ratón
 zona.addEventListener("mouseenter", () => {
-    popup.style.display = "block";
+    poppup.style.display = "block";
 });
 
 // Ocultar al quitar el ratón
 zona.addEventListener("mouseleave", () => {
-    popup.style.display = "none";
+    poppup.style.display = "none";
 });
 }
 
