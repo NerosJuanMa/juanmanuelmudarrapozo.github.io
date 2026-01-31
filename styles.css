@@ -1012,7 +1012,7 @@ user-select: none;
     
     align-content: center;
   }
-  #p, 
+    .poppup, 
     .zona-hover{
         display: none;
     }
@@ -1359,21 +1359,10 @@ user-select: none;
   /* -------------------------
      ELEMENTOS FLOTANTES
   --------------------------*/
-
-.floating-social,
-.floating-like,
-.fechaflotante {
-    display: none;
-  }
-
-
-  .mode-toggle,
-  .audio-on {
-    top: 12px;
-    right: 12px;
-  }
-
-
+    .poppup, 
+    .zona-hover{
+        display: none;
+    }
   .irtopC {
     right: 10px;
     bottom: 15px;
@@ -1404,7 +1393,10 @@ user-select: none;
   .nav-menu a {
     font-size: 1.1rem;
   }
-
+    .poppup, 
+    .zona-hover{
+        display: none;
+    }
 }
 
 
