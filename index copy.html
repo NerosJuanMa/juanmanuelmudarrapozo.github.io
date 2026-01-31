@@ -24,51 +24,55 @@
   gtag('config', 'G-TR70590PF9');
 </script>
 <body>
-  <!-- BOTONES FLOTANTES -->
-  <div>
-        <!-- BOTON HAMBURGUESA -->
+  <!-- botones flotantes -->
+  <div class="floating-social">
+    <div class="fechaflotante" id="fechaActualh"></div>
+    <a href="#" onclick="sharePage()" title="Compartir">
+      <i class="fas fa-share-alt"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/nerosjuanma/" target="_blank" title="LinkedIn">
+      <i class="fa-brands fa-linkedin"></i>
+    </a>
+    <div class="floating-like2">
+      <button id="likeBtn2">
+        <i class="fas fa-thumbs-up"></i>
+        <span id="likeCount2">0</span>
+      </button>
+      
+      <div class="floating-like">
+        
+        <button id="likeBtn">❤️ <span id="likeCount">0</span></button>
+    </div>
+<!-- Zona que activa el recuadro al pasar el ratón -->
+    <div id="zona-hover" class="zona-hover">👋</div>
+    </div>
+  
+         <!-- Botón hamburguesa -->
     <button class="hamburger" id="hamburger">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
-    </button>  
-        <!-- FECHA -->
-    <div class="fechaflotante" id="fechaActualh"></div>
-        <!-- MODO CLARO/OSCURO -->
-    <button id="modeToggle" class="mode-toggle">
-      <span class="icon">🌙</span>
     </button>
-        <!-- AUDIO -->
-    <div id="audio-btn" class="audio-on">🔊</div>
-    <audio id="bg-audio" src="heartbeat_sound.mp3" loop autoplay muted></audio>
-        <!-- SOCIAL LINKS -->
-    <div class="floating-social">    
-      <a href="#" onclick="sharePage()" title="Compartir">
-        <i class="fas fa-share-alt"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/nerosjuanma/" target="_blank" title="LinkedIn">
-        <i class="fa-brands fa-linkedin"></i>
-      </a> 
-    </div>
-        <!-- LIKES -->
-    <div class="floating-like2">
-      <button id="likeBtn2">❤️
-        <!-- <i class="fas fa-thumbs-up"></i> -->
-        <span id="likeCount2">0</span>
-      </button>      
-    </div>
-    
-        <!-- Recuadro flotante -->
-    <div id="popup" class="popup">
-      <!-- Contenido HTML interno -->
-      <iframe src="contenido.html"></iframe>
-    </div>
-      <!-- Zona que activa el recuadro al pasar el ratón -->
-    <div id="zona-hover" class="zona-hover">👋</div>
+
+</div>
+
+
+  
+  <!-- Recuadro flotante -->
+  <div id="popup" class="popup">
+    <!-- Contenido HTML interno -->
+    <iframe src="contenido.html"></iframe>
   </div>
+
+  <button id="modeToggle" class="mode-toggle">
+    <span class="icon">🌙</span>
+  </button>
+  <audio id="bg-audio" src="heartbeat_sound.mp3" loop autoplay muted></audio>
+  <div id="audio-btn" class="audio-on">🔊</div>
+
   <!-- ================= HEADER ================= -->
   <header>
-
+    <!-- <div id="fechaActualh" class="fechaHead"></div> -->
     <div class="header__inner">
       <div class="imgfoto"><img class="header__photo" src="/yo_mini.jpg" alt="Foto de perfil (placeholder)">
       </div>
@@ -155,9 +159,10 @@
           </a>
 
         </div>
-
-        
-        <div class="header__role">
+        <!-- <p class="header__role">Full Stack Web Developer | Diseñador Gráfico | Game Designer | Administrador de Base
+            de Datos MySQL | Auxiliar administrativo | Auxiliar Contable | Técnico Superior en sistemas electrotécnicos
+            y automatizados </p> -->
+        <div class="header__role2">
           <span class="role-item">Full Stack Web Developer</span>
           <span class="role-item">Diseñador Gráfico</span>
           <span class="role-item">Game Designer</span>
@@ -169,7 +174,8 @@
 
       </div>
     </div>
-  <!-- ================= NAV ================= -->  
+  <!-- ================= NAV ================= -->
+  <!-- <div class="nav"> -->
     <nav aria-label="Secciones del CV" class="nav-menu" id="navMenu">
       <ul>
         <li><a href="#perfil">Perfil</a></li>
@@ -180,18 +186,42 @@
         <li><a href="#proyectos">Proyectos</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
-    </nav>  
+    </nav>
+
+   
+  <!-- </div> -->
   </header>
+  <div class="irtopC"><a href="#top" class="irtop">⇡</a></div>
+
   
+
+  <!-- BREADCRUMBS / MIGAS DE PAN
+    <div style="grid-column: 1 / -1; margin: 0 20px;">
+      <nav aria-label="Migas de pan" class="breadcrumb">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item active" aria-current="page">
+            Inicio
+          </li>
+        </ol>
+      </nav>
+    </div> -->
+
+
+
   <!-- ================= MAIN ================= -->
   <main>
-   <div class="irtopC"><a href="#top" class="irtop">⇡</a></div> 
     <!-- Tarjetas de acceso rápido -->
     <section class="repaso" aria-labelledby="repaso-cv">
       <h2 id="repaso-cv" class="repaso">
         Explora el CV
         <a class="button_download" href="/cv.pdf" target="_blank" title="Download-CV">
-
+          <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24"
+            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" class="lucide lucide-download mr-2 h-5 w-5">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" x2="12" y1="15" y2="3"></line>
+          </svg> -->
           <img class="button_download" src="assets/descarga.png" alt="Descarga CV">
          </a>
       </h2>
@@ -692,10 +722,11 @@
 
   <!-- ================= FOOTER ================= -->
   <footer>
-    <div class="footer">© 2025 Juan Manuel Mudarra Pozo · CV Digital · Todos los derechos reservados.
-      <a href="#top">Volver arriba ⇡</a>
-    </div>
-    <div class="fecha" id="fechaActual"></div>     
+
+    <div class="footer">© 2025 Juan Manuel Mudarra Pozo · CV Digital · Todos los derechos reservados.<a
+        href="#top">Volver arriba ⇡</a></div>
+    <div class="fecha" id="fechaActual"></div>
+     
     <div class="mapa" id="mapa">
     <iframe src="https://maps.google.com/maps?q=Plaza+Alegre+Sevilla&output=embed" 
     width="450" 
@@ -705,7 +736,8 @@
     loading="lazy">
     </iframe>
     </div>
-  </footer>
+  </footer> 
+  </div>
 </body>
 
 </html>
