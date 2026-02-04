@@ -1203,6 +1203,7 @@ a:visited {
   --------------------------*/
     .section {
         grid-template-columns: 1fr;
+        overflow-x: none;
     }
 
     .repaso-grid {
@@ -1227,6 +1228,7 @@ a:visited {
         white-space: normal;
         justify-content: center;
         text-align: center;
+        overflow-x: none;
     }
 
     .habilidades {
@@ -1239,6 +1241,7 @@ a:visited {
         columns: 2;
         gap: 0.10rem;
         list-style: none;
+        overflow-x: none;
     }
 
     /* -------------------------
