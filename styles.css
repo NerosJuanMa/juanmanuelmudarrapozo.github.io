@@ -1176,4 +1176,15 @@ user-select: none;
     bottom: 5%;
     top: auto;
   }
+
+.fechaflotante{
+    right: 12%;
+}
+.mode-toggle,
+.audio-on,
+.floating-social,
+.floating-like{
+    right: 7%;
+}
+
 }
