@@ -385,6 +385,7 @@ aside {
    ============================================================ */
 .section,
 .card {
+    width: 100%;
     background: var(--card-light);
     border-radius: 10px;
     padding: 26px;
@@ -1110,7 +1111,10 @@ user-select: none;
   /* -------------------------
      SECCIONES / GRIDS
   --------------------------*/
-
+    .section{
+        max-width: 100%;
+        grid-template-columns: 1fr;
+    }
   .repaso-grid {
     grid-template-columns: 1fr;
   }
@@ -1158,7 +1162,7 @@ user-select: none;
   /* -------------------------
      TABLAS RESPONSIVE
   --------------------------*/
-/* .section, */
+
   table {
     display: block;
     /* overflow-x: auto; */
