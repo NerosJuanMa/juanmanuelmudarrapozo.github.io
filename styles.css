@@ -710,13 +710,16 @@ html.dark-mode .mode-toggle .icon {
    8. TABLAS
    ===========================================================*/
 .blandas{
-    width: 95%;
+    width: 100%;
     text-align: center;
     
 }
 
 .habilidades{
-    columns:4; gap:1.5rem; margin-left:1rem;
+    width: 100%;
+    columns:4; 
+    gap:1.5rem; 
+    margin-left:1rem;
 }
 /* Estilos CSS básicos para la tabla */
 table {
@@ -1132,7 +1135,7 @@ user-select: none;
 .blandas{
     width: 100%;
     text-align: center;
-    white-space: normal;
+    /* white-space: normal; */
     justify-content: center;
     text-align: center;
 }
@@ -1142,7 +1145,7 @@ user-select: none;
     columns:2; 
     gap:1rem; 
     margin-left:1rem;
-    white-space: normal;
+    /* white-space: normal; */
     justify-content: center;
     text-align: center;
 }
