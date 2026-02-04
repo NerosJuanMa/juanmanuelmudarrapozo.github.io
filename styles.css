@@ -1139,7 +1139,7 @@ user-select: none;
 
 .habilidades{
     width: 100%;
-    columns:3; 
+    columns:2; 
     gap:1rem; 
     margin-left:1rem;
     white-space: normal;
