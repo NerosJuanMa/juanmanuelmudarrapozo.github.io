@@ -746,7 +746,7 @@ th {
     color: var(--bg-light);
     padding: 1%;
     text-align: left;
-    vertical-align: top;
+    vertical-align: center;
     border: 1px solid #ddd;
 }
 
@@ -757,7 +757,7 @@ td {
     /* margin-left: 50%; */
     border: 1px solid #ddd;
     text-align: left;
-    vertical-align: top;
+    vertical-align: center;
     /* Alinea el contenido en la parte superior */
     
 }
