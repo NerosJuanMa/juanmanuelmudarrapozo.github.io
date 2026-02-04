@@ -1036,6 +1036,7 @@ user-select: none;
   }   
   
   .header__role{
+    font-size: clamp(1rem, 5vw, 3rem);
     width: 100%;
     position:relative;
     white-space: normal;
