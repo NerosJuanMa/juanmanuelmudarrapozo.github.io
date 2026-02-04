@@ -1130,7 +1130,7 @@ user-select: none;
   /* -------------------------
      SECCIONES / GRIDS
   --------------------------*/
-    .section{
+  .section{
         max-width: 100%;
         grid-template-columns: 1fr;
     }
@@ -1161,9 +1161,10 @@ user-select: none;
     max-width: 100%;
     height: auto;
     columns:2; 
-    gap:1rem; 
-    margin-left:1rem;
-    /* white-space: normal; */
+    gap:0.10rem; 
+    list-style: none;
+    margin-left:0.1rem;
+    white-space: normal;
     justify-content: center;
     text-align: center;
 }
