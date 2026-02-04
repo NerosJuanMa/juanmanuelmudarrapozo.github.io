@@ -40,7 +40,7 @@ html.dark-mode {
     /* Títulos, bordes mas claros */
     --sky-blue: #4fc3f7;
     --sky-blue2: #4fc3f7;
-    
+
     --ice-blue: #1a1f25;
     --bg-light: #0e0e0e;
     /* El fondo general oscuro */
@@ -55,37 +55,44 @@ html.dark-mode {
 /* ============================================================
    2. RESET Y BASE
    ============================================================ */
-* {    
+* {
     box-sizing: border-box;
     /* transition: background-color 0.4s ease, color 0.4s ease; */
     /* Asegura que no haya padding o margin que cause desbordamiento */
     margin: 0;
-    padding: 0; 
+    padding: 0;
 
 }
+
 *::selection {
-background-color: var(--sombra-light);
-color: var(--sombra-dark);
+    background-color: var(--sombra-light);
+    color: var(--sombra-dark);
 }
 
-details{
+details {
     color: var(--brand-pink);
-   
+
 }
-details:hover{
+
+details:hover {
     color: var(--text-light);
-    
+
 }
-.tituloSection{
+
+.tituloSection {
     display: inline;
 }
-.tituloSection:hover{
+
+.tituloSection:hover {
     color: var(--brand-pink);
 }
-html, body {
+
+html,
+body {
     transition: background-color 0.4s ease, color 0.4s ease;
-    
+
 }
+
 body {
     font-family: var(--fuente-principal);
     background: var(--bg-light);
@@ -100,7 +107,7 @@ body {
     width: 100%;
     display: grid;
     grid-template-columns: 3fr 2fr 1fr;
-    grid-template-rows: 0.1fr auto auto 0.1fr ;
+    grid-template-rows: 0.1fr auto auto 0.1fr;
     grid-template-areas:
         "header header header"
         "nav nav nav"
@@ -115,7 +122,7 @@ body {
 .layout {
 
     gap: 5px;
-    width:100%;
+    width: 100%;
 }
 
 header {
@@ -145,10 +152,10 @@ aside {
 }
 
 
-.iframe{
+.iframe {
     width: 100%;
     min-height: 50vw;
-    border:none;
+    border: none;
 }
 
 
@@ -164,7 +171,7 @@ aside {
     /* place-items:center; */
     /* border-style: double; */
     /* justify-content:center; align-items:center; */
-   
+
 }
 
 .header__photo {
@@ -174,24 +181,26 @@ aside {
     object-fit: cover;
     border: 4px solid var(--brand-pink);
     background: var(--card-light);
-    justify-content:center;
-    align-items:center;    
+    justify-content: center;
+    align-items: center;
 }
-.imgfoto{       
-        
-        display:flex;
-        width: 100%;
-        height: 100%;
-        justify-content:center;
-        align-items: center;
-        padding: 10px;
-        /* border-style: double; */
-    }
+
+.imgfoto {
+
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    /* border-style: double; */
+}
+
 .header__info {
     text-align: left;
     color: var(--deep-blue);
     /* background-color: var(--card-light); */
-    padding: 1rem; 
+    padding: 1rem;
     /* border-style: double;  */
     /* opacity:var(--card-light) 0.7;
     position: relative; */
@@ -204,7 +213,8 @@ aside {
     /* Imagen de fondo: */
     background: blue url('fondoNegro.jpg');
     background-clip: text;
-    -webkit-background-clip: text; /* Para compatibilidad*/
+    -webkit-background-clip: text;
+    /* Para compatibilidad*/
     color: transparent;
     font-size: 7rem;
     /* Borde del texto (contorno de cada letra): */
@@ -217,67 +227,81 @@ aside {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--brand-pink);
-    display:inline-block;
+    display: inline-block;
     /* border: 2px solid black; */
-    white-space: nowrap;       
+    white-space: nowrap;
     /* Evita que el texto se salte de línea */
     /* Altura fija para evitar saltos de diseño si se usa un font-size específico */
-}/* Estilos base para el contenedor y los roles */
+}
+
+/* Estilos base para el contenedor y los roles */
 .role-item {
-    display: none; /* Oculta todos los elementos por defecto */
-    font-family: monospace; /* Fuente de ancho fijo para un mejor efecto de máquina de escribir */
+    display: none;
+    /* Oculta todos los elementos por defecto */
+    font-family: monospace;
+    /* Fuente de ancho fijo para un mejor efecto de máquina de escribir */
     /* Por defecto, los hacemos opacos para que las letras se vean */
-    opacity: 1; 
+    opacity: 1;
 }
 
 /* Estilo que se aplica al rol activo */
 .role-item.active {
-    display: inline-block; /* Mostrar solo el rol activo */
-    overflow: hidden; /* Oculta el texto que excede el ancho */
-    width: 0; /* ANCHO INICIAL: Oculta todo el texto, lo revela JS */
+    display: inline-block;
+    /* Mostrar solo el rol activo */
+    overflow: hidden;
+    /* Oculta el texto que excede el ancho */
+    width: 0;
+    /* ANCHO INICIAL: Oculta todo el texto, lo revela JS */
     max-width: 25ch;
     height: 8ch;
     align-content: center;
-    
+
     /* El borde derecho simula el cursor parpadeante */
     /* border-right: 2px solid;  */
-    
+
     /* Animación del parpadeo del cursor */
     animation: blink-caret .75s step-end infinite;
 }
 
 /* Animación del cursor: simplemente alterna la opacidad del borde */
 @keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: currentColor; }
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: currentColor;
+    }
 }
 
 /* HEADER ICONOS*/
 .header__contact {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
-  font-size: 1.2rem;
-  /* margin-top: 8px; */
-  /* border-style: double; */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.2rem;
+    /* margin-top: 8px; */
+    /* border-style: double; */
 }
 
 .header__contact span {
-  opacity: 0.4;
-  user-select: none;
+    opacity: 0.4;
+    user-select: none;
 }
 
 .contact-icon {
-  text-decoration: none;
-  color: inherit;
-  font-size: 1.4rem;
-  transition: color 0.2s ease, transform 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+    font-size: 1.4rem;
+    transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .contact-icon:hover {
-  color: #007bff;
-  transform: scale(1.15);
+    color: #007bff;
+    transform: scale(1.15);
 
 }
 
@@ -287,13 +311,16 @@ aside {
 @keyframes pulse-grow {
     0% {
         transform: scale(1);
-        box-shadow: 0 0 0 var(--sombra-light); /* Sin sombra */
+        box-shadow: 0 0 0 var(--sombra-light);
+        /* Sin sombra */
     }
+
     50% {
         transform: scale(1.02);
         /* Sombra sutil: 0px x, 0px y, 15px de blur, color negro transparente */
-        box-shadow: 0 0 15px var(--sombra-dark); 
+        box-shadow: 0 0 15px var(--sombra-dark);
     }
+
     100% {
         transform: scale(1);
         box-shadow: 0 0 0 var(--sombra-light);
@@ -304,13 +331,13 @@ aside {
     /* Reemplaza 'nombre-de-la-animacion' con 'pulse-grow' */
     animation-name: pulse-grow;
     /* Duración de un ciclo completo (ej. 3 segundos) */
-    animation-duration: 1.5s; 
+    animation-duration: 1.5s;
     /* Hace que la animación se repita indefinidamente */
-    animation-iteration-count: infinite; 
+    animation-iteration-count: infinite;
     /* Suaviza la transición (ej. ease-in-out para empezar lento, acelerar y terminar lento) */
-    animation-timing-function: ease-in-out; 
+    animation-timing-function: ease-in-out;
     /* Opcional: Para asegurar que el elemento se comporta como un bloque al aplicar transform */
-    display: block; 
+    display: block;
 }
 
 /* Opcional: Forma abreviada para la propiedad 'animation' */
@@ -323,7 +350,7 @@ aside {
    ============================================================ */
 /* Botón hamburguesa (oculto en desktop) */
 .hamburger {
-    display:none;
+    display: none;
 }
 
 /* Menú de navegación */
@@ -333,7 +360,7 @@ aside {
     align-items: center;
     gap: 0.5rem;
     list-style: none;
-    flex-wrap: wrap;  
+    flex-wrap: wrap;
     margin: 0;
     padding: 0;
     /* border: 3px solid red; */
@@ -371,7 +398,11 @@ aside {
     color: var(--deep-blue);
     margin-bottom: 0.2rem;
 }
-.sidebar ul{margin-left:1rem; list-style:square;}
+
+.sidebar ul {
+    margin-left: 1rem;
+    list-style: square;
+}
 
 /* ============================================================
    7. SECCIONES Y TARJETAS
@@ -383,11 +414,13 @@ aside {
     border-radius: 10px;
     padding: 26px;
 }
+
 .repaso {
     background: var(--card-light);
     border-radius: 10px;
     padding: 5px;
 }
+
 .section {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
     margin-bottom: 12px;
@@ -395,7 +428,7 @@ aside {
 
 .section h2,
 h2.repaso {
-    
+
     color: var(--deep-blue);
     margin-bottom: 0.5rem;
 }
@@ -455,10 +488,12 @@ button[type="submit"] {
     display: inline-block;
     transition: background 0.2s ease;
 }
+
 button[type="submit"]:hover {
     background: var(--sky-blue);
 }
-.button_card{
+
+.button_card {
     /* background: var(--ice-blue);
     color: var(--brand-pink); 
     border: none;
@@ -470,28 +505,29 @@ button[type="submit"]:hover {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px ;
-    background: linear-gradient(to top, 
-        var(--sombra-light), 
-        transparent 65%);
+    border-bottom-right-radius: 20px;
+    background: linear-gradient(to top,
+            var(--sombra-light),
+            transparent 65%);
 
-    
-    padding: 0.6rem 1.1rem;    
+
+    padding: 0.6rem 1.1rem;
     font-weight: 600;
     text-decoration: none;
     display: inline-block;
     transition: background 0.2s ease;
 }
-.button_card:hover{
+
+.button_card:hover {
     /* background: var(--brand-pink); */
-    background: linear-gradient(to top, 
-        var(--brand-pink), 
-        transparent 65%);
+    background: linear-gradient(to top,
+            var(--brand-pink),
+            transparent 65%);
     color: var(--text-light);
 
 }
 
-.button_download img{
+.button_download img {
     /* Ocultar la imagen original pero usar su forma */
     /* -webkit-mask: url('assets/descarga.png') no-repeat center;
     mask: url('assets/descarga.png') no-repeat center;
@@ -499,39 +535,40 @@ button[type="submit"]:hover {
     mask-size: contain; */
 
     /* filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(286deg) brightness(118%) contrast(119%); */
-     /* Aplicar el color que quieras */
+    /* Aplicar el color que quieras */
     /* background: var(--brand-pink); */
 
     width: 2rem;
     height: 1.5rem;
-    
+
     background: transparent;
     filter: brightness(0) saturate(100%) invert(23%) sepia(97%) saturate(5504%) hue-rotate(308deg) brightness(98%) contrast(106%);
 
 }
 
-.button_download img:hover{
+.button_download img:hover {
     transform: scale(1.15);
-    mix-blend-mode:normal;
-    
+    mix-blend-mode: normal;
+
     filter: brightness(0) saturate(100%) invert(38%) sepia(98%) saturate(3426%) hue-rotate(200deg) brightness(101%) contrast(106%);
 }
 
 /* FIXED ESPECIALES  */
 /*fechaflotante*/
-.fechaflotante{
-  position: fixed;
-  width: 20%;
-  right: 50px;
-  color: var(--brand-pink);
-  font-weight: 600;
-  font-weight: 600;
-  text-align: right;
-  inset: 1rem 3rem auto auto;
+.fechaflotante {
+    position: fixed;
+    width: 20%;
+    right: 50px;
+    color: var(--brand-pink);
+    font-weight: 600;
+    font-weight: 600;
+    text-align: right;
+    inset: 1rem 3rem auto auto;
 }
+
 /* ------ BOTÓN MODERNO DARK ------ */
 .mode-toggle {
-    position: fixed;   
+    position: fixed;
     width: 25px;
     height: 25px;
     border-radius: 14px;
@@ -575,10 +612,10 @@ html.dark-mode .mode-toggle .icon {
 }
 
 /* //AUDIO DE FONDO */
-    .audio-on{ 
+.audio-on {
     font-size: 1.2rem;
-    cursor: pointer; 
-    user-select:none;
+    cursor: pointer;
+    user-select: none;
     position: fixed;
     display: flex;
     align-items: center;
@@ -587,72 +624,80 @@ html.dark-mode .mode-toggle .icon {
     margin-right: 1px;
     width: 20px;
     height: 20px;
-    inset: 3rem 1rem auto auto;     
-    }
+    inset: 3rem 1rem auto auto;
+}
 
-    .audio-off {
-        opacity: 0.5;
-    }
+.audio-off {
+    opacity: 0.5;
+}
 
 /* Botones flotantes*/
 .floating-social {
-  position: fixed;       /* Fijo en pantalla */
-  inset: 5rem 1rem auto auto;
-  display: flex;        /* PARA QUE SE VEA SE PONE flex*/
-  flex-direction: column;
-  gap: 10px;             /* Separación entre iconos */
-  z-index: 1000;         /* Encima de todo */
+    position: fixed;
+    /* Fijo en pantalla */
+    inset: 5rem 1rem auto auto;
+    display: flex;
+    /* PARA QUE SE VEA SE PONE flex*/
+    flex-direction: column;
+    gap: 10px;
+    /* Separación entre iconos */
+    z-index: 1000;
+    /* Encima de todo */
 }
 
 .floating-social a {
-  display: flex;
-  text-decoration: none;
-  font-size: 1.5rem;        /* Tamaño iconos */
-  color: var(--text-light);
-  width: 20px;
-  height: 20px; 
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;     /* Botones redondos */
-  transition: transform .2s, background .2s;
+    display: flex;
+    text-decoration: none;
+    font-size: 1.5rem;
+    /* Tamaño iconos */
+    color: var(--text-light);
+    width: 20px;
+    height: 20px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    /* Botones redondos */
+    transition: transform .2s, background .2s;
 }
 
 .floating-social a:hover {
-  transform: scale(1.2);
-  background: var(--bg-light);       /* Color más claro al pasar */
-  color: var(--sky-blue);
+    transform: scale(1.2);
+    background: var(--bg-light);
+    /* Color más claro al pasar */
+    color: var(--sky-blue);
 }
 
 .floating-like {
-  z-index: 1000;  
-  position: fixed;
-  inset: 9rem 0.7rem auto auto;
+    z-index: 1000;
+    position: fixed;
+    inset: 9rem 0.7rem auto auto;
 }
 
 #likeBtn {
-  display: flex;
-  align-items: center;
-  gap: 0.5px;
-  background: var(--sky-blue);
-  color: var(--text-light);
-  border: none;
-  border-radius: 50px;
-  padding: 1px 3px;
-  font-size: 0.7rem;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,.3);
-  transition: transform .2s, background .2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5px;
+    background: var(--sky-blue);
+    color: var(--text-light);
+    border: none;
+    border-radius: 50px;
+    padding: 1px 3px;
+    font-size: 0.7rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .3);
+    transition: transform .2s, background .2s;
 }
 
 #likeBtn:hover {
-  transform: scale(1.1);
-  background: #0f5cc0;
+    transform: scale(1.1);
+    background: #0f5cc0;
 }
 
 #likeBtn.liked {
-  background: var(--sky-blue);
+    background: var(--sky-blue);
 
 }
+
 .zona-hover {
     display: block;
     position: absolute;
@@ -660,19 +705,21 @@ html.dark-mode .mode-toggle .icon {
     z-index: 1001;
     inset: 11rem 1rem auto auto;
 }
+
 /* Recuadro flotante */
 #poppup {
-    display: none; 
+    display: none;
     /* Oculto por defecto (se muestra al entrar en página por JS) */
     background: rgba(255, 255, 255, 0.01);
-    position: fixed;    
+    position: fixed;
     bottom: 1%;
     right: 1%;
     width: 33%;
     height: 70%;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     z-index: 999;
 }
+
 /* Asegura que el HTML interior se ajuste al recuadro */
 #poppup iframe {
     width: 100%;
@@ -684,7 +731,7 @@ html.dark-mode .mode-toggle .icon {
 .irtopC {
     display: flex;
     justify-content: right;
-    align-items: right;    
+    align-items: right;
     position: fixed;
     top: 89%;
     /* inset: auto 1rem 1rem auto; */
@@ -693,20 +740,22 @@ html.dark-mode .mode-toggle .icon {
     font-weight: 600;
     font-size: x-large;
     border: 3px solid var(--sombra-dark);
-} 
+}
+
 .irtopC {
     /* Reemplaza 'nombre-de-la-animacion' con 'pulse-grow' */
     animation-name: pulse-grow;
     /* Duración de un ciclo completo (ej. 3 segundos) */
-    animation-duration: 3s; 
+    animation-duration: 3s;
     /* Hace que la animación se repita indefinidamente */
-    animation-iteration-count: infinite; 
+    animation-iteration-count: infinite;
     /* Suaviza la transición (ej. ease-in-out para empezar lento, acelerar y terminar lento) */
-    animation-timing-function: ease-in-out; 
+    animation-timing-function: ease-in-out;
     /* Opcional: Para asegurar que el elemento se comporta como un bloque al aplicar transform */
-    display: block; 
+    display: block;
     z-index: 999;
 }
+
 .irtopC a:hover {
     background: var(--sombra-dark);
     color: var(--sombra-light);
@@ -714,27 +763,29 @@ html.dark-mode .mode-toggle .icon {
 
 .irtop {
     color: var(--brand-pink);
- }
+}
+
 /* ============================================================
    8. TABLAS
    ===========================================================*/
-.blandas{
+.blandas {
     width: 100%;
     text-align: center;
-    
+
 }
 
-.habilidades{
+.habilidades {
     width: 100%;
-    columns:4; 
-    gap:1.5rem; 
-    margin-left:1rem;
+    columns: 4;
+    gap: 1.5rem;
+    margin-left: 1rem;
 }
+
 /* Estilos CSS básicos para la tabla */
 table {
     max-width: 100%;
     border-collapse: collapse;
-    overflow-x:auto;
+    overflow-x: auto;
     font-family: Arial, sans-serif;
 }
 
@@ -759,7 +810,7 @@ td {
     text-align: left;
     vertical-align: center;
     /* Alinea el contenido en la parte superior */
-    
+
 }
 
 /* Alternar colores de fila para mejor legibilidad */
@@ -767,7 +818,7 @@ tr:nth-child(even) {
     background-color: var(--bg-light);
 }
 
-progress{
+progress {
     max-width: 100%;
 }
 
@@ -778,7 +829,8 @@ h2 {
     border-bottom: 3px solid #337ab7;
     padding-bottom: 1px;
 }
-h4{
+
+h4 {
     font-family: Arial, sans-serif;
     font-size: 2rem;
     border-bottom: 3px solid #337ab7;
@@ -835,11 +887,11 @@ html.dark-mode textarea {
    11. FOOTER
    ============================================================ */
 
-  /* El contenido del footer debe estar encima del overlay */
+/* El contenido del footer debe estar encima del overlay */
 footer * {
     position: relative;
     z-index: 1000;
-  }
+}
 
 footer {
     font-size: 1rem;
@@ -847,18 +899,21 @@ footer {
     padding: 10px 0;
     margin-top: 20px;
     border-top: 5px solid var(--brand-pink);
-    color: var(--sombra-light);    
-    background-image: url('fondoNegro.jpg'); 
-    background-size: cover; 
+    color: var(--sombra-light);
+    background-image: url('fondoNegro.jpg');
+    background-size: cover;
     background-position: center;
-    background-repeat: no-repeat; /* No repite la imagen */
-    
+    background-repeat: no-repeat;
+    /* No repite la imagen */
+
 }
-footer a{
+
+footer a {
     color: var(--brand-pink);
     font-weight: 600;
 }
-footer .fecha{
+
+footer .fecha {
     /* color: var(--brand-pink); */
     font-weight: 600;
     text-align: center;
@@ -867,7 +922,7 @@ footer .fecha{
 /* ============================================================
    12. IMÁGENES Y GALERÍA
    ============================================================ */
-   
+
 .imagenes,
 .gallery img {
     display: block;
@@ -950,26 +1005,31 @@ footer .fecha{
     text-align: left;
     z-index: 1000;
 }
+
 a {
     color: #e010a8;
-    
+
 }
-a:hover{
+
+a:hover {
     color: red;
 }
+
 a:visited {
     /* Color del enlace después de haber sido visitado */
-    color: var(--sky-blue); /* Puedes cambiar 'purple' por el color que desees */
+    color: var(--sky-blue);
+    /* Puedes cambiar 'purple' por el color que desees */
 }
 
-.mapa{
-    
-    position:relative;
-    bottom:1px;
+.mapa {
+
+    position: relative;
+    bottom: 1px;
 
 }
+
 .no-seleccionar {
-user-select: none;
+    user-select: none;
 }
 
 /* ============================================================
@@ -979,265 +1039,270 @@ user-select: none;
 /* Tablets y móviles */
 @media (max-width: 768px) {
 
-  /* -------------------------
+    /* -------------------------
      LAYOUT GENERAL
   --------------------------*/
 
-  body {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "header"
-      "nav"
-      "main"
-      "aside"
-      "footer";
+    body {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "nav"
+            "main"
+            "aside"
+            "footer";
 
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    overflow-x: hidden;
-  }
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        overflow-x: hidden;
+    }
 
 
-  header,
-  nav,
-  main,
-  aside,
-  footer {
-    width: 100%;
-    max-width: 100%;
-  }
+    header,
+    nav,
+    main,
+    aside,
+    footer {
+        width: 100%;
+        max-width: 100%;
+    }
 
-  
-  /* -------------------------
+
+    /* -------------------------
      HEADER
   --------------------------*/
 
-  .header__inner {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 1rem;
-    margin: 0;
-    padding: 1rem;
-  }
-  
-  .imgfoto {
-    justify-content: center;
-    padding: 0;
-  }
-  
-  .header__photo {
-    width: 140px;
-    height: 140px;
-    margin: 0 auto;
-  }
-  
-  .header__info {
-    padding: 0;
-  }
-  
-  .header__name {
-    font-size: clamp(2rem, 7vw, 3rem);
-    line-height: 1.2;
-    text-align: center;
-  }   
-  
-  .header__role{
-    font-size: clamp(1rem, 5vw, 3rem);
-    width: 100%;
-    position:relative;
-    white-space: normal;
-    justify-content: center;
-    text-align: center;
-    border-top: 1px solid var(--deep-blue);
-    border-bottom: 3px solid var(--deep-blue);
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px ;
-    background: linear-gradient(to top, 
-        var(--sombra-light), 
-        transparent 65%);
+    .header__inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1rem;
+        margin: 0;
+        padding: 1rem;
     }
-    
-  .header__contact {
-    width: 100%;
-    white-space: normal;
-    justify-content: center;
-    text-align: center;
-  }
+
+    .imgfoto {
+        justify-content: center;
+        padding: 0;
+    }
+
+    .header__photo {
+        width: 140px;
+        height: 140px;
+        margin: 0 auto;
+    }
+
+    .header__info {
+        padding: 0;
+    }
+
+    .header__name {
+        font-size: clamp(2rem, 7vw, 3rem);
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    .header__role {
+        font-size: clamp(1rem, 5vw, 3rem);
+        width: 100%;
+        position: relative;
+        white-space: normal;
+        justify-content: center;
+        text-align: center;
+        border-top: 1px solid var(--deep-blue);
+        border-bottom: 3px solid var(--deep-blue);
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+        background: linear-gradient(to top,
+                var(--sombra-light),
+                transparent 65%);
+    }
+
+    .header__contact {
+        width: 100%;
+        white-space: normal;
+        justify-content: center;
+        text-align: center;
+    }
 
 
-  /* -------------------------
+    /* -------------------------
      NAVEGACIÓN / HAMBURGUESA
   --------------------------*/
 
-.hamburger {
-    display: flex;
-    flex-direction: column;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    z-index: 10000;
-    top: 12px;
-    left: 12px;
-    position: fixed;
-  }
-.hamburger .bar {
-    width: 25px;
-    height: 3px;
-    background-color: var(--deep-blue);
-    margin: 3px 0;
-    transition: all 0.3s ease;
-    border-radius: 3px;
-    position: relative;
-   
-}
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 10000;
+        top: 12px;
+        left: 12px;
+        position: fixed;
+    }
 
-/* Animación del botón hamburguesa cuando está activo */
-.hamburger.active .bar:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
+    .hamburger .bar {
+        width: 25px;
+        height: 3px;
+        background-color: var(--deep-blue);
+        margin: 3px 0;
+        transition: all 0.3s ease;
+        border-radius: 3px;
+        position: relative;
 
-.hamburger.active .bar:nth-child(2) {
-    opacity: 0;
-}
+    }
 
-.hamburger.active .bar:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
+    /* Animación del botón hamburguesa cuando está activo */
+    .hamburger.active .bar:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
 
-}
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
 
-.nav-menu {
-    position: fixed;
-    top: 5%;
-    left: -20px;
-    width: 50%;
-    /* background: var(--ice-blue);     */
-    transform: translateX(-100%);
-    transition: transform 0.5s ease;   
-    
-  }
-  .nav-menu ul {
-    display: flex;
-    width: 80%;
-    position: fixed;
-    font-size: 1.2rem;
-    justify-content: left; 
-    margin-left: 15%;
-    border-left: 3px solid var(--deep-blue);
-    border-bottom: 3px solid var(--deep-blue);
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 40px ;
-    background: linear-gradient(to right, var(--sombra-light), transparent);
-  }
-  .nav-menu.active {
-    transform: translateX(0);
-  }
-  
-  /* -------------------------
+    .hamburger.active .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 5%;
+        left: -20px;
+        width: 50%;
+        /* background: var(--ice-blue);     */
+        transform: translateX(-100%);
+        transition: transform 0.5s ease;
+
+    }
+
+    .nav-menu ul {
+        display: flex;
+        width: 80%;
+        position: fixed;
+        font-size: 1.2rem;
+        justify-content: left;
+        margin-left: 15%;
+        border-left: 3px solid var(--deep-blue);
+        border-bottom: 3px solid var(--deep-blue);
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 40px;
+        background: linear-gradient(to right, var(--sombra-light), transparent);
+    }
+
+    .nav-menu.active {
+        transform: translateX(0);
+    }
+
+    /* -------------------------
      SECCIONES / GRIDS
   --------------------------*/
-  .section{
-        max-width: 100%;
+    .section {
         grid-template-columns: 1fr;
     }
-  .repaso-grid {
-    grid-template-columns: 1fr;
-  }
+
+    .repaso-grid {
+        grid-template-columns: 1fr;
+    }
 
 
-  .form-grid {
-    grid-template-columns: 1fr;
-  }
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
 
+    .multimedia-grid {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
 
-  .multimedia-grid {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-.blandas{
-    max-width: 100%;
-    height: auto;
-    text-align: center;
-    margin: 0 auto;
-    white-space: normal;
-    justify-content: center;
-    text-align: center;
-}
+    .blandas {
+        max-width: 100%;
+        height: auto;
+        text-align: center;
+        margin: 0 auto;
+        white-space: normal;
+        justify-content: center;
+        text-align: center;
+    }
 
-.habilidades{
-    max-width: 100%;
-    height: auto;
-    text-align: center;
-    margin: 0 auto;
-    white-space: normal;
-    justify-content: center;
-    columns:2; 
-    gap:0.10rem; 
-    list-style: none;    
-}
+    .habilidades {
+        max-width: 100%;
+        height: auto;
+        text-align: center;
+        margin: 0 auto;
+        white-space: normal;
+        justify-content: center;
+        columns: 2;
+        gap: 0.10rem;
+        list-style: none;
+    }
 
-  /* -------------------------
+    /* -------------------------
      TABLAS RESPONSIVE
   --------------------------*/
-.table-wrapper {
-  max-width: 100%;
-  overflow-x: none;
-}
+    .table-wrapper {
+        max-width: 100%;
+        overflow-x: none;
+    }
 
-.tableh {
-  max-width: 100%;
-  border-collapse: collapse;
-  text-align: center;
-  display: table;
-}
+    .tableh {
+        max-width: 100%;
+        border-collapse: collapse;
+        text-align: center;
+        display: table;
+    }
 
 
-  /* -------------------------
+    /* -------------------------
      TIMELINE
   --------------------------*/
 
-  .timeline-container {
-    width: 100%;
-    overflow-x: auto;
-    padding: 1rem;
-    gap: 2rem;
-  }
+    .timeline-container {
+        width: 100%;
+        overflow-x: auto;
+        padding: 1rem;
+        gap: 2rem;
+    }
 
-  /* -------------------------
+    /* -------------------------
      IFRAME / MEDIA
   --------------------------*/
 
-  iframe,
-  video,
-  embed {
-    max-width: 100%;
-    height: auto;
-  }
+    iframe,
+    video,
+    embed {
+        max-width: 100%;
+        height: auto;
+    }
 
 
-  /* -------------------------
+    /* -------------------------
      ELEMENTOS FLOTANTES
   --------------------------*/
-    .poppup, 
-    .zona-hover{
+    .poppup,
+    .zona-hover {
         display: none;
     }
-  .irtopC {
-    right: 1%;
-    bottom: 5%;
-    top: auto;
-  }
 
-.fechaflotante{
-    right: 10%;
-}
-.mode-toggle,
-.audio-on,
-.floating-social,
-.floating-like{
-    right: 1%;
-}
+    .irtopC {
+        right: 1%;
+        bottom: 5%;
+        top: auto;
+    }
+
+    .fechaflotante {
+        right: 10%;
+    }
+
+    .mode-toggle,
+    .audio-on,
+    .floating-social,
+    .floating-like {
+        right: 1%;
+    }
 
 }
