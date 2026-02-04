@@ -1125,7 +1125,23 @@ user-select: none;
     flex-direction: column;
     gap: 1.5rem;
   }
+.blandas{
+    width: 100%;
+    text-align: center;
+    white-space: normal;
+    justify-content: center;
+    text-align: center;
+}
 
+.habilidades{
+    width: 100%;
+    columns:3; 
+    gap:1rem; 
+    margin-left:1rem;
+    white-space: normal;
+    justify-content: center;
+    text-align: center;
+}
 
   /* -------------------------
      TIMELINE
