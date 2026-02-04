@@ -1096,14 +1096,14 @@ user-select: none;
 }
 
 .hamburger.active .bar:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -6px);
+    transform: rotate(-45deg) translate(7px, -7px);
 
 }
 
 .nav-menu {
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 5%;
+    left: -20px;
     width: 50%;
     /* background: var(--ice-blue);     */
     transform: translateX(-100%);
@@ -1112,7 +1112,7 @@ user-select: none;
   }
   .nav-menu ul {
     display: flex;
-    width: 60%;
+    width: 50%;
     position: fixed;
     font-size: 1.2rem;
     justify-content: left; 
