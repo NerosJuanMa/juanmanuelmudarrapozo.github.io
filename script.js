@@ -209,7 +209,7 @@ zona.addEventListener("mouseleave", () => {
 
 //Cabecera3
 document.addEventListener('DOMContentLoaded', (event) => {
-    const roleContainer = document.querySelector('.header__role2');
+    const roleContainer = document.querySelector('.header__role');
     const roles = roleContainer.querySelectorAll('.role-item');
     let currentRoleIndex = 0;
     
