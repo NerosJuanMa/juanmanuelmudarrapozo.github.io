@@ -1133,7 +1133,8 @@ user-select: none;
     gap: 1.5rem;
   }
 .blandas{
-    width: 100%;
+    max-width: 100%;
+    height: auto;
     text-align: center;
     /* white-space: normal; */
     justify-content: center;
@@ -1141,7 +1142,8 @@ user-select: none;
 }
 
 .habilidades{
-    width: 100%;
+    max-width: 100%;
+    height: auto;
     columns:2; 
     gap:1rem; 
     margin-left:1rem;
