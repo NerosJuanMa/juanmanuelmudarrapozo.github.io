@@ -1152,7 +1152,8 @@ user-select: none;
     max-width: 100%;
     height: auto;
     text-align: center;
-    /* white-space: normal; */
+    margin: left 0;
+    white-space: normal;
     justify-content: center;
     text-align: center;
 }
@@ -1160,25 +1161,31 @@ user-select: none;
 .habilidades{
     max-width: 100%;
     height: auto;
-    columns:2; 
-    gap:0.10rem; 
-    list-style: none;
-    margin-left:0.1rem;
+    text-align: center;
+    margin: left 0;
     white-space: normal;
     justify-content: center;
-    text-align: center;
+    columns:2; 
+    gap:0.10rem; 
+    list-style: none;    
 }
 
-/* .button_card{
-    height: 22%;
-    border-top: 1px solid var(--deep-blue);
-    border-bottom: 3px solid var(--deep-blue);
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px ;
-    background: linear-gradient(to top, 
-        var(--sombra-light), 
-        transparent 65%);
-} */
+  /* -------------------------
+     TABLAS RESPONSIVE
+  --------------------------*/
+
+  .tableh {
+    display: none;
+    max-width: 100%;
+    height: auto;
+    text-align: center;
+    margin: left 0;
+    white-space: normal;
+    /* display: block; */
+    /* overflow-x: auto; */
+    /* white-space: nowrap; */
+  }
+
   /* -------------------------
      TIMELINE
   --------------------------*/
@@ -1189,20 +1196,6 @@ user-select: none;
     padding: 1rem;
     gap: 2rem;
   }
-
-
-  /* -------------------------
-     TABLAS RESPONSIVE
-  --------------------------*/
-
-  table {
-    display: block;
-    /* overflow-x: auto; */
-    /* white-space: nowrap; */
-    max-width: 100%;
-    height: auto;
-  }
-
 
   /* -------------------------
      IFRAME / MEDIA
