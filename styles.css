@@ -1223,7 +1223,7 @@ user-select: none;
         display: none;
     }
   .irtopC {
-    right: 7%;
+    right: 1%;
     bottom: 5%;
     top: auto;
   }
@@ -1235,7 +1235,7 @@ user-select: none;
 .audio-on,
 .floating-social,
 .floating-like{
-    right: 7%;
+    right: 1%;
 }
 
 }
