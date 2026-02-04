@@ -741,17 +741,20 @@ table {
 
 /* Estilo para el encabezado */
 th {
+    max-width: 100%;
     background-color: #337ab7;
     /* Un color azul corporativo */
     color: white;
-    padding: 12px;
+    padding: 5%;
+    /* max-width: 10%; */
     text-align: left;
     border: 1px solid #ddd;
 }
 
 /* Estilo para las celdas */
 td {
-    padding: 10px;
+    max-width: 100%;
+    padding: 5%;
     border: 1px solid #ddd;
     text-align: left;
     vertical-align: top;
@@ -761,6 +764,10 @@ td {
 /* Alternar colores de fila para mejor legibilidad */
 tr:nth-child(even) {
     background-color: var(--bg-light);
+}
+
+progress{
+    max-width: 100%;
 }
 
 /* Estilo para el título */
@@ -1152,7 +1159,7 @@ user-select: none;
     max-width: 100%;
     height: auto;
     text-align: center;
-    margin: left 0;
+    margin: 0 auto;
     white-space: normal;
     justify-content: center;
     text-align: center;
@@ -1162,7 +1169,7 @@ user-select: none;
     max-width: 100%;
     height: auto;
     text-align: center;
-    margin: left 0;
+    margin: 0 auto;
     white-space: normal;
     justify-content: center;
     columns:2; 
@@ -1173,18 +1180,18 @@ user-select: none;
   /* -------------------------
      TABLAS RESPONSIVE
   --------------------------*/
+.table-wrapper {
+  max-width: 90%;
+  overflow-x: auto;
+}
 
-  .tableh {
-    display: none;
-    max-width: 100%;
-    height: auto;
-    text-align: center;
-    margin: left 0;
-    white-space: normal;
-    /* display: block; */
-    /* overflow-x: auto; */
-    /* white-space: nowrap; */
-  }
+.tableh {
+  max-width: 90%;
+  border-collapse: collapse;
+  text-align: center;
+  display: table;
+}
+
 
   /* -------------------------
      TIMELINE
