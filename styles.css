@@ -708,7 +708,15 @@ html.dark-mode .mode-toggle .icon {
 /* ============================================================
    8. TABLAS
    ===========================================================*/
+.blandas{
+    width: 95%;
+    text-align: center;
+    
+}
 
+.habilidades{
+    columns:4; gap:1.5rem; margin-left:1rem;
+}
 /* Estilos CSS básicos para la tabla */
 table {
     width: 100%;
@@ -937,7 +945,7 @@ a:visited {
     
     position:relative;
     bottom:1px;
-    
+
 }
 .no-seleccionar {
 user-select: none;
@@ -1134,11 +1142,13 @@ user-select: none;
   /* -------------------------
      TABLAS RESPONSIVE
   --------------------------*/
-
+/* .section, */
   table {
     display: block;
-    overflow-x: auto;
-    white-space: nowrap;
+    /* overflow-x: auto; */
+    /* white-space: nowrap; */
+    max-width: 100%;
+    height: auto;
   }
 
 
@@ -1162,8 +1172,8 @@ user-select: none;
         display: none;
     }
   .irtopC {
-    right: 10px;
-    bottom: 15px;
+    right: 7%;
+    bottom: 5%;
     top: auto;
   }
 }
