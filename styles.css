@@ -732,33 +732,34 @@ html.dark-mode .mode-toggle .icon {
 }
 /* Estilos CSS básicos para la tabla */
 table {
-    width: 100%;
+    max-width: 100%;
     border-collapse: collapse;
-    /* Combina los bordes */
-    margin-bottom: 20px;
+    overflow-x:auto;
     font-family: Arial, sans-serif;
 }
 
 /* Estilo para el encabezado */
 th {
     max-width: 100%;
-    background-color: #337ab7;
+    background-color: var(--sky-blue);
     /* Un color azul corporativo */
-    color: white;
-    padding: 5%;
-    /* max-width: 10%; */
+    color: var(--bg-light);
+    padding: 1%;
     text-align: left;
+    vertical-align: top;
     border: 1px solid #ddd;
 }
 
 /* Estilo para las celdas */
 td {
     max-width: 100%;
-    padding: 5%;
+    padding: 1%;
+    /* margin-left: 50%; */
     border: 1px solid #ddd;
     text-align: left;
     vertical-align: top;
     /* Alinea el contenido en la parte superior */
+    
 }
 
 /* Alternar colores de fila para mejor legibilidad */
@@ -1181,12 +1182,12 @@ user-select: none;
      TABLAS RESPONSIVE
   --------------------------*/
 .table-wrapper {
-  max-width: 90%;
-  overflow-x: auto;
+  max-width: 100%;
+  overflow-x: none;
 }
 
 .tableh {
-  max-width: 90%;
+  max-width: 100%;
   border-collapse: collapse;
   text-align: center;
   display: table;
