@@ -212,13 +212,6 @@ aside {
     /*-text-stroke: 3px var(--sombra-dark); /* Estándar, aunque tiene poco soporte aún */
 }
 
-
-.header__role {
-    font-weight: 700;
-    color: var(--brand-pink);
-}
-/* Estilos base para el contenedor y los roles */
-
 .header__role {
     width: 120vh;
     font-size: 1.5rem;
@@ -229,7 +222,7 @@ aside {
     white-space: nowrap;       
     /* Evita que el texto se salte de línea */
     /* Altura fija para evitar saltos de diseño si se usa un font-size específico */
-}
+}/* Estilos base para el contenedor y los roles */
 .role-item {
     display: none; /* Oculta todos los elementos por defecto */
     font-family: monospace; /* Fuente de ancho fijo para un mejor efecto de máquina de escribir */
@@ -466,18 +459,34 @@ button[type="submit"]:hover {
     background: var(--sky-blue);
 }
 .button_card{
-    background: var(--ice-blue);
-    color: var(--brand-pink);
+    /* background: var(--ice-blue);
+    color: var(--brand-pink); 
     border: none;
-    padding: 0.6rem 1.1rem;
-    border-radius: 8px;
+    border-radius: 8px; */
+
+    height: 2.5rem;
+    border-top: 1px dashed var(--deep-blue);
+    border-bottom: 3px solid var(--deep-blue);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px ;
+    background: linear-gradient(to top, 
+        var(--sombra-light), 
+        transparent 65%);
+
+    
+    padding: 0.6rem 1.1rem;    
     font-weight: 600;
     text-decoration: none;
     display: inline-block;
     transition: background 0.2s ease;
 }
 .button_card:hover{
-    background: var(--sky-blue);
+    /* background: var(--brand-pink); */
+    background: linear-gradient(to top, 
+        var(--brand-pink), 
+        transparent 65%);
     color: var(--text-light);
 
 }
@@ -1029,10 +1038,16 @@ user-select: none;
   .header__role{
     width: 100%;
     position:relative;
-    margin-left: 10%;
-    /* white-space: normal; */
-    /* justify-content: left; */
-    text-align: left;
+    white-space: normal;
+    justify-content: center;
+    text-align: center;
+    border-top: 1px solid var(--deep-blue);
+    border-bottom: 3px solid var(--deep-blue);
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px ;
+    background: linear-gradient(to top, 
+        var(--sombra-light), 
+        transparent 65%);
     }
     
   .header__contact {
@@ -1152,6 +1167,16 @@ user-select: none;
     text-align: center;
 }
 
+/* .button_card{
+    height: 22%;
+    border-top: 1px solid var(--deep-blue);
+    border-bottom: 3px solid var(--deep-blue);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px ;
+    background: linear-gradient(to top, 
+        var(--sombra-light), 
+        transparent 65%);
+} */
   /* -------------------------
      TIMELINE
   --------------------------*/
