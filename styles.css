@@ -697,6 +697,55 @@ html.dark-mode .mode-toggle .icon {
     background: var(--sky-blue);
 
 }
+/*----*//* 🔥 CLAVE */
+/* .heart {
+  position: fixed;          
+  font-size: 20px;
+  pointer-events: none;
+  animation: fly 1s ease-out forwards;
+  z-index: 9999;            
+} */
+
+/* @keyframes fly {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-80px) scale(1.6);
+  }
+} */
+
+
+/*----*/
+.heart {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 22px;
+  pointer-events: none;
+  z-index: 9999;
+  animation: floatHeart 2.5s ease-out forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes floatHeart {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(
+      calc(-50% + var(--x)),
+      calc(-50% + var(--y))
+    ) scale(1.6);
+  }
+}
+
+
 
 .zona-hover {
     display: block;
