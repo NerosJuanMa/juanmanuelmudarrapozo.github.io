@@ -1265,22 +1265,26 @@ a:visited {
     width: 100%;
     background: var(--card-light);
     border-radius: 10px;
-    padding: 10px;
+    padding: 15px;
+    border: 3px groove var(--deep-blue);
+    margin-top: 1rem;
 }
 
 .tableh td {
     display: block;
     width: 100%;
     text-align: center;
-    border: 3px groove var(--deep-blue);
-    border-radius: 10px;
-    padding: 0.5rem 0;
+    border: none;
+    padding: 1rem 0;
+    
 }
 
 .tableh td:first-child {
     font-weight: bold;
     padding: 15px;
     background: var(--ice-blue);
+    border: 3px groove var(--deep-blue);
+    border-radius: 10px;
 }
 
 progress {
