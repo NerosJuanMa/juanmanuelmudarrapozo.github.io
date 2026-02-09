@@ -1221,6 +1221,7 @@ a:visited {
     }
 
     .blandas {
+        
         max-width: 100%;
         height: auto;
         text-align: center;
@@ -1232,6 +1233,7 @@ a:visited {
     }
 
     .habilidades {
+       
         max-width: 100%;
         height: auto;
         text-align: center;
@@ -1246,21 +1248,46 @@ a:visited {
 
     /* -------------------------
      TABLAS RESPONSIVE
+     No es posible, por eso las convertimos a tarjetas:
   --------------------------*/
-    .table-wrapper {
-        max-width: 100%;
-        overflow-x: none;
-    }
+.tableh thead {
+  display: none;
+}
+.tableh {
+  display: block;
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
 
-    .tableh {
-        max-width: 100%;
-        border-collapse: collapse;
-        text-align: center;
-        display: table;
-    }
+.tableh tr {
+    display: block;
+    width: 100%;
+    background: var(--card-light);
+    border-radius: 10px;
+    padding: 10px;
+}
 
+.tableh td {
+    display: block;
+    width: 100%;
+    text-align: center;
+    border: 3px groove var(--deep-blue);
+    border-radius: 10px;
+    padding: 0.5rem 0;
+}
 
-    /* -------------------------
+.tableh td:first-child {
+    font-weight: bold;
+    padding: 15px;
+    background: var(--ice-blue);
+}
+
+progress {
+  width: 100%;
+}
+
+/* -------------------------
      TIMELINE
   --------------------------*/
 
