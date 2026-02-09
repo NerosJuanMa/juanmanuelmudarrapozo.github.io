@@ -1,440 +1,441 @@
+// ==========================
+// 🌙 DARK MODE TOGGLE
+// ==========================
 
-// Declarar 'root' e 'icon' fuera de la función de inicialización
-// para que el event listener (la función del click) pueda acceder a ellas.
-
-const root = document.documentElement; // ¡Ahora 'root' es accesible!
+const root = document.documentElement;
 const modeToggle = document.getElementById('modeToggle');
-const icon = modeToggle.querySelector('.icon');  
+const icon = modeToggle?.querySelector('.icon');
 
-// Envuelve el código dentro de una función de inicialización si es necesario, 
-// o simplemente ejecuta el código secuencialmente.
-(function initDarkToggle(){
-    
-    const saved = localStorage.getItem('theme');
-    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    // 1. Aplicar el tema inicial (guardado o del sistema)
-    if(saved === 'dark' || (!saved && systemDark)){
-      root.classList.add('dark-mode');
-      icon.textContent = '☀️';
-    }
-    
-    // 2. Definir el event listener para el click
-    modeToggle.addEventListener('click', () => {
-      // ✅ 'root' es accesible aquí ahora.
-      root.classList.toggle('dark-mode'); 
-      
-      const active = root.classList.contains('dark-mode');
-      localStorage.setItem('theme', active ? 'dark' : 'light');
-      
-      // Animar icono
-      icon.style.opacity = '0';
-      setTimeout(()=>{ 
-          icon.textContent = active ? '☀️' : '🌙'; 
-          icon.style.opacity = '1'; 
-      }, 160);
-    });
-    
-})(); // Asegúrate de que tu función IIFE esté correctamente cerrada si la usas
+(function initDarkToggle() {
+  if (!modeToggle || !icon) return;
 
-//generar fecha actual
-// Obtener la fecha y hora actual
-        const fecha = new Date();
+  const saved = localStorage.getItem('theme');
+  const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-        // Obtener el elemento span por su ID
-        const contenedorFecha = document.getElementById('fechaActual');
-        const contenedorFechah = document.getElementById('fechaActualh');
-        // Formatear la fecha para mostrarla según la configuración local del usuario
-        // 'es-ES' especifica el formato para España, puedes cambiarlo si necesitas otro.
-        // Las opciones { dateStyle: 'full' } dan un formato completo (ej: lunes, 10 de noviembre de 2025)
-        const fechaFormateada = fecha.toLocaleDateString('es-ES', { dateStyle: 'full' });
+  if (saved === 'dark' || (!saved && systemDark)) {
+    root.classList.add('dark-mode');
+    icon.textContent = '☀️';
+  }
 
-        // Insertar la fecha formateada en el elemento HTML
-        contenedorFecha.textContent = fechaFormateada;
-        contenedorFechah.textContent = fechaFormateada;
+  modeToggle.addEventListener('click', () => {
+    root.classList.toggle('dark-mode');
 
+    const active = root.classList.contains('dark-mode');
+    localStorage.setItem('theme', active ? 'dark' : 'light');
 
+    icon.style.opacity = '0';
+    setTimeout(() => {
+      icon.textContent = active ? '☀️' : '🌙';
+      icon.style.opacity = '1';
+    }, 160);
+  });
+})();
 
-//AUDIO FONDO PULSO CORAZON
-    const audio = document.getElementById("bg-audio");
-    const btn = document.getElementById("audio-btn");
+// ==========================
+// 📅 FECHA ACTUAL
+// ==========================
 
-    audio.volume = 0.25;
+const fecha = new Date();
+const contenedorFecha = document.getElementById('fechaActual');
+const contenedorFechah = document.getElementById('fechaActualh');
 
-    btn.addEventListener("click", () => {
-        if (audio.muted) {
-            audio.muted = false;
-            btn.classList.remove("audio-off");
-            btn.textContent = "🔊";
-        } else {
-            audio.muted = true;
-            btn.classList.add("audio-off");
-            btn.textContent = "🔇";
-        }
-    });
+if (contenedorFecha && contenedorFechah) {
+  const fechaFormateada = fecha.toLocaleDateString('es-ES', { dateStyle: 'full' });
+  contenedorFecha.textContent = fechaFormateada;
+  contenedorFechah.textContent = fechaFormateada;
+}
 
-    window.addEventListener("click", function enableAudio() {
-    const audio = document.getElementById("bg-audio");
+// ==========================
+// 🔊 AUDIO FONDO
+// ==========================
+
+const audio = document.getElementById('bg-audio');
+const btn = document.getElementById('audio-btn');
+
+if (audio && btn) {
+  audio.volume = 0.25;
+
+  btn.addEventListener('click', () => {
+    audio.muted = !audio.muted;
+    btn.textContent = audio.muted ? '🔇' : '🔊';
+    btn.classList.toggle('audio-off', audio.muted);
+  });
+
+  window.addEventListener('click', function enableAudio() {
     audio.muted = false;
-    audio.play();
-    window.removeEventListener("click", enableAudio);
-});
+    audio.play().catch(() => {});
+    window.removeEventListener('click', enableAudio);
+  });
+}
 
-//BOTONES FLOTANTES - COMPARTIR
+// ==========================
+// 📤 SHARE
+// ==========================
 
 function sharePage() {
   if (navigator.share) {
     navigator.share({
       title: document.title,
       url: window.location.href
-    })
-    .then(() => console.log('Compartido con éxito'))
-    .catch((error) => console.error('Error al compartir', error));
+    }).catch(() => {});
   } else {
     alert('Tu navegador no soporta compartir automáticamente');
   }
 }
 
-//COTADOR DE LIKES
+// ==========================
+// 🔄 RESET DIARIO DE LIKES
+// ==========================
+
+const RESET_KEY = 'likes_last_reset';
+const today = new Date().toDateString();
+
+const lastReset = localStorage.getItem(RESET_KEY);
+
+if (lastReset !== today) {
+  localStorage.setItem('likes_mi_pagina', 0);
+  localStorage.setItem('user_liked_mi_pagina', 'false');
+  localStorage.setItem(RESET_KEY, today);
+}
+
+
+
+// ==========================
+// ❤️ LIKE (LOCALSTORAGE + TOGGLE)
+// ==========================
 
 const likeBtn = document.getElementById('likeBtn');
 const likeCount = document.getElementById('likeCount');
 
-// Claves únicas para ESTA página
-const PAGE_KEY = 'likes_mi_pagina';
-const USER_LIKED_KEY = 'user_liked_mi_pagina';
+if (likeBtn && likeCount) {
 
-// Obtener likes actuales
-let likes = parseInt(localStorage.getItem(PAGE_KEY)) || 0;
-let userLiked = localStorage.getItem(USER_LIKED_KEY) === 'true';
+  const PAGE_KEY = 'likes_mi_pagina';
+  const USER_LIKED_KEY = 'user_liked_mi_pagina';
 
-// Inicializar contador
-likeCount.textContent = likes;
+  let likes = parseInt(localStorage.getItem(PAGE_KEY), 10) || 0;
+  let userLiked = localStorage.getItem(USER_LIKED_KEY) === 'true';
 
-// Si ya dio like
-if (userLiked) {
-  likeBtn.classList.add('liked');
-  likeBtn.disabled = true;
+  // Inicializar
+  likeCount.textContent = likes;
+//   animateCount(likeCount, likes);
+  if (userLiked) likeBtn.classList.add('liked');
+
+  likeBtn.addEventListener('click', () => {
+
+    if (userLiked) {
+      // ❌ QUITAR LIKE
+      likes = Math.max(0, likes - 1);
+      userLiked = false;
+
+      likeBtn.classList.remove('liked');
+    } else {
+      // ✅ DAR LIKE
+      likes += 1;
+      userLiked = true;
+
+      likeBtn.classList.add('liked');
+
+      saveLikeHistory(userLiked ? 'like' : 'unlike');
+
+      pop();
+      hearts();
+    //   playLikeSound();
+    //   safeBurst();
+
+    }
+
+
+    localStorage.setItem(PAGE_KEY, likes);
+    localStorage.setItem(USER_LIKED_KEY, userLiked);
+
+    // likeCount.textContent = likes;
+    animateCount(likeCount, likes);
+  });
+
 }
 
-// Click en Like
-likeBtn.addEventListener('click', () => {
-  if (!userLiked) {
-    likes++;
-    localStorage.setItem(PAGE_KEY, likes);
-    localStorage.setItem(USER_LIKED_KEY, 'true');
+function saveLikeHistory(action) {
+  const key = 'likes_history';
+  const history = JSON.parse(localStorage.getItem(key)) || [];
 
-    likeCount.textContent = likes;
-    likeBtn.classList.add('liked');
-    likeBtn.disabled = true;
+  history.push({
+    action,
+    date: new Date().toISOString()
+  });
+
+  localStorage.setItem(key, JSON.stringify(history));
+}
+
+
+
+let pressTimer = null;
+
+likeBtn.addEventListener('mousedown', startPress);
+likeBtn.addEventListener('touchstart', startPress);
+
+likeBtn.addEventListener('mouseup', cancelPress);
+likeBtn.addEventListener('mouseleave', cancelPress);
+likeBtn.addEventListener('touchend', cancelPress);
+
+function startPress(e) {
+  e.preventDefault();
+
+  pressTimer = setTimeout(() => {
+    for (let i = 0; i < 3; i++) {
+      setTimeout(hearts, i * 150);
+    }
+  }, 600); // ⏱️ tiempo de long-press
+}
+
+function cancelPress() {
+  clearTimeout(pressTimer);
+}
+
+function animateCount(el, to) {
+  const from = parseInt(el.textContent, 10) || 0;
+  const duration = 300;
+  const start = performance.now();
+
+  function frame(time) {
+    const progress = Math.min((time - start) / duration, 1);
+    el.textContent = Math.floor(from + (to - from) * progress);
+    if (progress < 1) requestAnimationFrame(frame);
   }
+
+  requestAnimationFrame(frame);
+}
+
+
+// <audio id="like-sound" src="like.mp3" preload="auto"></audio>
+
+// const likeSound = document.getElementById('like-sound');
+
+// function playLikeSound() {
+//   if (!likeSound) return;
+//   likeSound.currentTime = 0;
+//   likeSound.volume = 0.25;
+//   likeSound.play().catch(() => {});
+// }
+
+// let lastBurst = 0;
+
+// function safeBurst() {
+//   const now = Date.now();
+//   if (now - lastBurst < 500) return;
+//   lastBurst = now;
+//   hearts(20);
+// }
+
+/*
+— Reset manual (botón oculto o admin)
+
+Si algún día quieres resetear a mano desde consola:
+
+localStorage.removeItem('likes_mi_pagina');
+localStorage.removeItem('user_liked_mi_pagina');
+
+
+O botón admin:
+
+document.getElementById('resetLikes')?.addEventListener('click', () => {
+  localStorage.clear();
+  location.reload();
 });
+*/
 
 
-// OTRO LIKE
-
-const pageId = 'mi_pagina_unica';
-const btn_like = document.getElementById('likeBtn');
-const count = document.getElementById('likeCount');
-
-// Estado inicial
-fetch(`http://localhost:3000/status?page_id=${pageId}`)
-  .then(res => res.json())
-  .then(data => {
-    count.textContent = data.total;
-    if (data.liked) btn_like.classList.add('liked');
-  });
-
-btn_like.addEventListener('click', () => {
-  fetch('http://localhost:3000/like', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ page_id: pageId })
-  })
-  .then(res => res.json())
-  .then(data => {
-    count.textContent = data.total;
-    btn_like.classList.toggle('liked', data.liked);
-    pop();
-    if (data.liked) hearts();
-  });
-});
+// ==========================
+// 💥 ANIMACIONES LIKE
+// ==========================
 
 function pop() {
-  btn_like.classList.add('pop');
-  setTimeout(() => btn_like.classList.remove('pop'), 200);
+  likeBtn.classList.add('pop');
+  setTimeout(() => likeBtn.classList.remove('pop'), 200);
 }
 
-function hearts() {
-  for (let i = 0; i < 6; i++) {
+// 
+function hearts(amount = 12) {
+  for (let i = 0; i < amount; i++) {
     const h = document.createElement('div');
     h.className = 'heart';
     h.textContent = '❤️';
-    const r = btn_like.getBoundingClientRect();
-    h.style.left = (r.left + Math.random() * r.width) + 'px';
-    h.style.top = r.top + 'px';
+
+    // Direcciones aleatorias
+    const x = (Math.random() * 300 - 150) + 'px';
+    const y = (Math.random() * 300 - 150) + 'px';
+
+    h.style.setProperty('--x', x);
+    h.style.setProperty('--y', y);
+
     document.body.appendChild(h);
-    setTimeout(() => h.remove(), 1000);
+
+    setTimeout(() => h.remove(), 2500);
   }
 }
 
+/*-------------------*/
+let pressStart = 0;
+let heartInterval = null;
 
-//poppup:
-const poppup = document.getElementById("poppup");
-const zona = document.getElementById("zona-hover");
+likeBtn.addEventListener('mousedown', startPress);
+likeBtn.addEventListener('touchstart', startPress);
 
+likeBtn.addEventListener('mouseup', endPress);
+likeBtn.addEventListener('mouseleave', endPress);
+likeBtn.addEventListener('touchend', endPress);
 
-if (window.innerWidth > 768) {   
+function startPress(e) {
+  e.preventDefault();
+  pressStart = Date.now();
 
-// Mostrar poppup al cargar la página
-window.onload = () => {
-    poppup.style.display = "block";
+  // Vibración inicial
+  vibrate(20);
 
-    // Ocultarlo después de 3 segundos =3000
-    setTimeout(() => {
-        poppup.style.display = "none";
-    }, 25000);
-};
-
-// Mostrar al pasar el ratón
-zona.addEventListener("mouseenter", () => {
-    poppup.style.display = "block";
-});
-
-// Ocultar al quitar el ratón
-zona.addEventListener("mouseleave", () => {
-    poppup.style.display = "none";
-});
+  // Stream continuo de corazones
+  heartInterval = setInterval(() => {
+    hearts(6);
+    vibrate(5);
+  }, 300);
 }
 
-//Cabecera3
-document.addEventListener('DOMContentLoaded', (event) => {
-    const roleContainer = document.querySelector('.header__role');
-    const roles = roleContainer.querySelectorAll('.role-item');
-    let currentRoleIndex = 0;
-    
-    // --- NUEVAS Y AJUSTADAS VARIABLES DE CONFIGURACIÓN ---
-    const typingSpeed = 75;      // Velocidad de escritura (ms por letra)
-    const eraseSpeed = 25;       // Velocidad de borrado (ms por letra)
-    
-    const stopAtChar = 10;       // ✨ NÚMERO DE CARACTERES DONDE SE DETENDRÁ LA ESCRITURA.
-    const pauseAtStop = 100;    // ✨ TIEMPO DE ESPERA EN LA DETENCIÓN INTERMEDIA (ms).
-    const delayBeforeErase = 1500; // Pausa antes de que comience el borrado final (ms).
-    
-    // --- FUNCIÓN PRINCIPAL PARA INICIAR EL CICLO (MODIFICADA LA PAUSA) ---
-    async function startTypingCycle() {
-        while (true) {
-            const currentRole = roles[currentRoleIndex];
-            const text = currentRole.textContent;
-            
-            // Asegurarse de que solo el rol actual sea visible/activo
-            roles.forEach(role => role.classList.remove('active'));
-            currentRole.classList.add('active');
+function endPress() {
+  if (!pressStart) return;
 
-            // 1. ESCRIBIR (Type)
-            await typeText(currentRole, text);
-            
-            // 2. PAUSA FINAL (Delay) - Usa la nueva variable
-            await new Promise(resolve => setTimeout(resolve, delayBeforeErase));
-            
-            // 3. BORRAR (Erase)
-            await eraseText(currentRole);
-            
-            // 4. CICLO AL SIGUIENTE ROL
-            currentRoleIndex = (currentRoleIndex + 1) % roles.length;
+  clearInterval(heartInterval);
+
+  const duration = Date.now() - pressStart;
+  pressStart = 0;
+
+  // Burst final proporcional al tiempo
+  const burstAmount = Math.min(40, Math.floor(duration / 100));
+  hearts(burstAmount);
+
+  vibrate(40);
+}
+
+
+
+// ==========================
+// 💬 POPUP
+// ==========================
+
+const poppup = document.getElementById('poppup');
+const zona = document.getElementById('zona-hover');
+
+if (window.innerWidth > 768 && poppup && zona) {
+  window.onload = () => {
+    poppup.style.display = 'block';
+    setTimeout(() => poppup.style.display = 'none', 25000);
+  };
+
+  zona.addEventListener('mouseenter', () => poppup.style.display = 'block');
+  zona.addEventListener('mouseleave', () => poppup.style.display = 'none');
+}
+
+// ==========================
+// ⌨️ CABECERA TYPING
+// ==========================
+
+document.addEventListener('DOMContentLoaded', () => {
+  const roleContainer = document.querySelector('.header__role');
+  if (!roleContainer) return;
+
+  const roles = roleContainer.querySelectorAll('.role-item');
+  let index = 0;
+
+  const typingSpeed = 75;
+  const eraseSpeed = 25;
+  const stopAtChar = 10;
+  const pauseAtStop = 100;
+  const delayBeforeErase = 1500;
+
+  async function cycle() {
+    while (true) {
+      const el = roles[index];
+      const text = el.textContent;
+
+      roles.forEach(r => r.classList.remove('active'));
+      el.classList.add('active');
+
+      await type(el, text);
+      await new Promise(r => setTimeout(r, delayBeforeErase));
+      await erase(el);
+
+      index = (index + 1) % roles.length;
+    }
+  }
+
+  function type(el, text) {
+    return new Promise(resolve => {
+      let w = 0;
+      let paused = false;
+
+      const i = setInterval(async () => {
+        if (paused) return;
+
+        if (w === stopAtChar && stopAtChar < text.length) {
+          paused = true;
+          await new Promise(r => setTimeout(r, pauseAtStop));
+          paused = false;
         }
-    }
-    
-    // --- typeText MODIFICADA CON PAUSA INTERMEDIA ---
-    function typeText(element, fullText) {
-        return new Promise(resolve => {
-            let currentWidth = 0;
-            let isPaused = false; // Bandera para controlar la pausa
 
-            const typeInterval = setInterval(async () => {
-                // Si estamos en pausa, no hacemos nada y salimos de la iteración
-                if (isPaused) return; 
+        if (w < text.length) {
+          w++;
+          el.style.width = w + 'ch';
+        }
 
-                // Lógica de Detención y Pausa
-                if (currentWidth === stopAtChar && stopAtChar < fullText.length) {
-                    isPaused = true;
-                    // Detiene la escritura, espera, y luego la reanuda
-                    await new Promise(pauseResolve => setTimeout(pauseResolve, pauseAtStop));
-                    isPaused = false;
-                }
+        if (w >= text.length) {
+          clearInterval(i);
+          resolve();
+        }
+      }, typingSpeed);
+    });
+  }
 
-                // Lógica de Escritura
-                if (currentWidth < fullText.length) {
-                    currentWidth += 1;
-                    element.style.width = currentWidth + 'ch';
-                }
-                
-                // Lógica de Finalización
-                if (currentWidth >= fullText.length) {
-                    clearInterval(typeInterval);
-                    resolve();
-                }
-            }, typingSpeed);
-        });
-    }
+  function erase(el) {
+    return new Promise(resolve => {
+      let w = el.textContent.length;
 
-    // --- eraseText (Sin cambios, para borrar el texto completo) ---
-    function eraseText(element) {
-        return new Promise(resolve => {
-            // Se puede simplificar a element.textContent.length ya que typeText
-            // garantiza que el ancho final es igual a la longitud del texto.
-            let currentWidth = element.textContent.length; 
+      const i = setInterval(() => {
+        w--;
+        el.style.width = w + 'ch';
 
-            const eraseInterval = setInterval(() => {
-                // Disminuimos el ancho
-                currentWidth -= 1;
-                element.style.width = currentWidth + 'ch';
-                
-                // Comprobar si hemos terminado de borrar
-                if (currentWidth <= 0) {
-                    clearInterval(eraseInterval);
-                    element.classList.remove('active'); // Ocultar después de borrar
-                    resolve();
-                }
-            }, eraseSpeed);
-        });
-    }
+        if (w <= 0) {
+          clearInterval(i);
+          el.classList.remove('active');
+          resolve();
+        }
+      }, eraseSpeed);
+    });
+  }
 
-    // Iniciar el ciclo de escritura
-    startTypingCycle();
+  cycle();
 });
 
-
-// Seleccionar elementos
+// ==========================
+// 🍔 MENU HAMBURGUESA
+// ==========================
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
 
-// Toggle del menú al hacer clic
-hamburger.addEventListener('click', () => {
+if (hamburger && navMenu) {
+  hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     navMenu.classList.toggle('active');
-});
+  });
 
-// Cerrar menú al hacer clic en un enlace
-document.querySelectorAll('.nav-menu a').forEach(link => {
+  document.querySelectorAll('.nav-menu a').forEach(link => {
     link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
     });
-});
-
-
-
-//Cabecera2_ 
-
-    // document.addEventListener('DOMContentLoaded', (event) => {
-    //     const roleContainer = document.querySelector('.header__role2');
-    //     const roles = roleContainer.querySelectorAll('.role-item');
-    //     let currentRoleIndex = 0;
-    //     const typingSpeed = 75;  // Velocidad de escritura (ms por letra)
-    //     const eraseSpeed = 25;   // Velocidad de borrado (ms por letra)
-    //     const delayBetweenRoles = 10; // Pausa después de escribir antes de borrar (ms)
-
-    //     // --- Función principal para iniciar el ciclo ---
-    //     async function startTypingCycle() {
-    //         while (true) {
-    //             const currentRole = roles[currentRoleIndex];
-    //             const text = currentRole.textContent;
-                
-    //             // Asegurarse de que solo el rol actual sea visible/activo
-    //             roles.forEach(role => role.classList.remove('active'));
-    //             currentRole.classList.add('active');
-
-    //             // 1. ESCRIBIR (Type)
-    //             await typeText(currentRole, text);
-                
-    //             // 2. PAUSA (Delay)
-    //             await new Promise(resolve => setTimeout(resolve, delayBetweenRoles));
-                
-    //             // 3. BORRAR (Erase)
-    //             await eraseText(currentRole);
-                
-    //             // 4. CICLO AL SIGUIENTE ROL
-    //             currentRoleIndex = (currentRoleIndex + 1) % roles.length;
-    //         }
-    //     }
-        
-    //     // --- Funciones de utilidad para escribir y borrar ---
-
-    //     // Revela el texto letra a letra (aumentando el ancho)
-    //     function typeText(element, fullText) {
-    //         return new Promise(resolve => {
-    //             let currentWidth = 0;
-    //             const totalWidth = element.scrollWidth; // Ancho total del texto
-                
-    //             const typeInterval = setInterval(() => {
-    //                 // Aumentamos el ancho en un pequeño porcentaje o cantidad fija
-    //                 currentWidth += 1; // Incremento por "letra" (ajustado por JS)
-    //                 element.style.width = currentWidth + 'ch'; // Usamos 'ch' para unidades de ancho de caracter
-                    
-    //                 // Comprobar si hemos terminado de escribir
-    //                 if (currentWidth >= fullText.length) {
-    //                     clearInterval(typeInterval);
-    //                     resolve();
-    //                 }
-    //             }, typingSpeed);
-    //         });
-    //     }
-
-    //     // Oculta el texto letra a letra (disminuyendo el ancho)
-    //     function eraseText(element) {
-    //         return new Promise(resolve => {
-    //             // Obtenemos el ancho actual (que debe ser el ancho total)
-    //             let currentWidth = element.scrollWidth / (window.innerWidth / element.getBoundingClientRect().width) * (element.textContent.length / 1.1) + 1;
-
-    //             // Si no podemos calcular bien, empezamos desde el ancho que debería ser
-    //             if (currentWidth <= 1) {
-    //                 currentWidth = element.textContent.length;
-    //             }
-                
-    //             const eraseInterval = setInterval(() => {
-    //                 // Disminuimos el ancho
-    //                 currentWidth -= 1;
-    //                 element.style.width = currentWidth + 'ch';
-                    
-    //                 // Comprobar si hemos terminado de borrar
-    //                 if (currentWidth <= 0) {
-    //                     clearInterval(eraseInterval);
-    //                     element.classList.remove('active'); // Ocultar después de borrar
-    //                     resolve();
-    //                 }
-    //             }, eraseSpeed);
-    //         });
-    //     }
-
-    //     // Iniciar el ciclo de escritura
-    //     startTypingCycle();
-    // });
-
-
-//CABECERA MOSTRAR ROLES
-// document.addEventListener('DOMContentLoaded', (event) => {
-//         const roles = document.querySelectorAll('.header__role .role-item');
-//         let currentRoleIndex = 0;
-//         const delay = 3000; // Tiempo en milisegundos (3 segundos) que se muestra cada rol
-
-//         function updateRole() {
-//             // 1. Inicia el proceso de ocultar el rol visible actual
-//             roles[currentRoleIndex].classList.remove('visible');
-            
-//             // 2. Calcula el índice del siguiente rol
-//             // Usa el operador módulo (%) para volver al inicio (0) cuando se alcanza el final.
-//             currentRoleIndex = (currentRoleIndex + 1) % roles.length;
-            
-//             // 3. Muestra el siguiente rol después de un pequeño retraso
-//             // Este retraso (p. ej., 50ms) ayuda a que la animación de fade-out del CSS se complete,
-//             // aunque el navegador lo maneja casi instantáneamente.
-//             setTimeout(() => {
-//                 roles[currentRoleIndex].classList.add('visible');
-//             }, 50); // Un pequeño retraso para asegurar la transición
-
-//         }
-
-//         // Ejecuta la función 'updateRole' cada 'delay' milisegundos
-//         setInterval(updateRole, delay);
-//     });
+  });
+}
+// ==========================
+//  Vibracion de Movil
+// ==========================
+function vibrate(ms) {
+  if (navigator.vibrate) {
+    navigator.vibrate(ms);
+  }
+}
