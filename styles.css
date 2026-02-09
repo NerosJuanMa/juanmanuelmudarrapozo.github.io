@@ -909,12 +909,13 @@ footer {
 }
 
 footer a {
-    color: var(--brand-pink);
+    color: var(--sky-blue);
     font-weight: 600;
 }
 
 footer .fecha {
-    /* color: var(--brand-pink); */
+    /* background: var(--brand-pink); */
+    color: var(--sky-blue);
     font-weight: 600;
     text-align: center;
 }
@@ -1018,7 +1019,7 @@ a:hover {
 a:visited {
     /* Color del enlace después de haber sido visitado */
     color: var(--sky-blue);
-    /* Puedes cambiar 'purple' por el color que desees */
+
 }
 
 .mapa {
