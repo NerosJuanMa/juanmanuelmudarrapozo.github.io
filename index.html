@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="CV Digital de Juan Manuel Mudarra Pozo — Full Stack Web Developer, Diseñador Gráfico y Game Designer. Experto en HTML, CSS, JavaScript, React, Node.js y MySQL. Disponibilidad inmediata en Sevilla.">
+  <meta name="description"
+    content="CV Digital de Juan Manuel Mudarra Pozo — Full Stack Web Developer, Diseñador Gráfico y Game Designer. Experto en HTML, CSS, JavaScript, React, Node.js y MySQL. Disponibilidad inmediata en Sevilla.">
   <title>Currículum Digital — Perfil Tech</title>
 
   <!-- Tu hoja de estilos original -->
@@ -19,53 +20,54 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-TR70590PF9"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag() { dataLayer.push(arguments); }
   gtag('js', new Date());
 
   gtag('config', 'G-TR70590PF9');
 </script>
+
 <body>
   <!-- BOTONES FLOTANTES -->
-  
-        <!-- BOTON HAMBURGUESA -->
-    <button class="hamburger" id="hamburger">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </button>  
-        <!-- FECHA -->
-    <div class="fechaflotante" id="fechaActualh"></div>
-        <!-- MODO CLARO/OSCURO -->
-    <button id="modeToggle" class="mode-toggle">
-      <span class="icon">🌙</span>
+
+  <!-- BOTON HAMBURGUESA -->
+  <button class="hamburger" id="hamburger" aria-label="Abrir menú de navegación">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+  <!-- FECHA -->
+  <div class="fechaflotante" id="fechaActualh"></div>
+  <!-- MODO CLARO/OSCURO -->
+  <button id="modeToggle" class="mode-toggle" aria-label="Cambiar modo claro/oscuro">
+    <span class="icon" aria-hidden="true">🌙</span>
+  </button>
+  <!-- AUDIO -->
+  <div id="audio-btn" class="audio-on">🔊</div>
+  <audio id="bg-audio" src="heartbeat_sound.mp3" loop autoplay muted></audio>
+  <!-- SOCIAL LINKS -->
+  <div class="floating-social">
+    <a href="#" onclick="sharePage()" title="Compartir">
+      <i class="fas fa-share-alt"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/nerosjuanma/" target="_blank" title="LinkedIn">
+      <i class="fa-brands fa-linkedin"></i>
+    </a>
+  </div>
+  <!-- LIKES -->
+  <div class="floating-like">
+    <button id="likeBtn" aria-label="Me gusta">
+      <span aria-hidden="true">❤️</span>
+      <span id="likeCount">0</span>
     </button>
-        <!-- AUDIO -->
-    <div id="audio-btn" class="audio-on">🔊</div>
-    <audio id="bg-audio" src="heartbeat_sound.mp3" loop autoplay muted></audio>
-        <!-- SOCIAL LINKS -->
-    <div class="floating-social">    
-      <a href="#" onclick="sharePage()" title="Compartir">
-        <i class="fas fa-share-alt"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/nerosjuanma/" target="_blank" title="LinkedIn">
-        <i class="fa-brands fa-linkedin"></i>
-      </a> 
-    </div>
-        <!-- LIKES -->
-    <div class="floating-like">
-      <button id="likeBtn">❤️
-        <!-- <i class="fas fa-thumbs-up"></i> -->
-        <span id="likeCount">0</span>
-      </button>      
-    </div>    
-      <!-- Zona que activa el recuadro al pasar el ratón -->
-    <div id="zona-hover" class="zona-hover">👋</div>
-       <!-- Recuadro flotante -->
-    <div id="poppup" class="poppup">
-      <!-- Contenido HTML interno -->
-      <iframe src="contenido.html"></iframe>
-    </div>
-    
+  </div>
+  <!-- Zona que activa el recuadro al pasar el ratón -->
+  <div id="zona-hover" class="zona-hover">👋</div>
+  <!-- Recuadro flotante -->
+  <div id="poppup" class="poppup">
+    <!-- Contenido HTML interno -->
+    <iframe src="contenido.html"></iframe>
+  </div>
+
   <!-- ================= HEADER ================= -->
   <header>
 
@@ -96,13 +98,14 @@
           <span>·</span>
 
           <!-- Ubicación -->
-          <a href="#mapa"  rel="noopener" class="contact-icon" title="Ubicación">
+          <a href="#mapa" rel="noopener" class="contact-icon" title="Ubicación">
             <i class="fa-solid fa-location-dot"></i>
           </a>
           <span>·</span>
 
           <!-- Portfolio -->
-          <a href="https://desarrollo-de-aplicaciones-con-tecn.vercel.app/" target="_blank" rel="noopener" class="contact-icon" title="Portfolio">
+          <a href="https://desarrollo-de-aplicaciones-con-tecn.vercel.app/" target="_blank" rel="noopener"
+            class="contact-icon" title="Portfolio">
             <i class="fa-solid fa-briefcase"></i>
           </a>
           <span>·</span>
@@ -114,19 +117,22 @@
           <span>·</span>
 
           <!-- LinkedIn -->
-          <a href="https://www.linkedin.com/in/nerosjuanma/" target="_blank" rel="noopener" class="contact-icon" title="LinkedIn">
+          <a href="https://www.linkedin.com/in/nerosjuanma/" target="_blank" rel="noopener" class="contact-icon"
+            title="LinkedIn">
             <i class="fa-brands fa-linkedin"></i>
           </a>
           <span>·</span>
 
           <!-- Facebook -->
-          <a href="https://www.facebook.com/neros.juanma/" target="_blank" rel="noopener" class="contact-icon" title="Facebook">
+          <a href="https://www.facebook.com/neros.juanma/" target="_blank" rel="noopener" class="contact-icon"
+            title="Facebook">
             <i class="fa-brands fa-facebook"></i>
           </a>
           <span>·</span>
 
           <!-- Instagram -->
-          <a href="https://www.instagram.com/nerosjuanma/" target="_blank" rel="noopener" class="contact-icon" title="Instagram">
+          <a href="https://www.instagram.com/nerosjuanma/" target="_blank" rel="noopener" class="contact-icon"
+            title="Instagram">
             <i class="fa-brands fa-instagram"></i>
           </a>
           <span>·</span>
@@ -138,17 +144,19 @@
           <span>·</span>
 
           <!-- YouTube -->
-          <a href="https://www.youtube.com/channel/UCKdL-v-ytGuhnUqxJsL8TUQ" target="_blank" rel="noopener" class="contact-icon" title="YouTube">
+          <a href="https://www.youtube.com/channel/UCKdL-v-ytGuhnUqxJsL8TUQ" target="_blank" rel="noopener"
+            class="contact-icon" title="YouTube">
             <i class="fa-brands fa-youtube"></i>
           </a>
           <span>·</span>
 
           <!-- Discord -->
-          <a href="https://discord.com/channels/@neros__juanma" target="_blank" rel="noopener" class="contact-icon" title="Discord">
+          <a href="https://discord.com/channels/@neros__juanma" target="_blank" rel="noopener" class="contact-icon"
+            title="Discord">
             <i class="fa-brands fa-discord"></i>
           </a>
           <span>·</span>
-          
+
           <!-- CV / Documentos -->
           <a href="/cv.pdf" target="_blank" rel="noopener" class="contact-icon" title="CV / Documento">
             <i class="fa-solid fa-file"></i>
@@ -156,7 +164,7 @@
 
         </div>
 
-        
+
         <div class="header__role">
           <span class="role-item">Full Stack Web Developer</span>
           <span class="role-item">Diseñador Gráfico</span>
@@ -169,7 +177,7 @@
 
       </div>
     </div>
-  <!-- ================= NAV ================= -->  
+    <!-- ================= NAV ================= -->
     <nav aria-label="Secciones del CV" class="nav-menu" id="navMenu">
       <ul>
         <li><a href="#perfil">Perfil</a></li>
@@ -180,12 +188,12 @@
         <li><a href="#proyectos">Proyectos</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
-    </nav>  
+    </nav>
   </header>
-  
+
   <!-- ================= MAIN ================= -->
   <main>
-   <div class="irtopC"><a href="#top" class="irtop">⇡</a></div> 
+    <div class="irtopC"><a href="#top" class="irtop">⇡</a></div>
     <!-- Tarjetas de acceso rápido -->
     <section class="repaso" aria-labelledby="repaso-cv">
       <h2 id="repaso-cv" class="repaso">
@@ -193,7 +201,7 @@
         <a class="button_download" href="/cv.pdf" target="_blank" title="Download-CV">
 
           <img class="button_download" src="assets/descarga.png" alt="Descarga CV">
-         </a>
+        </a>
       </h2>
       <div class="repaso-grid">
         <article class="card">
@@ -225,447 +233,471 @@
     <!-- Perfil / Sobre mí -->
     <section id="perfil" class="section no-seleccionar" aria-labelledby="h-perfil">
       <details>
-        <summary><h4 class="tituloSection">Perfil</h4></summary>
-      <p>
-        Soy Juan Manuel Mudarra Pozo, un Desarrollador Full Stack Web y Diseñador Multimedia con una sólida formación
-        técnica y una trayectoria que combina creatividad, precisión y compromiso profesional. Mi objetivo es crear
-        experiencias digitales funcionales, atractivas y centradas en el usuario, uniendo el diseño visual con la
-        ingeniería del código.
-        <br><br>
-        A lo largo de mi carrera he trabajado en diversos entornos —desde diseño web y gráfico hasta administración de
-        bases de datos y desarrollo de productos multimedia interactivos—, lo que me ha permitido adquirir una visión
-        global de los procesos tecnológicos y de producción digital. Me motiva transformar ideas en soluciones
-        visuales y técnicas que generen impacto real.
-        <br><br>
-        En los últimos años, he consolidado mi perfil como Full Stack Developer, dominando herramientas como HTML,
-        CSS, JavaScript, React, Node.js, Express y MySQL, además de plataformas como WordPress. Mi experiencia se
-        complementa con conocimientos en Unity, C#, Blender y VR/AR, aplicados al diseño de videojuegos y entornos
-        interactivos.
-        <br><br>
-        He colaborado con empresas como Laybet, Lumaprint, Avicars y Mac Puar S.A., donde desarrollé proyectos de
-        diseño web, preimpresión gráfica, gestión administrativa y automatización de sistemas eléctricos. Esta
-        diversidad me ha enseñado a trabajar con metodologías ágiles, adaptarme a nuevos retos y mantener siempre una
-        actitud proactiva y orientada a resultados.
-        <br><br>
-        Actualmente sigo formándome en el Desarrollo de Aplicaciones con Tecnologías Web (IFCD0210), perfeccionando mi
-        perfil técnico mientras integro competencias en ciberseguridad, inteligencia artificial, análisis de datos y
-        gestión de proyectos.
-        <br><br>
-        Mi propósito profesional es seguir creciendo en el ámbito tecnológico, aportar valor a equipos
-        multidisciplinares y participar en proyectos innovadores que integren tecnología, arte y experiencia de
-        usuario.
-        <br><br>
-      </p>
+        <summary>
+          <h4 class="tituloSection">Perfil</h4>
+        </summary>
+        <p>
+          Soy Juan Manuel Mudarra Pozo, un Desarrollador Full Stack Web y Diseñador Multimedia con una sólida formación
+          técnica y una trayectoria que combina creatividad, precisión y compromiso profesional. Mi objetivo es crear
+          experiencias digitales funcionales, atractivas y centradas en el usuario, uniendo el diseño visual con la
+          ingeniería del código.
+          <br><br>
+          A lo largo de mi carrera he trabajado en diversos entornos —desde diseño web y gráfico hasta administración de
+          bases de datos y desarrollo de productos multimedia interactivos—, lo que me ha permitido adquirir una visión
+          global de los procesos tecnológicos y de producción digital. Me motiva transformar ideas en soluciones
+          visuales y técnicas que generen impacto real.
+          <br><br>
+          En los últimos años, he consolidado mi perfil como Full Stack Developer, dominando herramientas como HTML,
+          CSS, JavaScript, React, Node.js, Express y MySQL, además de plataformas como WordPress. Mi experiencia se
+          complementa con conocimientos en Unity, C#, Blender y VR/AR, aplicados al diseño de videojuegos y entornos
+          interactivos.
+          <br><br>
+          He colaborado con empresas como Laybet, Lumaprint, Avicars y Mac Puar S.A., donde desarrollé proyectos de
+          diseño web, preimpresión gráfica, gestión administrativa y automatización de sistemas eléctricos. Esta
+          diversidad me ha enseñado a trabajar con metodologías ágiles, adaptarme a nuevos retos y mantener siempre una
+          actitud proactiva y orientada a resultados.
+          <br><br>
+          Actualmente sigo formándome en el Desarrollo de Aplicaciones con Tecnologías Web (IFCD0210), perfeccionando mi
+          perfil técnico mientras integro competencias en ciberseguridad, inteligencia artificial, análisis de datos y
+          gestión de proyectos.
+          <br><br>
+          Mi propósito profesional es seguir creciendo en el ámbito tecnológico, aportar valor a equipos
+          multidisciplinares y participar en proyectos innovadores que integren tecnología, arte y experiencia de
+          usuario.
+          <br><br>
+        </p>
       </details>
     </section>
     <!-- Habilidades -->
     <section id="habilidades" class="section" aria-labelledby="h-habilidades">
       <details>
-        <summary><h4 class="tituloSection">Habilidades</h4></summary>
-      <h2 id="h-habilidades">🧩 Habilidades blandas:</h2>
-      <p class="blandas">| Escucha activa | Comunicación | Proactividad | Trabajo en equipo | Empatía | Pensamiento crítico | Creatividad
-      e innovación | Curiosidad intelectual | Aprendizaje contínuo | Mentalidad de crecimiento |</p>
-      <h2 id="h-habilidades">🧩 Competencias clave: </h2>
-      <ul class="habilidades" >
-        <li>Linux - Ubuntu</li>
-        <li>Windows</li>
-        <li>Microsoft Office</li>
-        <li>Word</li>
-        <li>Excel</li>
-        <li>PowerPoint</li>
-        <li>Access</li>
-        <li>Outlook</li>
-        <li>365</li>
-        <li>Procesamiento de textos</li>
-        <li>Hojas de cálculo</li>
-        <li>Correo electrónico / mensajería</li>
-        <li>Escaneado</li>
-        <li>Diseño multimedia</li>
-        <li>Diseño gráfico</li>
-        <li>Retoque digital</li>
-        <li>Adobe Photoshop</li>
-        <li>Adobe Illustrator</li>
-        <li>Autocad</li>
-        <li>CorelDraw</li>
-        <li>Base de datos</li>
-        <li>Mysql 8</li>
+        <summary>
+          <h4 class="tituloSection">Habilidades</h4>
+        </summary>
+        <h2 id="h-habilidades">🧩 Habilidades blandas:</h2>
+        <p class="blandas">| Escucha activa | Comunicación | Proactividad | Trabajo en equipo | Empatía | Pensamiento
+          crítico | Creatividad
+          e innovación | Curiosidad intelectual | Aprendizaje contínuo | Mentalidad de crecimiento |</p>
+        <h2 id="h-habilidades">🧩 Competencias clave: </h2>
+        <ul class="habilidades">
+          <li>Linux - Ubuntu</li>
+          <li>Windows</li>
+          <li>Microsoft Office</li>
+          <li>Word</li>
+          <li>Excel</li>
+          <li>PowerPoint</li>
+          <li>Access</li>
+          <li>Outlook</li>
+          <li>365</li>
+          <li>Procesamiento de textos</li>
+          <li>Hojas de cálculo</li>
+          <li>Correo electrónico / mensajería</li>
+          <li>Escaneado</li>
+          <li>Diseño multimedia</li>
+          <li>Diseño gráfico</li>
+          <li>Retoque digital</li>
+          <li>Adobe Photoshop</li>
+          <li>Adobe Illustrator</li>
+          <li>Autocad</li>
+          <li>CorelDraw</li>
+          <li>Base de datos</li>
+          <li>Mysql 8</li>
 
-        <li>Diseño y desarrollo web</li>
-        <li>WordPress</li>
-        <li>HTML semántico</li>
-        <li>CSS Grid/Flex</li>
-        <li>Formularios</li>
-        <li>Bootstrap</li>
-        <li>React (base)</li>
-        <li>Accesibilidad</li>
-        <li>UI/UX</li>
-        <li>Git/GitHub</li>
-        <li>Visual Studio Code</li>
-        <li>C</li>
-        <li>C++</li>
-        <li>JAVA</li>
-        <li>PHP</li>
-        <li>ARDUINO</li>
-        <li>BIG DATA</li>
-        <li>R</li>
-        <li>PENTAHO</li>
-        <li>Análisis de datos (Power BI)</li>
-        <li>Game Designer (Unity)</li>
-        <li>Diseño 3D</li>
-        <li>Blender</li>
-        <li>VR/AR</li>
-        <li>IA Inteligencia Artificial</li>
-        <li>5G</li>
-        <li>Smart City</li>
-        <li>CRM / ERP</li>
-        <li>Ciberseguridad</li>
-      </ul><br>
-      <section class="table-wrapper">
-        <h2>💡 Intereses y Áreas de Enfoque</h2>
-        <table class="tableh">
-          <thead>
-            <tr>
-              <th>Categoría de Interés</th>
-              <th>Descripción / Puntos Clave</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Desarrollo Web (Full Stack) <progress max="100" value="70" title="70%">70%</progress></strong></td>
-              <td>Formación continua como Desarrollador Full Stack.</td>
-            </tr>
-            <tr>
-              <td><strong>Tecnologías Clave <br><progress max="100" value="85" title="85%">85%</progress></strong></td>
-              <td>HTML, CSS, JavaScript, y **React**.</td>
-            </tr>
-            <tr>
-              <td><strong>Enfoque de Proyecto <br><progress max="100" value="75" title="75%">75%</progress></strong></td>
-              <td>Crear soluciones visuales y funcionales.</td>
-            </tr>
-            <tr>
-              <td><strong>Diseño y UX/UI <br><progress max="100" value="85" title="85%">85%</progress></strong></td>
-              <td>**Diseño web** y enfoque sólido en la **Experiencia de Usuario (UX)**.</td>
-            </tr>
-            <tr>
-              <td><strong>Conocimientos Técnicos <br><progress max="100" value="90" title="90%">90%</progress></strong></td>
-              <td>**Bases de datos**, optimización técnica y desarrollo multimedia interactivo.</td>
-            </tr>
-            <tr>
-              <td><strong>Habilidades Adicionales <br><progress max="100" value="95" title="95%">95%</progress></strong></td>
-              <td>Formación en **administración de bases de datos**, diseño gráfico, desarrollo de **videojuegos
-                (Unity)** y **automatización**.</td>
-            </tr>
-            <tr>
-              <td><strong>Valores Profesionales <br><progress max="100" value="100" title="100%">100%</progress></strong></td>
-              <td>Aportar innovación, compromiso y aprendizaje constante.</td>
-            </tr>
-            <tr>
-              <td><strong>Objetivo de Colaboración <br><progress max="100" value="75" title="75%">75%</progress></strong></td>
-              <td>Contribuir al desarrollo de proyectos web modernos y de alto impacto.</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
+          <li>Diseño y desarrollo web</li>
+          <li>WordPress</li>
+          <li>HTML semántico</li>
+          <li>CSS Grid/Flex</li>
+          <li>Formularios</li>
+          <li>Bootstrap</li>
+          <li>React (base)</li>
+          <li>Accesibilidad</li>
+          <li>UI/UX</li>
+          <li>Git/GitHub</li>
+          <li>Visual Studio Code</li>
+          <li>C</li>
+          <li>C++</li>
+          <li>JAVA</li>
+          <li>PHP</li>
+          <li>ARDUINO</li>
+          <li>BIG DATA</li>
+          <li>R</li>
+          <li>PENTAHO</li>
+          <li>Análisis de datos (Power BI)</li>
+          <li>Game Designer (Unity)</li>
+          <li>Diseño 3D</li>
+          <li>Blender</li>
+          <li>VR/AR</li>
+          <li>IA Inteligencia Artificial</li>
+          <li>5G</li>
+          <li>Smart City</li>
+          <li>CRM / ERP</li>
+          <li>Ciberseguridad</li>
+        </ul><br>
+        <section class="table-wrapper">
+          <h2>💡 Intereses y Áreas de Enfoque</h2>
+          <table class="tableh">
+            <thead>
+              <tr>
+                <th>Categoría de Interés</th>
+                <th>Descripción / Puntos Clave</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Desarrollo Web (Full Stack) <progress max="100" value="70"
+                      title="70%">70%</progress></strong></td>
+                <td>Formación continua como Desarrollador Full Stack.</td>
+              </tr>
+              <tr>
+                <td><strong>Tecnologías Clave <br><progress max="100" value="85" title="85%">85%</progress></strong>
+                </td>
+                <td>HTML, CSS, JavaScript, y **React**.</td>
+              </tr>
+              <tr>
+                <td><strong>Enfoque de Proyecto <br><progress max="100" value="75" title="75%">75%</progress></strong>
+                </td>
+                <td>Crear soluciones visuales y funcionales.</td>
+              </tr>
+              <tr>
+                <td><strong>Diseño y UX/UI <br><progress max="100" value="85" title="85%">85%</progress></strong></td>
+                <td>**Diseño web** y enfoque sólido en la **Experiencia de Usuario (UX)**.</td>
+              </tr>
+              <tr>
+                <td><strong>Conocimientos Técnicos <br><progress max="100" value="90"
+                      title="90%">90%</progress></strong></td>
+                <td>**Bases de datos**, optimización técnica y desarrollo multimedia interactivo.</td>
+              </tr>
+              <tr>
+                <td><strong>Habilidades Adicionales <br><progress max="100" value="95"
+                      title="95%">95%</progress></strong></td>
+                <td>Formación en **administración de bases de datos**, diseño gráfico, desarrollo de **videojuegos
+                  (Unity)** y **automatización**.</td>
+              </tr>
+              <tr>
+                <td><strong>Valores Profesionales <br><progress max="100" value="100"
+                      title="100%">100%</progress></strong></td>
+                <td>Aportar innovación, compromiso y aprendizaje constante.</td>
+              </tr>
+              <tr>
+                <td><strong>Objetivo de Colaboración <br><progress max="100" value="75"
+                      title="75%">75%</progress></strong></td>
+                <td>Contribuir al desarrollo de proyectos web modernos y de alto impacto.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
       </details>
     </section>
     <!-- Formación -->
     <section id="formacion" class="section" aria-labelledby="h-formacion">
       <details>
-        <summary><h4 class="tituloSection" id="h-formacion">Formación</h4></summary>
-      
-      <ul style="margin-left:1rem;">
-        <li>
-          <h3 style="margin-bottom:.2rem;">TÉCNICO SUPERIOR EN SISTEMAS ELECTROTÉCNICOS Y AUTOMATIZADOS</h3>
-          <small>2013 - 2015 · 2 años. · IT & Tecnología</small>
-          <p>
-            - Ingeniería eléctrica, electrónica y de comunicaciones. IES POLITÉCNICO
-          </p>
-        </li>
-        <li>
-          <h3 style="margin-bottom:.2rem;">BACHILLERATO-BUP</h3>
-          <small>MAY. 2002</small>
-          <p>
-            - Educación secundaria IES JOAQUÍN TURINA
-          </p>
-        </li>
-        </li>
-        <li>
-          <h3 style="margin-bottom:.2rem;">EGB-Graduado Escolar</h3>
-          <small>1994</small>
-          <p>
-            - Educación primaria COLEGIO JOAQUÍN BENJUMEA BURÍN
-          </p>
-        </li>
-      </ul>
+        <summary>
+          <h4 class="tituloSection" id="h-formacion">Formación</h4>
+        </summary>
+
+        <ul style="margin-left:1rem;">
+          <li>
+            <h3 style="margin-bottom:.2rem;">TÉCNICO SUPERIOR EN SISTEMAS ELECTROTÉCNICOS Y AUTOMATIZADOS</h3>
+            <small>2013 - 2015 · 2 años. · IT & Tecnología</small>
+            <p>
+              - Ingeniería eléctrica, electrónica y de comunicaciones. IES POLITÉCNICO
+            </p>
+          </li>
+          <li>
+            <h3 style="margin-bottom:.2rem;">BACHILLERATO-BUP</h3>
+            <small>MAY. 2002</small>
+            <p>
+              - Educación secundaria IES JOAQUÍN TURINA
+            </p>
+          </li>
+          </li>
+          <li>
+            <h3 style="margin-bottom:.2rem;">EGB-Graduado Escolar</h3>
+            <small>1994</small>
+            <p>
+              - Educación primaria COLEGIO JOAQUÍN BENJUMEA BURÍN
+            </p>
+          </li>
+        </ul>
       </details>
     </section>
     <!-- Certificaciones -->
     <section id="certificaciones" class="section" aria-labelledby="h-certificaciones">
       <details>
-        <summary><h4 class="tituloSection" id="h-certificaciones">Certificaciones y formación complementaria</h4></summary>
-      <ul style="margin-left:1rem;">
-        <li>
-          <h3 style="margin-bottom:.2rem;">F.P.E. DESARROLLO DE APLICACIONES CON TECNOLOGÍAS WEB. - (IFCD0210) - (En
-            curso.)</h3>
-          <small>SEPT. 2025 - FEB. 2026 · 590 horas. · IT & Tecnología</small>
-          <p>
-            - Certificado de Profesionalidad nivel 3. AVANTE FORMACIÓN
-          </p>
-        </li>
-        <li>
-          <h3 style="margin-bottom:.2rem;">F.P.E. DESARROLLO DE PRODUCTOS AUDIOVISUALES MULTIMEDIA INTERACTIVOS -
-            (IMSV0209)</h3>
-          <small>ENE. 2024 - MAY. 2024 · 540 horas. · Diseño & Multimedia</small>
-          <p>
-            - Certificado de Profesionalidad nivel 3. ALBORÁN FORMACIÓN S.L.
-          </p>
-        </li>
-        <li>
-          <h3 style="margin-bottom:.2rem;">F.P.E. ADMINISTRACIÓN DE BASE DE DATOS - (IFCT0310).</h3>
-          <small>OCT. 2022 - ABR 2023 · 600 horas. · IT & Tecnología</small>
-          <p>
-            - Certificado de Profesionalidad nivel 3. CORE NETWORKS SL
-          </p>
-        </li>
-        <li>
-          <h3 style="margin-bottom:.2rem;">F.P.E. ACTIVIDADES DE GESTIÓN ADMINISTRATIVA - (ADGD0308)</h3>
-          <small>ABR. 2021 - ENE. 2022 · 880 horas. · Administración</small>
-          <p>
-            - Certificado de Profesionalidad nivel 2. EUCLIDEX-CENTRO DE FORMACION M.G.M Y M.R.B S.L.
-          </p>
-        </li>
-      </ul>
-      <ul style="margin-left:1rem;">
-        <li><strong>PROGRAMACIÓN PARA VIDEOJUEGOS EN UNITY, (IFCD57)</strong><br><small>ABR. 2025 — AGO. 2025 · 300
-            horas.</small><br> · Videojuegos y programación CORE NETWORKS S.L.</li>
-        <li><strong>SISTEMA OPERATIVO, BÚSQUEDA DE LA INFORMACIÓN: INTERNET/INTRANET Y CORREO ELECTRÓNICO,
-            (UF0319)</strong><br><small>MAY. 2025 — MAY. 2025 · 30 horas.</small><br> · Inteligencia artificial.
-          AVANTE FORMACIÓN</li>
-        <li><strong>SEGURIDAD EN EQUIPOS INFORMÁTICOS / CIBERSEGURIDAD EN LA EMPRESA, (UC0486)</strong><br><small>ABR.
-            2025 — MAY. 2025 · 45 horas.</small><br> · Seguridad informática y de sistemas AVANTE FORMACIÓN</li>
-        <li><strong>HERRAMIENTAS DIGITALES PARA EL TRABAJO, (UF0319)</strong><br><small>ABR. 2025 — ABR. 2025 · 45
-            horas.</small><br> · Administración y gestión de empresas, general AVANTE FORMACIÓN</li>
-        <li><strong>ANÁLISIS DE DATOS CON MS POWER BI, (UF0323)</strong><br>Análisis de sistemas informáticos AVANTE
-          FORMACIÓN<small>MAR. 2025 — MAY. 2025 · 30 horas.</small><br> · Análisis de sistemas informáticos AVANTE
-          FORMACIÓN</li>
-        <li><strong>NIVEL 3 DEL ITINERARIO FORMATIVO CREACIÓN DE PERSONAJES 3D</strong><br><small>MAR. 2025 — MAR.
-            2025 · 40 horas.</small><br> · Diseño de videojuegos y contenido interactivo EFUNDAE</li>
-        <li><strong>INTRODUCCIÓN A LOS EFECTOS VISUALES</strong><br><small>DIC. 2024 — MAR. 2025 · .</small><br> ·
-          Animación, tecnología interactiva, gráficos en vídeo y efectos especiales AURA PRODS</li>
-        <li><strong>F.P.E. PROGRAMACIÓN REALIDAD VIRTUAL Y REALIDAD AUMENTADA APLICABLES EN ENTORNOS 5G,
-            (IFCD102)</strong><br><small>AGO. 2024 — SEP. 2024 · 150 horas.</small><br> · Diseño de videojuegos y
-          contenido interactivo, VR y AR. VODAFONE ESPAÑA & INTEGRA CONOCIMIENTO E INNOVACIÓN S.L.</li>
-        <li><strong>MEJORA DE PROCESOS: SEIS SIGMA, (ADGD181PO)</strong><br><small>ABR. 2024 — ABR. 2024 · 16
-            horas.</small><br> · Administración y gestión de empresas, general ALBORÁN FORMACIÓN S.L.</li>
-        <li><strong>F.P.E. PROGRAMACIÓN EN INTELIGENCIA ARTIFICIAL Y BIG DATA APLICABLES EN ENTORNOS 5G,
-            (IFCD99)</strong><br><small>SEP. 2023 — OCT. 2023 · 150 horas.</small><br> · Informática, comunicaciones y
-          servicios de asistencia. VODAFONE ESPAÑA S.A.U. & INTEGRA CONOCIMIENTO</li>
-        <li><strong>F.P.E. DESARROLLO DE APLICACIONES WEB CON PHP Y MYSQL, (IFCD06)</strong><br><small>JUL. 2023 —
-            JUL. 2023 · 80 horas.</small><br> · Desarrollo de aplicaciones web CORE NETWORKS S.L.</li>
-        <li><strong>F.P.E. PROGRAMACION PARA SOLUCIONES DE IOT Y SMART CITY APLICABLES A ENTORNOS 5G,
-            (IFCD97)</strong><br><small>MAY. 2023 — JUN. 2023 · 150 horas.</small><br> · Formación en tecnología 5G
-          VODAFONE ESPAÑA & INTEGRA CONOCIMIENTO</li>
-        <li><strong>TRÁMITES DE CONSTITUCIÓN DEL EMPRESARIO INDIVIDUAL. DERECHOS Y OBLIGACIONES, CONTROL DE INGRESOS Y
-            GASTOS DEL EMPRESARIO INDIVIDUAL</strong><br><small>JUN. 2005 · 8 horas + 6 horas.</small><br> · Pequeña
-          empresa e iniciativa emprendedora FUNDACIÓN FORJA XXI</li>
-        <li><strong>DISEÑO DE PAGINAS WEB</strong><br><small>ENE. 2005 — ABR. 2005 · 300 horas.</small><br> · Área de
-          conocimientos: Diseño multimedia. Familia profesional: Informática ACADEMIA E.A.I.G</li>
-        <li><strong>TECNICO AUXILIAR DE DISEÑO GRAFICO</strong><br><small>OCT. 2003 — MAY. 2004 · 630
-            horas.</small><br> · Diseño gráfico, composición, reproducción gráfica, ilustración B.C. PROYECTOS Y
-          SISTEMAS DE CONTROL, S.C.</li>
-        <li><strong>TÉCNICO EN EQUIPOS INFORMÁTICOS</strong><br><small>JUN. 2001 · 171 horas.</small><br> · Familia
-          profesional: Informática INSTITUTO INFORMÁTICO HISPALENSE</li>
-        <li><strong>TÉCNICO EN OFIMÁTICA</strong><br><small>JUL. 1999 · 184 horas.</small><br> · Familia profesional:
-          Informática INSTITUTO INFORMÁTICO HISPALENSE</li>
-      </ul>
+        <summary>
+          <h4 class="tituloSection" id="h-certificaciones">Certificaciones y formación complementaria</h4>
+        </summary>
+        <ul style="margin-left:1rem;">
+          <li>
+            <h3 style="margin-bottom:.2rem;">F.P.E. DESARROLLO DE APLICACIONES CON TECNOLOGÍAS WEB. - (IFCD0210) - (En
+              curso.)</h3>
+            <small>SEPT. 2025 - FEB. 2026 · 590 horas. · IT & Tecnología</small>
+            <p>
+              - Certificado de Profesionalidad nivel 3. AVANTE FORMACIÓN
+            </p>
+          </li>
+          <li>
+            <h3 style="margin-bottom:.2rem;">F.P.E. DESARROLLO DE PRODUCTOS AUDIOVISUALES MULTIMEDIA INTERACTIVOS -
+              (IMSV0209)</h3>
+            <small>ENE. 2024 - MAY. 2024 · 540 horas. · Diseño & Multimedia</small>
+            <p>
+              - Certificado de Profesionalidad nivel 3. ALBORÁN FORMACIÓN S.L.
+            </p>
+          </li>
+          <li>
+            <h3 style="margin-bottom:.2rem;">F.P.E. ADMINISTRACIÓN DE BASE DE DATOS - (IFCT0310).</h3>
+            <small>OCT. 2022 - ABR 2023 · 600 horas. · IT & Tecnología</small>
+            <p>
+              - Certificado de Profesionalidad nivel 3. CORE NETWORKS SL
+            </p>
+          </li>
+          <li>
+            <h3 style="margin-bottom:.2rem;">F.P.E. ACTIVIDADES DE GESTIÓN ADMINISTRATIVA - (ADGD0308)</h3>
+            <small>ABR. 2021 - ENE. 2022 · 880 horas. · Administración</small>
+            <p>
+              - Certificado de Profesionalidad nivel 2. EUCLIDEX-CENTRO DE FORMACION M.G.M Y M.R.B S.L.
+            </p>
+          </li>
+        </ul>
+        <ul style="margin-left:1rem;">
+          <li><strong>PROGRAMACIÓN PARA VIDEOJUEGOS EN UNITY, (IFCD57)</strong><br><small>ABR. 2025 — AGO. 2025 · 300
+              horas.</small><br> · Videojuegos y programación CORE NETWORKS S.L.</li>
+          <li><strong>SISTEMA OPERATIVO, BÚSQUEDA DE LA INFORMACIÓN: INTERNET/INTRANET Y CORREO ELECTRÓNICO,
+              (UF0319)</strong><br><small>MAY. 2025 — MAY. 2025 · 30 horas.</small><br> · Inteligencia artificial.
+            AVANTE FORMACIÓN</li>
+          <li><strong>SEGURIDAD EN EQUIPOS INFORMÁTICOS / CIBERSEGURIDAD EN LA EMPRESA, (UC0486)</strong><br><small>ABR.
+              2025 — MAY. 2025 · 45 horas.</small><br> · Seguridad informática y de sistemas AVANTE FORMACIÓN</li>
+          <li><strong>HERRAMIENTAS DIGITALES PARA EL TRABAJO, (UF0319)</strong><br><small>ABR. 2025 — ABR. 2025 · 45
+              horas.</small><br> · Administración y gestión de empresas, general AVANTE FORMACIÓN</li>
+          <li><strong>ANÁLISIS DE DATOS CON MS POWER BI, (UF0323)</strong><br>Análisis de sistemas informáticos AVANTE
+            FORMACIÓN<small>MAR. 2025 — MAY. 2025 · 30 horas.</small><br> · Análisis de sistemas informáticos AVANTE
+            FORMACIÓN</li>
+          <li><strong>NIVEL 3 DEL ITINERARIO FORMATIVO CREACIÓN DE PERSONAJES 3D</strong><br><small>MAR. 2025 — MAR.
+              2025 · 40 horas.</small><br> · Diseño de videojuegos y contenido interactivo EFUNDAE</li>
+          <li><strong>INTRODUCCIÓN A LOS EFECTOS VISUALES</strong><br><small>DIC. 2024 — MAR. 2025 · .</small><br> ·
+            Animación, tecnología interactiva, gráficos en vídeo y efectos especiales AURA PRODS</li>
+          <li><strong>F.P.E. PROGRAMACIÓN REALIDAD VIRTUAL Y REALIDAD AUMENTADA APLICABLES EN ENTORNOS 5G,
+              (IFCD102)</strong><br><small>AGO. 2024 — SEP. 2024 · 150 horas.</small><br> · Diseño de videojuegos y
+            contenido interactivo, VR y AR. VODAFONE ESPAÑA & INTEGRA CONOCIMIENTO E INNOVACIÓN S.L.</li>
+          <li><strong>MEJORA DE PROCESOS: SEIS SIGMA, (ADGD181PO)</strong><br><small>ABR. 2024 — ABR. 2024 · 16
+              horas.</small><br> · Administración y gestión de empresas, general ALBORÁN FORMACIÓN S.L.</li>
+          <li><strong>F.P.E. PROGRAMACIÓN EN INTELIGENCIA ARTIFICIAL Y BIG DATA APLICABLES EN ENTORNOS 5G,
+              (IFCD99)</strong><br><small>SEP. 2023 — OCT. 2023 · 150 horas.</small><br> · Informática, comunicaciones y
+            servicios de asistencia. VODAFONE ESPAÑA S.A.U. & INTEGRA CONOCIMIENTO</li>
+          <li><strong>F.P.E. DESARROLLO DE APLICACIONES WEB CON PHP Y MYSQL, (IFCD06)</strong><br><small>JUL. 2023 —
+              JUL. 2023 · 80 horas.</small><br> · Desarrollo de aplicaciones web CORE NETWORKS S.L.</li>
+          <li><strong>F.P.E. PROGRAMACION PARA SOLUCIONES DE IOT Y SMART CITY APLICABLES A ENTORNOS 5G,
+              (IFCD97)</strong><br><small>MAY. 2023 — JUN. 2023 · 150 horas.</small><br> · Formación en tecnología 5G
+            VODAFONE ESPAÑA & INTEGRA CONOCIMIENTO</li>
+          <li><strong>TRÁMITES DE CONSTITUCIÓN DEL EMPRESARIO INDIVIDUAL. DERECHOS Y OBLIGACIONES, CONTROL DE INGRESOS Y
+              GASTOS DEL EMPRESARIO INDIVIDUAL</strong><br><small>JUN. 2005 · 8 horas + 6 horas.</small><br> · Pequeña
+            empresa e iniciativa emprendedora FUNDACIÓN FORJA XXI</li>
+          <li><strong>DISEÑO DE PAGINAS WEB</strong><br><small>ENE. 2005 — ABR. 2005 · 300 horas.</small><br> · Área de
+            conocimientos: Diseño multimedia. Familia profesional: Informática ACADEMIA E.A.I.G</li>
+          <li><strong>TECNICO AUXILIAR DE DISEÑO GRAFICO</strong><br><small>OCT. 2003 — MAY. 2004 · 630
+              horas.</small><br> · Diseño gráfico, composición, reproducción gráfica, ilustración B.C. PROYECTOS Y
+            SISTEMAS DE CONTROL, S.C.</li>
+          <li><strong>TÉCNICO EN EQUIPOS INFORMÁTICOS</strong><br><small>JUN. 2001 · 171 horas.</small><br> · Familia
+            profesional: Informática INSTITUTO INFORMÁTICO HISPALENSE</li>
+          <li><strong>TÉCNICO EN OFIMÁTICA</strong><br><small>JUL. 1999 · 184 horas.</small><br> · Familia profesional:
+            Informática INSTITUTO INFORMÁTICO HISPALENSE</li>
+        </ul>
       </details>
     </section>
     <!-- Experiencia -->
     <section id="experiencia" class="section" aria-labelledby="h-experiencia">
       <details>
-        <summary><h4 class="tituloSection" id="h-experiencia">Experiencia</h4></summary>
-      <article style="margin-bottom:.75rem;">
-        <h3 style="margin-bottom:.2rem;">Diseño & Multimedia · 🟣 🎨🖼️🖨️ · LUMAPRINT</h3>
-        <small>JUN. 2024 - AGO. 2024 · Duración: 3 meses.</small>
-        <p>
-          Diseñador gráfico de preprensa en LUMAPRINT · Contrato de prácticas 80h. Preprensa y formación práctica.
-        </p>
-      </article>
-      <article>
-        <h3 style="margin-bottom:.2rem;">IT & Tecnología · 🔵 💻🎨 · LAYBET</h3>
-        <small>JUN. 2023 - JUL. 2023 · Duración: 2 meses.</small>
-        <p>
-          Desarrollo de diseño web en LAYBET · Contrato prácticas 80h. Manejo de WordPress.
-        </p>
-      </article>
-      <article>
-        <h3 style="margin-bottom:.2rem;">Administración · 🟢 💻📒🚗🚙🛻 · AVICARS</h3>
-        <small>DIC. 2021 · Duración: 1 mes.</small>
-        <p>
-          Auxiliar administrativo contable en AVICARS · Contrato de formación 80h. Registros contables.
-        </p>
-      </article>
-      <article>
-        <h3 style="margin-bottom:.2rem;">IT & Tecnología · 🔵 🛗🧑‍🏭⚙️🪛📎🧬🔗⛓️💻🗄️🏭 · MAC PUAR SA</h3>
-        <small>JUL. 2015 - AGO. 2018 · Duración: 3,1 años.</small>
-        <p>
-          Técnico de laboratorio y Administrativo I+D en MAC PUAR SA. Diseño de sistemas de control eléctrico.
-        </p>
-      </article>
-      <article>
-        <h3 style="margin-bottom:.2rem;">IT & Tecnología · 🔵 ☎️📞🎧📎🛜🌐 · SITEL IBERICA</h3>
-        <small>MAY. 2008 - SEP. 2010 · Duración: 2,5 años.</small>
-        <p>
-          Gestor telefónico en SITEL IBERICA. Soporte técnico a YA.COM.
-        </p>
-      </article>
-      <article>
-        <h3 style="margin-bottom:.2rem;">Hostelería · 🟠 ☕🍽️🍷🍺🍻 · Abacería de Baños</h3>
-        <small>MAY. 2007 - NOV. 2007 · Duración: 7 meses.</small>
-        <p>
-          Encargado de bar en Abacería de Baños. Gestión de stock, cocina y 3 personas.
-        </p>
-      </article>
-      <article>
-        <h3 style="margin-bottom:.2rem;">Diseño & Multimedia · 🟣 📸🖼️ · FOTOSHERRY</h3>
-        <small>OCT. 2006 - MAR. 2007 · Duración: 6 meses.</small>
-        <p>
-          Dependiente encargado en FOTOSHERRY. Control total de tienda.
-        </p>
-      </article>
-      <article>
-        <h3 style="margin-bottom:.2rem;">Hostelería · 🟠 ☕🍽️🍕🍔🍟🍝🍷🍺🍻 · El Barrilito</h3>
-        <small>AGO. 2006 - SEP. 2006 · Duración: 2 meses.</small>
-        <p>
-          Camarero en El Barrilito.
-        </p>
-      </article>
-      <article>
-        <h3 style="margin-bottom:.2rem;">IT & Tecnología · 🔵 👷👨‍🔧⚙️🪛🪜🔌🛜🌐 · ONO</h3>
-        <small>FEB. 2006 - ABR. 2006 · Duración: 3 meses.</small>
-        <p>
-          Instalador de ONO · Cableado exterior e interior.
-        </p>
-      </article>
-      <article>
-        <h3 style="margin-bottom:.2rem;">Hostelería · 🟠 ☕🍽️🍕🍔🍟🍝🍷🍺🍻 · O NONNA MÍA</h3>
-        <small>JUN. 2005 - SEP. 2005 · Duración: 4 meses.</small>
-        <p>
-          Encargado de barra en Pizzería O NONNA MÍA.
-        </p>
-      </article>
-      <article>
-        <h3 style="margin-bottom:.2rem;">Hostelería · 🟠 ☕🍽️🍕🍔🍟🍝🍷🍺🍻 · O NONNA MÍA</h3>
-        <small>JUL. 2004 - AGO. 2004 · Duración: 2 meses.</small>
-        <p>
-          Auxiliar de cafetería en O NONNA MÍA.
-        </p>
-      </article>
-      <article>
-        <h3 style="margin-bottom:.2rem;">IT & Tecnología · 🔵🧑‍🔧🖥️🪛⚙️ · Cala Componentes S.A</h3>
-        <small>ENE. 2003 - SEP. 2003 · Duración: 9 meses.</small>
-        <p>
-          Responsable de montaje de equipo informático en Cala Componentes S.A.
-        </p>
-      </article>
-      <article>
-        <h3 style="margin-bottom:.2rem;">IT & Tecnología · 🔵 💻👨‍🔧🪛⚙️🖥️⌨️🖱️ · Instituto Informático Hispalense
-        </h3>
-        <small>JUL. 2001 - DIC. 2002 · Duración: 1,5 años.</small>
-        <p>
-          Técnico en equipo informático en Instituto Informático Hispalense.
-        </p>
-      </article>
-      <article>
-        <h3 style="margin-bottom:.2rem;">Otros · 🔴 🛒🧺🥖🥯🥐🥪🥩 · GONZÁLEZ GALLURT S.A.</h3>
-        <small>DIC. 2000 - MAR. 2001 · Duración: 5 meses.</small>
-        <p>
-          Dependiente en GONZÁLEZ GALLURT S.A.
-        </p>
-      </article>
-      <article>
-        <h3 style="margin-bottom:.2rem;">Administración · 🟢 💾💻🏃‍♀️🏃‍♂️🏃 · Sevilla 99</h3>
-        <small>JUN. 2000 - JUL. 2000 · Duración: 2 meses.</small>
-        <p>
-          Grabador de datos Sevilla 99.
-        </p>
-      </article>
-      <article>
-        <h3 style="margin-bottom:.2rem;">Otros · 🔴 📖💼📚🏠 · Difusora Andaluza de Cultura</h3>
-        <small>FEB. 2000 - MAR. 2000 · Duración: 2 meses.</small>
-        <p>
-          Promotor para Difusora Andaluza de Cultura.
-        </p>
-      </article>
-      <article>
-        <h3 style="margin-bottom:.2rem;">Otros · 🔴📖📓📒📚📦🏭🚚 · LAGODIS S.L.</h3>
-        <small>SEP. 1995 - OCT. 1995 · Duración: 2 meses.</small>
-        <p>
-          Mozo de almacén en LAGODIS S.L.
-        </p>
-      </article>
-      <iframe class="iframe" src="timeline.html"></iframe>
+        <summary>
+          <h4 class="tituloSection" id="h-experiencia">Experiencia</h4>
+        </summary>
+        <article style="margin-bottom:.75rem;">
+          <h3 style="margin-bottom:.2rem;">Diseño & Multimedia · 🟣 🎨🖼️🖨️ · LUMAPRINT</h3>
+          <small>JUN. 2024 - AGO. 2024 · Duración: 3 meses.</small>
+          <p>
+            Diseñador gráfico de preprensa en LUMAPRINT · Contrato de prácticas 80h. Preprensa y formación práctica.
+          </p>
+        </article>
+        <article>
+          <h3 style="margin-bottom:.2rem;">IT & Tecnología · 🔵 💻🎨 · LAYBET</h3>
+          <small>JUN. 2023 - JUL. 2023 · Duración: 2 meses.</small>
+          <p>
+            Desarrollo de diseño web en LAYBET · Contrato prácticas 80h. Manejo de WordPress.
+          </p>
+        </article>
+        <article>
+          <h3 style="margin-bottom:.2rem;">Administración · 🟢 💻📒🚗🚙🛻 · AVICARS</h3>
+          <small>DIC. 2021 · Duración: 1 mes.</small>
+          <p>
+            Auxiliar administrativo contable en AVICARS · Contrato de formación 80h. Registros contables.
+          </p>
+        </article>
+        <article>
+          <h3 style="margin-bottom:.2rem;">IT & Tecnología · 🔵 🛗🧑‍🏭⚙️🪛📎🧬🔗⛓️💻🗄️🏭 · MAC PUAR SA</h3>
+          <small>JUL. 2015 - AGO. 2018 · Duración: 3,1 años.</small>
+          <p>
+            Técnico de laboratorio y Administrativo I+D en MAC PUAR SA. Diseño de sistemas de control eléctrico.
+          </p>
+        </article>
+        <article>
+          <h3 style="margin-bottom:.2rem;">IT & Tecnología · 🔵 ☎️📞🎧📎🛜🌐 · SITEL IBERICA</h3>
+          <small>MAY. 2008 - SEP. 2010 · Duración: 2,5 años.</small>
+          <p>
+            Gestor telefónico en SITEL IBERICA. Soporte técnico a YA.COM.
+          </p>
+        </article>
+        <article>
+          <h3 style="margin-bottom:.2rem;">Hostelería · 🟠 ☕🍽️🍷🍺🍻 · Abacería de Baños</h3>
+          <small>MAY. 2007 - NOV. 2007 · Duración: 7 meses.</small>
+          <p>
+            Encargado de bar en Abacería de Baños. Gestión de stock, cocina y 3 personas.
+          </p>
+        </article>
+        <article>
+          <h3 style="margin-bottom:.2rem;">Diseño & Multimedia · 🟣 📸🖼️ · FOTOSHERRY</h3>
+          <small>OCT. 2006 - MAR. 2007 · Duración: 6 meses.</small>
+          <p>
+            Dependiente encargado en FOTOSHERRY. Control total de tienda.
+          </p>
+        </article>
+        <article>
+          <h3 style="margin-bottom:.2rem;">Hostelería · 🟠 ☕🍽️🍕🍔🍟🍝🍷🍺🍻 · El Barrilito</h3>
+          <small>AGO. 2006 - SEP. 2006 · Duración: 2 meses.</small>
+          <p>
+            Camarero en El Barrilito.
+          </p>
+        </article>
+        <article>
+          <h3 style="margin-bottom:.2rem;">IT & Tecnología · 🔵 👷👨‍🔧⚙️🪛🪜🔌🛜🌐 · ONO</h3>
+          <small>FEB. 2006 - ABR. 2006 · Duración: 3 meses.</small>
+          <p>
+            Instalador de ONO · Cableado exterior e interior.
+          </p>
+        </article>
+        <article>
+          <h3 style="margin-bottom:.2rem;">Hostelería · 🟠 ☕🍽️🍕🍔🍟🍝🍷🍺🍻 · O NONNA MÍA</h3>
+          <small>JUN. 2005 - SEP. 2005 · Duración: 4 meses.</small>
+          <p>
+            Encargado de barra en Pizzería O NONNA MÍA.
+          </p>
+        </article>
+        <article>
+          <h3 style="margin-bottom:.2rem;">Hostelería · 🟠 ☕🍽️🍕🍔🍟🍝🍷🍺🍻 · O NONNA MÍA</h3>
+          <small>JUL. 2004 - AGO. 2004 · Duración: 2 meses.</small>
+          <p>
+            Auxiliar de cafetería en O NONNA MÍA.
+          </p>
+        </article>
+        <article>
+          <h3 style="margin-bottom:.2rem;">IT & Tecnología · 🔵🧑‍🔧🖥️🪛⚙️ · Cala Componentes S.A</h3>
+          <small>ENE. 2003 - SEP. 2003 · Duración: 9 meses.</small>
+          <p>
+            Responsable de montaje de equipo informático en Cala Componentes S.A.
+          </p>
+        </article>
+        <article>
+          <h3 style="margin-bottom:.2rem;">IT & Tecnología · 🔵 💻👨‍🔧🪛⚙️🖥️⌨️🖱️ · Instituto Informático Hispalense
+          </h3>
+          <small>JUL. 2001 - DIC. 2002 · Duración: 1,5 años.</small>
+          <p>
+            Técnico en equipo informático en Instituto Informático Hispalense.
+          </p>
+        </article>
+        <article>
+          <h3 style="margin-bottom:.2rem;">Otros · 🔴 🛒🧺🥖🥯🥐🥪🥩 · GONZÁLEZ GALLURT S.A.</h3>
+          <small>DIC. 2000 - MAR. 2001 · Duración: 5 meses.</small>
+          <p>
+            Dependiente en GONZÁLEZ GALLURT S.A.
+          </p>
+        </article>
+        <article>
+          <h3 style="margin-bottom:.2rem;">Administración · 🟢 💾💻🏃‍♀️🏃‍♂️🏃 · Sevilla 99</h3>
+          <small>JUN. 2000 - JUL. 2000 · Duración: 2 meses.</small>
+          <p>
+            Grabador de datos Sevilla 99.
+          </p>
+        </article>
+        <article>
+          <h3 style="margin-bottom:.2rem;">Otros · 🔴 📖💼📚🏠 · Difusora Andaluza de Cultura</h3>
+          <small>FEB. 2000 - MAR. 2000 · Duración: 2 meses.</small>
+          <p>
+            Promotor para Difusora Andaluza de Cultura.
+          </p>
+        </article>
+        <article>
+          <h3 style="margin-bottom:.2rem;">Otros · 🔴📖📓📒📚📦🏭🚚 · LAGODIS S.L.</h3>
+          <small>SEP. 1995 - OCT. 1995 · Duración: 2 meses.</small>
+          <p>
+            Mozo de almacén en LAGODIS S.L.
+          </p>
+        </article>
+        <iframe class="iframe" src="timeline.html"></iframe>
       </details>
     </section>
     <!-- Proyectos destacados -->
     <section id="proyectos" class="section" aria-labelledby="h-proyectos">
       <details>
-        <summary><h4 class="tituloSection" id="h-proyectos">Proyectos</h4></summary>
-      <article style="margin-bottom:.75rem;">
-        <h3 style="margin-bottom:.2rem;"><a href="https://desarrollo-de-aplicaciones-con-tecn.vercel.app/"
-            target="_blank" rel="noopener">Portfolio</a></h3>
-        <small>SEP. 2025 — FEB. 2026 - curso Desarrollo de aplicaciones webs</small>
-        <p>
-          Esta es la página de inicio donde aparecerán todas las versiones de los ejercicios, hechos por mí, en el
-          curso de Desarrollo de aplicaciones con tecnologías webs.
-        </p>
-      </article>
-      <article style="margin-bottom:.75rem;">
-        <h3 style="margin-bottom:.2rem;"><a href="https://mi-planificador.vercel.app/" target="_blank" rel="noopener">Mi
-            primer Planificador</a></h3>
-        <small>SEP. 2025 — FEB. 2026 - curso Desarrollo de aplicaciones webs</small>
-        <p>
-          Esta es una página donde podras planificar añadiento tareas y metas a lograr. Con memoria volátil, solo se
-          mantienen en memoria mientras la página está abierta.
-        </p>
-      </article>
-      <article>
-        <h3 style="margin-bottom:.2rem;">Ipsum Project Two</h3>
-        <small> — 2024</small>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
-          amet, nihil illum recusandae impedit.
-        </p>
-      </article>
+        <summary>
+          <h4 class="tituloSection" id="h-proyectos">Proyectos</h4>
+        </summary>
+        <article style="margin-bottom:.75rem;">
+          <h3 style="margin-bottom:.2rem;"><a href="https://desarrollo-de-aplicaciones-con-tecn.vercel.app/"
+              target="_blank" rel="noopener">Portfolio</a></h3>
+          <small>SEP. 2025 — FEB. 2026 - curso Desarrollo de aplicaciones webs</small>
+          <p>
+            Esta es la página de inicio donde aparecerán todas las versiones de los ejercicios, hechos por mí, en el
+            curso de Desarrollo de aplicaciones con tecnologías webs.
+          </p>
+        </article>
+        <article style="margin-bottom:.75rem;">
+          <h3 style="margin-bottom:.2rem;"><a href="https://mi-planificador.vercel.app/" target="_blank"
+              rel="noopener">Mi
+              primer Planificador</a></h3>
+          <small>SEP. 2025 — FEB. 2026 - curso Desarrollo de aplicaciones webs</small>
+          <p>
+            Esta es una página donde podras planificar añadiento tareas y metas a lograr. Con memoria volátil, solo se
+            mantienen en memoria mientras la página está abierta.
+          </p>
+        </article>
+        <article>
+          <h3 style="margin-bottom:.2rem;">Ipsum Project Two</h3>
+          <small> — 2024</small>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
+            amet, nihil illum recusandae impedit.
+          </p>
+        </article>
       </details>
     </section>
     <!-- Contacto -->
     <section id="contacto" class="section" aria-labelledby="h-contacto">
       <details>
-        <summary><h4 class="tituloSection" id="h-contacto">Contacto</h4></summary>
-      <form action="https://formspree.io/f/mgvnjzpl" method="POST" novalidate>
-        <div class="form-grid">
-          <div>
-            <label for="nombre">Nombre</label>
-            <input id="nombre" name="nombre" type="text" placeholder="Escribe tu nombre y apellidos" required>
+        <summary>
+          <h4 class="tituloSection" id="h-contacto">Contacto</h4>
+        </summary>
+        <form action="https://formspree.io/f/mgvnjzpl" method="POST" novalidate>
+          <div class="form-grid">
+            <div>
+              <label for="nombre">Nombre</label>
+              <input id="nombre" name="nombre" type="text" placeholder="Escribe tu nombre y apellidos" required>
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="Introduce tu correo: Email@example.com" required
+                autocomplete="email">
+            </div>
+            <div class="full">
+              <label for="asunto">Asunto</label>
+              <input id="asunto" name="asunto" type="text" placeholder="Motivo del contacto..." required>
+            </div>
+            <div class="full">
+              <label for="mensaje">Mensaje</label>
+              <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje..." required></textarea>
+            </div>
+            <div class="full" style="display:flex; justify-content:flex-end; gap:.5rem;">
+              <button type="submit" aria-label="Enviar mensaje de contacto">Enviar</button>
+            </div>
           </div>
-          <div>
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="Introduce tu correo: Email@example.com" required autocomplete="email">
-          </div>
-          <div class="full">
-            <label for="asunto">Asunto</label>
-            <input id="asunto" name="asunto" type="text" placeholder="Motivo del contacto..." required>
-          </div>
-          <div class="full">
-            <label for="mensaje">Mensaje</label>
-            <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje..." required></textarea>
-          </div>
-          <div class="full" style="display:flex; justify-content:flex-end; gap:.5rem;">
-            <button type="submit">Enviar</button>
-          </div>
-        </div>
-        </details>
+      </details>
     </section>
   </main>
 
@@ -695,15 +727,11 @@
     <div class="footer">© 2025 Juan Manuel Mudarra Pozo · CV Digital · Todos los derechos reservados.
       <br><a href="#top">Volver arriba ⇡</a>
     </div>
-    <div class="fecha" id="fechaActual"></div>     
+    <div class="fecha" id="fechaActual"></div>
     <div class="mapa" id="mapa">
-    <iframe src="https://maps.google.com/maps?q=Plaza+Alegre+Sevilla&output=embed" 
-    width="450" 
-    height="250" 
-    style="border:0;"
-    allowfullscreen=""
-    loading="lazy">
-    </iframe>
+      <iframe src="https://maps.google.com/maps?q=Plaza+Alegre+Sevilla&output=embed" width="450" height="250"
+        style="border:0;" allowfullscreen="" loading="lazy">
+      </iframe>
     </div>
   </footer>
   <script src="script.js"></script>
