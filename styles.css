@@ -538,8 +538,8 @@ button[type="submit"]:hover {
     /* Aplicar el color que quieras */
     /* background: var(--brand-pink); */
 
-    width: 512px;
-    height: 384px;
+    width: 2rem;
+    /* height: ; */
 
     background: transparent;
     filter: brightness(0) saturate(100%) invert(23%) sepia(97%) saturate(5504%) hue-rotate(308deg) brightness(98%) contrast(106%);
