@@ -1,0 +1,1408 @@
+/* ============================================================
+   📚 HOJA DE ESTILOS OPTIMIZADA - EDUCATIVA
+   ============================================================ */
+
+/* ============================================================
+   1. VARIABLES GLOBALES
+   ============================================================ */
+:root {
+    /* Colores Modo Claro */
+    --brand-pink: #e010a8;
+    /* Botones, enlaces */
+    --deep-blue: #073B4C;
+    /* Títulos, bordes */
+    --sky-blue: #118AB2;
+    --sky-blue2: #ffffff;
+    /* Hover y efectos interactivos */
+    --ice-blue: #F0FFFF;
+    /* Fondos especiales */
+    --bg-light: #f7f7f7;
+    /* Fondo general */
+    --text-light: #222222;
+    /* Texto general */
+    --card-light: #ffffff;
+    /* Fondos tarjetas y secciones */
+
+    --sombra-light: rgb(135, 237, 245);
+    --sombra-dark: rgb(254, 5, 217);
+
+    /* Tipografías */
+    --fuente-principal: 'Arial', sans-serif;
+    --fuente-secundaria: 'Courier New', monospace;
+}
+
+/* Variables Modo Oscuro */
+html.dark-mode {
+
+    /* Colores Modo Oscuro (SOBREESCRIBEN A LOS DE :root) */
+    --brand-pink: #ff69b4;
+    --deep-blue: #3480e4;
+    /* Títulos, bordes mas claros */
+    --sky-blue: #4fc3f7;
+    --sky-blue2: #4fc3f7;
+
+    --ice-blue: #1a1f25;
+    --bg-light: #0e0e0e;
+    /* El fondo general oscuro */
+    --text-light: #f4f4f4;
+    /* El texto general claro */
+    --card-light: #141414;
+    /* El fondo de tarjetas oscuro */
+    --sombra-light: rgb(254, 5, 217);
+    --sombra-dark: rgb(135, 237, 245);
+}
+
+/* ============================================================
+   2. RESET Y BASE
+   ============================================================ */
+* {
+    box-sizing: border-box;
+    /* transition: background-color 0.4s ease, color 0.4s ease; */
+    /* Asegura que no haya padding o margin que cause desbordamiento */
+    margin: 0;
+    padding: 0;
+
+}
+
+*::selection {
+    background-color: var(--sombra-light);
+    color: var(--sombra-dark);
+}
+
+details {
+    color: var(--brand-pink);
+
+}
+
+details:hover {
+    color: var(--text-light);
+
+}
+
+.tituloSection {
+    display: inline;
+}
+
+.tituloSection:hover {
+    color: var(--brand-pink);
+}
+
+html,
+body {
+    transition: background-color 0.4s ease, color 0.4s ease;
+
+}
+
+body {
+    font-family: var(--fuente-principal);
+    background: var(--bg-light);
+    color: var(--text-light);
+    line-height: 1.5;
+    font-family: var(--fuente-principal);
+    /* Garantiza que el ancho máximo sea el del viewport */
+    max-width: 100vw;
+    /* Corrección Global para evitar el scroll horizontal */
+    /* La clave: Oculta cualquier contenido que se desborde horizontalmente */
+    /* overflow-x: hidden; */
+    width: 100%;
+    display: grid;
+    grid-template-columns: 3fr 2fr 1fr;
+    grid-template-rows: 0.1fr auto auto 0.1fr;
+    grid-template-areas:
+        "header header header"
+        "nav nav nav"
+        "main main aside"
+        "footer footer footer";
+}
+
+
+/* ============================================================
+   3. LAYOUT PRINCIPAL
+   ============================================================ */
+.layout {
+
+    gap: 5px;
+    width: 100%;
+}
+
+header {
+    grid-area: header;
+
+}
+
+.nav {
+    grid-area: nav;
+
+}
+
+main {
+    grid-area: main;
+    padding: 10px;
+
+}
+
+
+footer {
+    grid-area: footer;
+    padding: 1px;
+}
+
+aside {
+    grid-area: aside;
+}
+
+
+.iframe {
+    width: 100%;
+    min-height: 50vw;
+    border: none;
+}
+
+
+/* ============================================================
+   4. HEADER
+   ============================================================ */
+.header__inner {
+    display: grid;
+    grid-template-columns: 0.3fr 0.7fr;
+    gap: 1px;
+    /* max-width: 100%; */
+    margin: 1%;
+    /* place-items:center; */
+    /* border-style: double; */
+    /* justify-content:center; align-items:center; */
+
+}
+
+.header__photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--brand-pink);
+    background: var(--card-light);
+    justify-content: center;
+    align-items: center;
+}
+
+.imgfoto {
+
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    /* border-style: double; */
+}
+
+.header__info {
+    text-align: left;
+    color: var(--deep-blue);
+    /* background-color: var(--card-light); */
+    padding: 1rem;
+    /* border-style: double;  */
+    /* opacity:var(--card-light) 0.7;
+    position: relative; */
+}
+
+.header__name {
+    font-size: 2rem;
+    line-height: 1.1;
+    margin-bottom: 6px;
+    /* Imagen de fondo: */
+    background: blue url('fondoNegro.jpg');
+    background-clip: text;
+    -webkit-background-clip: text;
+    /* Para compatibilidad*/
+    color: transparent;
+    font-size: 7rem;
+    /* Borde del texto (contorno de cada letra): */
+    -webkit-text-stroke: 1px var(--deep-blue);
+    /*-text-stroke: 3px var(--sombra-dark); /* Estándar, aunque tiene poco soporte aún */
+}
+
+.header__role {
+    width: 120vh;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--brand-pink);
+    display: inline-block;
+    /* border: 2px solid black; */
+    white-space: nowrap;
+    /* Evita que el texto se salte de línea */
+    /* Altura fija para evitar saltos de diseño si se usa un font-size específico */
+}
+
+/* Estilos base para el contenedor y los roles */
+.role-item {
+    display: none;
+    /* Oculta todos los elementos por defecto */
+    font-family: monospace;
+    /* Fuente de ancho fijo para un mejor efecto de máquina de escribir */
+    /* Por defecto, los hacemos opacos para que las letras se vean */
+    opacity: 1;
+}
+
+/* Estilo que se aplica al rol activo */
+.role-item.active {
+    display: inline-block;
+    /* Mostrar solo el rol activo */
+    overflow: hidden;
+    /* Oculta el texto que excede el ancho */
+    width: 0;
+    /* ANCHO INICIAL: Oculta todo el texto, lo revela JS */
+    max-width: 25ch;
+    height: 8ch;
+    align-content: center;
+
+    /* El borde derecho simula el cursor parpadeante */
+    /* border-right: 2px solid;  */
+
+    /* Animación del parpadeo del cursor */
+    animation: blink-caret .75s step-end infinite;
+}
+
+/* Animación del cursor: simplemente alterna la opacidad del borde */
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: currentColor;
+    }
+}
+
+/* HEADER ICONOS*/
+.header__contact {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.2rem;
+    /* margin-top: 8px; */
+    /* border-style: double; */
+}
+
+.header__contact span {
+    opacity: 0.4;
+    user-select: none;
+}
+
+.contact-icon {
+    text-decoration: none;
+    color: inherit;
+    font-size: 1.4rem;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.contact-icon:hover {
+    color: #007bff;
+    transform: scale(1.15);
+
+}
+
+/* ============================================================
+   . ANIMACION PULSO
+   ============================================================ */
+@keyframes pulse-grow {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 var(--sombra-light);
+        /* Sin sombra */
+    }
+
+    50% {
+        transform: scale(1.02);
+        /* Sombra sutil: 0px x, 0px y, 15px de blur, color negro transparente */
+        box-shadow: 0 0 15px var(--sombra-dark);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 var(--sombra-light);
+    }
+}
+
+.header__photo {
+    /* Reemplaza 'nombre-de-la-animacion' con 'pulse-grow' */
+    animation-name: pulse-grow;
+    /* Duración de un ciclo completo (ej. 3 segundos) */
+    animation-duration: 1.5s;
+    /* Hace que la animación se repita indefinidamente */
+    animation-iteration-count: infinite;
+    /* Suaviza la transición (ej. ease-in-out para empezar lento, acelerar y terminar lento) */
+    animation-timing-function: ease-in-out;
+    /* Opcional: Para asegurar que el elemento se comporta como un bloque al aplicar transform */
+    display: block;
+}
+
+/* Opcional: Forma abreviada para la propiedad 'animation' */
+/* .profile-image {
+    animation: pulse-grow 3s infinite ease-in-out;
+} */
+
+/* ============================================================
+   5. NAVEGACIÓN
+   ============================================================ */
+/* Botón hamburguesa (oculto en desktop) */
+.hamburger {
+    display: none;
+}
+
+/* Menú de navegación */
+.nav-menu ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    /* border: 3px solid red; */
+}
+
+.nav-menu a {
+    display: inline-block;
+    padding: 0.6rem 1.1rem;
+    border-radius: 8px;
+    background: var(--ice-blue);
+    color: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    background: var(--deep-blue);
+    color: var(--brand-pink);
+    transition: background 0.9s ease;
+}
+
+
+/* ============================================================
+   6. SIDEBAR
+   ============================================================ */
+.sidebar {
+    background: var(--ice-blue);
+    border: 2px dashed var(--deep-blue);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.sidebar h3 {
+    color: var(--deep-blue);
+    margin-bottom: 0.2rem;
+}
+
+.sidebar ul {
+    margin-left: 1rem;
+    list-style: square;
+}
+
+/* ============================================================
+   7. SECCIONES Y TARJETAS
+   ============================================================ */
+.section,
+.card {
+    width: 100%;
+    background: var(--card-light);
+    border-radius: 10px;
+    padding: 26px;
+}
+
+.repaso {
+    background: var(--card-light);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.section {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    margin-bottom: 12px;
+}
+
+.section h2,
+h2.repaso {
+
+    color: var(--deep-blue);
+    margin-bottom: 0.5rem;
+}
+
+.repaso {
+    margin: 1px;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.08);
+    font-family: var(--fuente-principal);
+}
+
+.repaso,
+.repaso-cv {
+    text-align: center;
+}
+
+.repaso-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.card {
+    border: 3px groove var(--deep-blue);
+    padding: 0.1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+.card__cabecera {
+    color: var(--brand-pink);
+    margin-bottom: 0.5rem;
+}
+
+.card__contenido {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* ============================================================
+   8. BOTONES
+   ============================================================ */
+
+.button,
+button[type="submit"] {
+    background: var(--brand-pink);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s ease;
+}
+
+button[type="submit"]:hover {
+    background: var(--sky-blue);
+}
+
+.button_card {
+    /* background: var(--ice-blue);
+    color: var(--brand-pink); 
+    border: none;
+    border-radius: 8px; */
+
+    height: 2.5rem;
+    border-top: 1px dashed var(--deep-blue);
+    border-bottom: 3px solid var(--deep-blue);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background: linear-gradient(to top,
+            var(--sombra-light),
+            transparent 65%);
+
+
+    padding: 0.6rem 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s ease;
+}
+
+.button_card:hover {
+    /* background: var(--brand-pink); */
+    background: linear-gradient(to top,
+            var(--brand-pink),
+            transparent 65%);
+    color: var(--text-light);
+
+}
+
+.button_download img {
+    /* Ocultar la imagen original pero usar su forma */
+    /* -webkit-mask: url('assets/descarga.png') no-repeat center;
+    mask: url('assets/descarga.png') no-repeat center;
+    -webkit-mask-size: contain;
+    mask-size: contain; */
+
+    /* filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(286deg) brightness(118%) contrast(119%); */
+    /* Aplicar el color que quieras */
+    /* background: var(--brand-pink); */
+
+    width: 2rem;
+    /* height: ; */
+
+    background: transparent;
+    filter: brightness(0) saturate(100%) invert(23%) sepia(97%) saturate(5504%) hue-rotate(308deg) brightness(98%) contrast(106%);
+
+}
+
+.button_download img:hover {
+    transform: scale(1.15);
+    mix-blend-mode: normal;
+
+    filter: brightness(0) saturate(100%) invert(38%) sepia(98%) saturate(3426%) hue-rotate(200deg) brightness(101%) contrast(106%);
+}
+
+/* FIXED ESPECIALES  */
+/*fechaflotante*/
+.fechaflotante {
+    position: fixed;
+    width: 20%;
+    right: 50px;
+    color: var(--deep-blue);
+    font-weight: 600;
+    font-weight: 600;
+    text-align: right;
+    inset: 1rem 3rem auto auto;
+    z-index: 9999;
+}
+
+/* ------ BOTÓN MODERNO DARK ------ */
+.mode-toggle {
+    position: fixed;
+    width: 25px;
+    height: 25px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.25s ease, background 0.3s ease;
+    inset: 1rem 1rem auto auto;
+}
+
+.mode-toggle:hover {
+    transform: scale(1.08);
+}
+
+.mode-toggle:active {
+    transform: scale(0.96);
+}
+
+html.dark-mode .mode-toggle {
+    background: rgba(0, 0, 0, 0.5);
+    /* Fondo oscuro con transparencia */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
+    /* Sombra clara */
+}
+
+/* Icono animado */
+.mode-toggle .icon {
+    transition: transform 0.5s ease, opacity 0.4s ease;
+}
+
+html.dark-mode .mode-toggle .icon {
+    transform: rotate(180deg);
+}
+
+/* //AUDIO DE FONDO */
+.audio-on {
+    font-size: 1.2rem;
+    cursor: pointer;
+    user-select: none;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 5px;
+    margin-right: 1px;
+    width: 20px;
+    height: 20px;
+    inset: 3rem 1rem auto auto;
+}
+
+.audio-off {
+    opacity: 0.5;
+}
+
+/* Botones flotantes*/
+.floating-social {
+    position: fixed;
+    /* Fijo en pantalla */
+    inset: 5rem 1rem auto auto;
+    display: flex;
+    /* PARA QUE SE VEA SE PONE flex*/
+    flex-direction: column;
+    gap: 10px;
+    /* Separación entre iconos */
+    z-index: 1000;
+    /* Encima de todo */
+}
+
+.floating-social a {
+    display: flex;
+    text-decoration: none;
+    font-size: 1.5rem;
+    /* Tamaño iconos */
+    color: var(--text-light);
+    width: 20px;
+    height: 20px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    /* Botones redondos */
+    transition: transform .2s, background .2s;
+}
+
+.floating-social a:hover {
+    transform: scale(1.2);
+    background: var(--bg-light);
+    /* Color más claro al pasar */
+    color: var(--sky-blue);
+}
+
+.floating-like {
+    z-index: 1000;
+    position: fixed;
+    inset: 9rem 0.7rem auto auto;
+}
+
+#likeBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5px;
+    background: var(--sky-blue);
+    color: var(--text-light);
+    border: none;
+    border-radius: 50px;
+    padding: 1px 3px;
+    font-size: 0.7rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .3);
+    transition: transform .2s, background .2s;
+}
+
+#likeBtn:hover {
+    transform: scale(1.1);
+    background: #0f5cc0;
+}
+
+#likeBtn.liked {
+    background: var(--sky-blue);
+
+}
+/*----*//* 🔥 CLAVE */
+/* .heart {
+  position: fixed;          
+  font-size: 20px;
+  pointer-events: none;
+  animation: fly 1s ease-out forwards;
+  z-index: 9999;            
+} */
+
+/* @keyframes fly {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-80px) scale(1.6);
+  }
+} */
+
+
+/*----*/
+.heart {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 22px;
+  pointer-events: none;
+  z-index: 9999;
+  animation: floatHeart 2.5s ease-out forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes floatHeart {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(
+      calc(-50% + var(--x)),
+      calc(-50% + var(--y))
+    ) scale(1.6);
+  }
+}
+
+
+
+.zona-hover {
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    z-index: 1001;
+    inset: 11rem 1rem auto auto;
+}
+
+/* Recuadro flotante */
+#poppup {
+    display: none;
+    /* Oculto por defecto (se muestra al entrar en página por JS) */
+    background: rgba(255, 255, 255, 0.01);
+    position: fixed;
+    bottom: 1%;
+    right: 1%;
+    width: 33%;
+    height: 70%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+}
+
+/* Asegura que el HTML interior se ajuste al recuadro */
+#poppup iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/*/////// FLECHA SUBIR //////*/
+.irtopC {
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    position: fixed;
+    top: 89%;
+    /* inset: auto 1rem 1rem auto; */
+    right: 16.5%;
+    background: var(--sombra-light);
+    font-weight: 600;
+    font-size: x-large;
+    border: 3px solid var(--sombra-dark);
+}
+
+.irtopC {
+    /* Reemplaza 'nombre-de-la-animacion' con 'pulse-grow' */
+    animation-name: pulse-grow;
+    /* Duración de un ciclo completo (ej. 3 segundos) */
+    animation-duration: 3s;
+    /* Hace que la animación se repita indefinidamente */
+    animation-iteration-count: infinite;
+    /* Suaviza la transición (ej. ease-in-out para empezar lento, acelerar y terminar lento) */
+    animation-timing-function: ease-in-out;
+    /* Opcional: Para asegurar que el elemento se comporta como un bloque al aplicar transform */
+    display: block;
+    z-index: 9999;
+}
+
+.irtopC a:hover {
+    background: var(--sombra-dark);
+    color: var(--sombra-light);
+}
+
+.irtop {
+    color: var(--brand-pink);
+}
+
+/* ============================================================
+   8. TABLAS
+   ===========================================================*/
+.blandas {
+    width: 100%;
+    text-align: center;
+
+}
+
+.habilidades {
+    width: 100%;
+    columns: 4;
+    gap: 1.5rem;
+    margin-left: 1rem;
+}
+
+/* Estilos CSS básicos para la tabla */
+table {
+    max-width: 100%;
+    border-collapse: collapse;
+    overflow-x: auto;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo para el encabezado */
+th {
+    max-width: 100%;
+    background-color: var(--sky-blue);
+    /* Un color azul corporativo */
+    color: var(--bg-light);
+    padding: 1%;
+    text-align: left;
+    vertical-align: center;
+    border: 1px solid #ddd;
+}
+
+/* Estilo para las celdas */
+td {
+    max-width: 100%;
+    padding: 1%;
+    /* margin-left: 50%; */
+    border: 1px solid #ddd;
+    text-align: left;
+    vertical-align: center;
+    /* Alinea el contenido en la parte superior */
+
+}
+
+/* Alternar colores de fila para mejor legibilidad */
+tr:nth-child(even) {
+    background-color: var(--bg-light);
+}
+
+progress {
+    max-width: 100%;
+}
+
+/* Estilo para el título */
+h2 {
+    font-family: Arial, sans-serif;
+    /* color: #333; */
+    border-bottom: 3px solid #337ab7;
+    padding-bottom: 1px;
+}
+
+h4 {
+    font-family: Arial, sans-serif;
+    font-size: 2rem;
+    border-bottom: 3px solid #337ab7;
+    padding-bottom: 1px;
+    color: var(--deep-blue);
+}
+
+/* ============================================================
+   9. FORMULARIOS
+   ============================================================ */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.form-grid .full {
+    grid-column: 1 / -1;
+}
+
+label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    font-size: 0.95rem;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    border-radius: 8px;
+    border: 1px solid var(--ice-blue);
+    font: inherit;
+    background: var(--bg-light);
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+html.dark-mode input,
+html.dark-mode textarea {
+    border: 1px solid var(--deep-blue);
+    /* Oscurecer el borde */
+    background: var(--card-light);
+    /* Fondo de campo más oscuro que el fondo general */
+
+}
+
+
+/* ============================================================
+   11. FOOTER
+   ============================================================ */
+
+/* El contenido del footer debe estar encima del overlay */
+footer * {
+    position: relative;
+    z-index: 1000;
+}
+
+footer {
+    font-size: 1rem;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+    border-top: 5px solid var(--brand-pink);
+    color: var(--sombra-light);
+    background-image: url('fondoNegro.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* No repite la imagen */
+
+}
+
+footer a {
+    color: var(--sky-blue);
+    font-weight: 600;
+}
+
+footer .fecha {
+    /* background: var(--brand-pink); */
+    color: var(--sky-blue);
+    font-weight: 600;
+    text-align: center;
+}
+
+/* ============================================================
+   12. IMÁGENES Y GALERÍA
+   ============================================================ */
+
+.imagenes,
+.gallery img {
+    display: block;
+    margin: 1rem auto;
+    border-radius: 12px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.imagenes {
+    max-width: 80%;
+    height: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.gallery img {
+    height: 180px;
+}
+
+/* ============================================================
+   13. MULTIMEDIA
+   ============================================================ */
+.multimedia-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.multimedia-grid>.card {
+    flex: 1 1 400px;
+    max-width: 420px;
+}
+
+/* ============================================================
+   14. TIMELINE
+   ============================================================ */
+.timeline-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 300px;
+    padding: 40px;
+    width: max-content;
+    gap: 80px;
+}
+
+.event {
+    position: relative;
+    text-align: center;
+}
+
+.dot {
+    width: 20px;
+    height: 20px;
+    background: var(--sky-blue);
+    border-radius: 50%;
+    margin: auto;
+    cursor: pointer;
+}
+
+.label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.info-box {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100%);
+    background: var(--card-light);
+    padding: 15px;
+    width: 260px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    text-align: left;
+    z-index: 1000;
+}
+
+a {
+    color: #e010a8;
+
+}
+
+a:hover {
+    color: red;
+}
+
+a:visited {
+    /* Color del enlace después de haber sido visitado */
+    /* color: var(--sky-blue); */
+    color: var(--deep-blue);
+
+}
+
+.mapa {
+
+    position: relative;
+    bottom: 1px;
+
+}
+
+.no-seleccionar {
+    user-select: none;
+}
+
+/* ============================================================
+   15. RESPONSIVE LIMPIO (MOBILE FIRST)
+   ============================================================ */
+
+/* Tablets y móviles */
+@media (max-width: 768px) {
+
+    /* -------------------------
+     LAYOUT GENERAL
+  --------------------------*/
+
+    body {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "nav"
+            "main"
+            "aside"
+            "footer";
+
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        overflow-x: hidden;
+    }
+
+
+    header,
+    nav,
+    main,
+    aside,
+    footer {
+        width: 100%;
+        max-width: 100%;
+    }
+
+
+    /* -------------------------
+     HEADER
+  --------------------------*/
+
+    .header__inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1rem;
+        margin: 0;
+        padding: 1rem;
+    }
+
+    .imgfoto {
+        justify-content: center;
+        padding: 0;
+    }
+
+    .header__photo {
+        width: 140px;
+        height: 140px;
+        margin: 0 auto;
+    }
+
+    .header__info {
+        padding: 0;
+    }
+
+    .header__name {
+        font-size: clamp(2rem, 7vw, 3rem);
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    .header__role {
+        font-size: clamp(1rem, 5vw, 3rem);
+        width: 100%;
+        position: relative;
+        white-space: normal;
+        justify-content: center;
+        text-align: center;
+        border-top: 1px solid var(--deep-blue);
+        border-bottom: 3px solid var(--deep-blue);
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+        background: linear-gradient(to top,
+                var(--sombra-light),
+                transparent 65%);
+    }
+
+    .header__contact {
+        width: 100%;
+        white-space: normal;
+        justify-content: center;
+        text-align: center;
+    }
+
+
+    /* -------------------------
+     NAVEGACIÓN / HAMBURGUESA
+  --------------------------*/
+
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 10000;
+        top: 12px;
+        left: 12px;
+        position: fixed;
+    }
+
+    .hamburger .bar {
+        width: 25px;
+        height: 3px;
+        background-color: var(--deep-blue);
+        margin: 3px 0;
+        transition: all 0.3s ease;
+        border-radius: 3px;
+        position: relative;
+
+    }
+
+    /* Animación del botón hamburguesa cuando está activo */
+    .hamburger.active .bar:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 5%;
+        left: -20px;
+        width: 50%;
+        /* background: var(--ice-blue);     */
+        transform: translateX(-100%);
+        transition: transform 0.5s ease;
+
+    }
+
+    .nav-menu ul {
+        display: flex;
+        width: 80%;
+        position: fixed;
+        font-size: 1.2rem;
+        justify-content: left;
+        margin-left: 15%;
+        border-left: 3px solid var(--deep-blue);
+        border-bottom: 3px solid var(--deep-blue);
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 40px;
+        background: linear-gradient(to right, var(--sombra-light), transparent);
+    }
+
+    .nav-menu.active {
+        transform: translateX(0);
+    }
+
+    /* -------------------------
+     SECCIONES / GRIDS
+  --------------------------*/
+    .section {
+        grid-template-columns: 1fr;
+        overflow-x: none;
+    }
+
+    .repaso-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .multimedia-grid {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .blandas {
+        
+        max-width: 100%;
+        height: auto;
+        text-align: center;
+        margin: 0 auto;
+        white-space: normal;
+        justify-content: center;
+        text-align: center;
+        overflow-x: none;
+    }
+
+    .habilidades {
+       
+        max-width: 100%;
+        height: auto;
+        text-align: center;
+        margin: 0 auto;
+        white-space: normal;
+        justify-content: center;
+        columns: 2;
+        gap: 0.10rem;
+        list-style: none;
+        overflow-x: none;
+    }
+
+    /* -------------------------
+     TABLAS RESPONSIVE
+     No es posible, por eso las convertimos a tarjetas:
+  --------------------------*/
+.tableh thead {
+  display: none;
+}
+.tableh {
+  display: block;
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.tableh tr {
+    display: block;
+    width: 100%;
+    background: var(--card-light);
+    border-radius: 10px;
+    padding: 15px;
+    border: 3px groove var(--deep-blue);
+    margin-top: 1rem;
+}
+
+.tableh td {
+    display: block;
+    width: 100%;
+    text-align: center;
+    border: none;
+    padding: 1rem 0;
+    
+}
+
+.tableh td:first-child {
+    font-weight: bold;
+    padding: 15px;
+    background: var(--ice-blue);
+    border: 3px groove var(--deep-blue);
+    border-radius: 10px;
+}
+
+progress {
+  width: 100%;
+}
+
+/* -------------------------
+     TIMELINE
+  --------------------------*/
+
+    .timeline-container {
+        width: 100%;
+        overflow-x: auto;
+        padding: 1rem;
+        gap: 2rem;
+    }
+
+    /* -------------------------
+     IFRAME / MEDIA
+  --------------------------*/
+
+    iframe,
+    video,
+    embed {
+        max-width: 100%;
+        height: auto;
+    }
+
+
+    /* -------------------------
+     ELEMENTOS FLOTANTES
+  --------------------------*/
+    .poppup,
+    .zona-hover {
+        display: none;
+    }
+
+    .irtopC {
+        right: 1%;
+        bottom: 5%;
+        top: auto;
+    }
+
+    /* .fechaflotante {
+        right: 10%;
+    } */
+    /*fechaflotante*/
+    .fechaflotante {
+    position: fixed;
+    width: 100%;
+    /* right: 50px; */
+    color: var(--deep-blue);
+    font-weight: 600;
+    font-weight: 600;
+    text-align: center;
+    background-color: var(--ice-blue);
+    inset: auto auto;
+    z-index: 999;
+    
+}
+
+    .mode-toggle,
+    .audio-on,
+    .floating-social,
+    .floating-like {
+        right: 1%;
+    }
+
+}
