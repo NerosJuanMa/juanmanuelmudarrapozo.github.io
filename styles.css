@@ -564,7 +564,7 @@ button[type="submit"]:hover {
     font-weight: 600;
     text-align: right;
     inset: 1rem 3rem auto auto;
-    /* z-index: 9999; */
+    z-index: 9999;
 }
 
 /* ------ BOTÓN MODERNO DARK ------ */
