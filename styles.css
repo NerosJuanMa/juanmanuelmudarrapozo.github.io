@@ -371,14 +371,14 @@ aside {
     padding: 0.6rem 1.1rem;
     border-radius: 8px;
     background: var(--ice-blue);
-    color: var(--brand-pink);
+    color: inherit;
     font-weight: 600;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .nav-menu a:hover {
-    background: var(--sky-blue);
+    background: var(--deep-blue);
     color: var(--brand-pink);
     transition: background 0.9s ease;
 }
@@ -1068,7 +1068,8 @@ a:hover {
 
 a:visited {
     /* Color del enlace después de haber sido visitado */
-    color: var(--sky-blue);
+    /* color: var(--sky-blue); */
+    color: var(--deep-blue);
 
 }
 
