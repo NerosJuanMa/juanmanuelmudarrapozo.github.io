@@ -803,7 +803,7 @@ html.dark-mode .mode-toggle .icon {
     animation-timing-function: ease-in-out;
     /* Opcional: Para asegurar que el elemento se comporta como un bloque al aplicar transform */
     display: block;
-    z-index: 999;
+    z-index: 9999;
 }
 
 .irtopC a:hover {
