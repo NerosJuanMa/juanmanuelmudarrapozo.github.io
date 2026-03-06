@@ -176,12 +176,12 @@ aside {
 }
 .contact-icon {
     text-decoration: none;
-    color: inherit;
+    color: var(--deep-blue);
     font-size: 1.4rem;
     transition: color 0.2s ease, transform 0.2s ease;
 }
 .contact-icon:hover {
-    color: #007bff;
+    color: var(--sky-blue);
     transform: scale(1.15);
 }
 @keyframes pulse-grow {
@@ -223,7 +223,7 @@ aside {
     padding: 0.6rem 1.1rem;
     border-radius: 8px;
     background: var(--ice-blue);
-    color: inherit;
+    color: var(--deep-blue);
     font-weight: 600;
     text-decoration: none;
     transition: color 0.3s ease;
@@ -424,7 +424,7 @@ html.dark-mode .mode-toggle .icon {
     display: flex;
     text-decoration: none;
     font-size: 1.5rem;
-    color: var(--text-light);
+    color: var(--deep-blue);
     width: 20px;
     height: 20px;
     align-items: center;
@@ -446,8 +446,8 @@ html.dark-mode .mode-toggle .icon {
     display: flex;
     align-items: center;
     gap: 0.5px;
-    background: var(--sky-blue);
-    color: var(--text-light);
+    background: var(--deep-blue);
+    color: var(--sombra-light);
     border: none;
     border-radius: 50px;
     padding: 1px 3px;
@@ -458,10 +458,10 @@ html.dark-mode .mode-toggle .icon {
 }
 #likeBtn:hover {
     transform: scale(1.1);
-    background: #0f5cc0;
+    background: var(--sky-blue);
 }
 #likeBtn.liked {
-    background: var(--sky-blue);
+    background: var(--brand-pink);
 }
 .heart {
   position: fixed;
