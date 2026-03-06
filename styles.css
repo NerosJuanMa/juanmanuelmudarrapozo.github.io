@@ -331,12 +331,13 @@ button[type="submit"]:hover {
     text-decoration: none;
     display: inline-block;
     transition: background 0.2s ease;
+    color: var(--brand-pink);
 }
 .button_card:hover {
     background: linear-gradient(to top,
             var(--brand-pink),
             transparent 65%);
-    color: var(--text-light);
+    color: var(--deep-blue);
 }
 .button_download img {
     width: 2rem;
@@ -966,4 +967,5 @@ progress {
     .floating-like {
         right: 1%;
     }
+
 }
