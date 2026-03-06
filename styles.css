@@ -122,15 +122,14 @@ aside {
     padding: 1rem;
 }
 .header__name {
-    font-size: 2rem;
+    font-size: 4rem;
     line-height: 1.1;
     margin-bottom: 6px;
-    background: blue url('fondoNegro.jpg');
+    background: var(--deep-blue) url('fondoNegro.jpg');
     background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    font-size: 7rem;
+    -webkit-background-clip: text;    
     -webkit-text-stroke: 1px var(--deep-blue);
+    color: transparent;
 }
 .header__role {
     width: 120vh;
