@@ -341,12 +341,26 @@ button[type="submit"]:hover {
 .button_download img {
     width: 2rem;
     background: transparent;
-    filter: brightness(0) saturate(100%) invert(23%) sepia(97%) saturate(5504%) hue-rotate(308deg) brightness(98%) contrast(106%);
+    filter: brightness(0) 
+        saturate(100%) 
+        invert(30%) 
+        sepia(100%) 
+        saturate(5000%) 
+        hue-rotate(300deg) 
+        brightness(100%) 
+        contrast(100%);
 }
 .button_download img:hover {
     transform: scale(1.15);
     mix-blend-mode: normal;
-    filter: brightness(0) saturate(100%) invert(38%) sepia(98%) saturate(3426%) hue-rotate(200deg) brightness(101%) contrast(106%);
+    filter: brightness(0) 
+        saturate(100%) 
+        invert(30%) 
+        sepia(100%) 
+        saturate(5000%) 
+        hue-rotate(200deg) 
+        brightness(100%) 
+        contrast(100%); 
 }
 .fechaflotante {
     position: fixed;
