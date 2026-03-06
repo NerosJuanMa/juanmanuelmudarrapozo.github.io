@@ -122,7 +122,7 @@ aside {
     padding: 1rem;
 }
 .header__name {
-    font-size: 4rem;
+    font-size: 3rem;
     line-height: 1.1;
     margin-bottom: 6px;
     background: var(--deep-blue) url('fondoNegro.jpg');
