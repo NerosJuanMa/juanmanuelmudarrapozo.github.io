@@ -638,8 +638,15 @@ footer a {
     color: var(--sky-blue);
     font-weight: 600;
 }
+footer a:hover {
+    color: var(--sombra-light);
+    font-weight: 600;
+}
+footer a:visited {
+    color: var(--brand-pink);
+}
 footer .fecha {
-    color: var(--sky-blue);
+    color: var(--sombra-light);
     font-weight: 600;
     text-align: center;
 }
@@ -710,15 +717,15 @@ footer .fecha {
     text-align: left;
     z-index: 1000;
 }
-a {
-    color: #e010a8;
+/* a {
+    color: var(--brand-pink);
 }
 a:hover {
     color: red;
 }
 a:visited {
-    color: var(--deep-blue);
-}
+    color: var(--brand-pink);
+} */
 .mapa {
     position: relative;
     bottom: 1px;
